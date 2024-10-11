@@ -646,11 +646,11 @@ img {
 /*** for fancybox video ***/
 .fancybox-overlay {
   background: rgba(0, 0, 0, 0.9);
-  z-index: 9999 !important;
+  z-index: 100000 !important;
 }
 
 .fancybox-wrap {
-  z-index: 99999 !important;
+  z-index: 100000 !important;
 }
 
 // datepicker-design

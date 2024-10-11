@@ -479,11 +479,11 @@ img {
 /*** for fancybox video ***/
 .fancybox-overlay {
   background: rgba(0, 0, 0, 0.9);
-  z-index: 9999 !important;
+  z-index: 100000 !important;
 }
 
 .fancybox-wrap {
-  z-index: 99999 !important;
+  z-index: 100000 !important;
 }
 
 .ui-widget.ui-widget-content {
@@ -27793,4 +27793,12 @@ a.ui-button:active,
   100% {
     transform: rotate(360deg);
   }
+}
+
+.hover-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
