@@ -22,7 +22,7 @@ document
     }
 
     if (data["Xác nhận"] === "Không tham gia") {
-      delete data["Số người tham gia"];
+      data["Số người tham gia"] = "";
     }
 
     const txtSubmitEle = document.querySelector(
