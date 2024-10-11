@@ -532,7 +532,6 @@
                       method="post"
                       class="contact-validation-active"
                       id="contact-form-main"
-                      action="https://script.google.com/macros/s/AKfycbwwvT-l2X6cI3Sv8Ns-i6dfBUc-tXzBxoxXOmadCzk-MD8RK7yjsUQx2dqzWjsmO_YZVg/exec"
                     >
                       <div>
                         <input
@@ -545,11 +544,11 @@
                       </div>
                       <div>
                         <input
-                          type="email"
+                          type="text"
                           class="form-control"
-                          name="Email"
-                          id="email"
-                          placeholder="Email"
+                          name="Số điện thoại"
+                          id="phoneNumber"
+                          placeholder="Số điện thoại"
                         />
                       </div>
                       <div class="radio-buttons">
@@ -557,7 +556,7 @@
                           <input
                             type="radio"
                             id="attend"
-                            name="radio-group"
+                            name="Xác nhận"
                             value="Tham gia"
                             checked
                           />
@@ -567,10 +566,10 @@
                           <input
                             type="radio"
                             id="not"
-                            name="radio-group"
+                            name="Xác nhận"
                             value="Không tham gia"
                           />
-                          <label for="not">Sorry, Tôi không thể đến</label>
+                          <label for="not"> Xin lỗi, tôi không thể đến</label>
                         </p>
                       </div>
                       <div>
@@ -578,36 +577,36 @@
                           <option disabled="disabled" selected>
                             Số người tham dự
                           </option>
-                          <option>01</option>
-                          <option>02</option>
-                          <option>03</option>
-                          <option>04</option>
-                          <option>05</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
                         </select>
                       </div>
                       <div>
-                        <input
-                          type="text"
+                        <textarea
                           class="form-control"
                           name="Lời Chúc"
-                          id="what"
+                          id="wish"
                           placeholder="Lời Chúc"
-                        />
+                        ></textarea>
                       </div>
                       <div class="submit-area">
-                        <button type="submit" class="theme-btn">
-                          Gửi Lời Chúc
+                        <button
+                          type="submit"
+                          id="btn-wish-submit"
+                          class="theme-btn"
+                        >
+                          <span class="txt-submit">Gửi Lời Chúc</span>
+                          <div class="box-loading">
+                            <span class="loader"></span>
+                          </div>
                         </button>
-                        <div id="c-loader">
-                          <i class="ti-reload"></i>
-                        </div>
                       </div>
                       <div class="clearfix error-handling-messages">
                         <div id="success">Thank you</div>
-                        <div id="error">
-                          Error occurred while sending email. Please try again
-                          later.
-                        </div>
+                        <div id="error">Error</div>
                       </div>
                     </form>
                   </div>
@@ -778,6 +777,7 @@
     <!-- All JavaScript files
     ================================================== -->
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.letItSnow.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!-- Plugins for this template -->
     <script src="assets/js/modernizr.custom.js"></script>
@@ -788,5 +788,20 @@
     <!-- Custom script for this template -->
     <script src="assets/js/script.js"></script>
     <script src="assets/js/count-down.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+      $("body").letItSnow({
+        flake: {
+          html: "<span>❤️</span>",
+          minSize: 20,
+          maxSize: 30,
+          refresh: 50,
+          quantity: "smooth",
+          speed: 0.75,
+          refresh: 0,
+        },
+      });
+    </script>
+    <script src="assets/js/sheet-data.js"></script>
   </body>
 </html>

@@ -1173,58 +1173,6 @@ function _0x509e() {
               );
           }
         ),
-      _0x6826d1("#contact-form-main")[_0x41fed8(0x151)] &&
-        _0x6826d1("#contact-form-main")[_0x41fed8(0x1b7)]({
-          rules: {
-            name: {
-              required: !![],
-              minlength: 0x2,
-            },
-            what: _0x41fed8(0xd6),
-          },
-          messages: {
-            name: "Please\x20enter\x20your\x20name",
-            what: _0x41fed8(0xdf),
-          },
-          submitHandler: function (_0x167d31) {
-            var _0x5018a5 = _0x41fed8;
-            return (
-              _0x6826d1[_0x5018a5(0xea)]({
-                type: _0x5018a5(0x14f),
-                url: "https://script.google.com/macros/s/AKfycbwwvT-l2X6cI3Sv8Ns-i6dfBUc-tXzBxoxXOmadCzk-MD8RK7yjsUQx2dqzWjsmO_YZVg/exec",
-                data: _0x6826d1(_0x167d31)["serialize"](),
-                success: function () {
-                  var _0x41c94e = _0x5018a5;
-                  _0x6826d1(_0x41c94e(0x13b))[_0x41c94e(0x1a9)](),
-                    _0x6826d1(_0x41c94e(0x172))[_0x41c94e(0xf9)](
-                      _0x41c94e(0x141)
-                    ),
-                    setTimeout(function () {
-                      var _0xf1f9ef = _0x41c94e;
-                      _0x6826d1(_0xf1f9ef(0x172))[_0xf1f9ef(0x16a)](
-                        _0xf1f9ef(0x141)
-                      );
-                    }, 0xbb8),
-                    _0x167d31[_0x41c94e(0x12d)]();
-                },
-                error: function () {
-                  var _0x323164 = _0x5018a5;
-                  _0x6826d1(_0x323164(0x13b))["hide"](),
-                    _0x6826d1(_0x323164(0x15b))[_0x323164(0xf9)](
-                      _0x323164(0x141)
-                    ),
-                    setTimeout(function () {
-                      var _0x15e882 = _0x323164;
-                      _0x6826d1(_0x15e882(0x15b))[_0x15e882(0x16a)](
-                        _0x15e882(0x141)
-                      );
-                    }, 0xbb8);
-                },
-              }),
-              ![]
-            );
-          },
-        }),
       _0x6826d1(window)["on"](_0x41fed8(0x137), function () {
         var _0xdc3444 = _0x41fed8;
         _0x5b2e50(),
