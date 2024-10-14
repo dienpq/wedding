@@ -3504,12 +3504,12 @@ a.ui-button:active,
   }
 }
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .wpo-site-header,
   .wpo-header-style-2 {
     z-index: 99999;
   }
-}
+} */
 
 .wpo-site-header .navigation.sticky-header {
   padding: 0 80px;

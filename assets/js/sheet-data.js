@@ -1,3 +1,11 @@
+// Lấy modal element
+const modalElement = document.getElementById("exampleModal");
+
+// Khởi tạo modal bằng Bootstrap
+const modal = new bootstrap.Modal(modalElement);
+
+// Hiển thị modal
+
 document
   .getElementById("contact-form-main")
   .addEventListener("submit", async function (event) {
@@ -62,9 +70,15 @@ document
       loadingEle.style.display = "none";
     }
 
-    displaySuccess("Cảm ơn bạn đã gửi lời chúc tốt đẹp đến với chúng tôi!.");
-
+    displaySuccess("Cảm ơn bạn đã gửi lời chúc tốt đẹp đến với chúng tôi!");
+    form.reset();
     confettiComplete();
+    // setTimeout(() => {
+    //   confettiComplete();
+    // }, 1000);
+    // setTimeout(() => {
+    //   confettiComplete();
+    // }, 2000);
   });
 
 const confettiComplete = () => {
@@ -115,14 +129,18 @@ function validateForm(data) {
   return true;
 }
 
-function displaySuccess(message) {
-  document.getElementById("success").innerText = message;
-  document.getElementById("success").style.display = "block";
-  document.getElementById("error").style.display = "none";
+function displayError(message) {
+  const labelElement = document.getElementById("exampleModalLabel");
+  labelElement.innerHTML = "Please enter information!";
+  const messageElement = document.getElementById("modal-message");
+  messageElement.innerHTML = `<div class="alert alert-danger">${message}</div>`;
+  modal.show();
 }
 
-function displayError(message) {
-  document.getElementById("error").innerText = message;
-  document.getElementById("error").style.display = "block";
-  document.getElementById("success").style.display = "none";
+function displaySuccess(message) {
+  const labelElement = document.getElementById("exampleModalLabel");
+  labelElement.innerHTML = "Thank you!";
+  const messageElement = document.getElementById("modal-message");
+  messageElement.innerHTML = `<div class="alert alert-success">${message}</div>`;
+  modal.show();
 }

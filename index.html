@@ -33,7 +33,7 @@
     <link href="assets/css/jquery.fancybox.css" rel="stylesheet" />
     <link href="assets/css/odometer-theme-default.css" rel="stylesheet" />
     <link href="assets/css/jquery-ui.css" rel="stylesheet" />
-    <link href="assets/sass/style.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -84,7 +84,7 @@
                   >
                     <button class="menu-close"><i class="ti-close"></i></button>
                     <ul class="nav navbar-nav mb-2 mb-lg-0">
-                      <li>
+                      <li class="current-menu-item">
                         <a class="active" href="#">Thời Gian</a>
                       </li>
                       <li>
@@ -93,13 +93,13 @@
                       <li>
                         <a href="#story">Câu Chuyện Tình Yêu</a>
                       </li>
-                      <li><a href="#event">Sự Kiện</a></li>
                       <li>
                         <a href="#gallery">Album</a>
                       </li>
                       <li>
                         <a href="#rsvp">Gửi Lời Chúc</a>
                       </li>
+                      <li><a href="#event">Sự Kiện</a></li>
                     </ul>
                   </div>
                   <!-- end of nav-collapse -->
@@ -618,6 +618,39 @@
       </section>
       <!-- end of wpo-contact-section -->
 
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="text-align: center">
+              <h5
+                class="modal-title"
+                id="exampleModalLabel"
+                style="text-align: center"
+              >
+                Thank you!
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div id="modal-message" style="text-align: center">
+                Cảm ơn bạn đã gửi lời chúc tốt đẹp đến với chúng tôi!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- start wpo-event-section -->
       <section class="wpo-event-section-s3 section-padding" id="event">
         <div class="container">
@@ -655,8 +688,8 @@
                       </li>
                       <li>
                         <a
-                          class="popup-gmaps"
                           href="https://maps.app.goo.gl/yXFpFY4uQTVUnUsu9"
+                          target="_blank"
                           >Xem bản đồ</a
                         >
                       </li>
@@ -696,8 +729,8 @@
                       </li>
                       <li>
                         <a
-                          class="popup-gmaps"
                           href="https://maps.app.goo.gl/yXFpFY4uQTVUnUsu9"
+                          target="_blank"
                           >Xem bản đồ</a
                         >
                       </li>
@@ -733,8 +766,8 @@
                       </li>
                       <li>
                         <a
-                          class="popup-gmaps"
                           href="https://maps.app.goo.gl/jzVWantXoxoYzA7r7"
+                          target="_blank"
                           >Xem bản đồ</a
                         >
                       </li>
