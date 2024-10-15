@@ -19,7 +19,18 @@ const config: Config = {
           DEFAULT: '100%',
         },
       },
+      fontFamily: {
+        jost: ['var(--font-jost)'],
+        greatVibes: ['var(--font-great-vibes)'],
+        sail: ['var(--font-sail)'],
+      },
       colors: {
+        'beige-rose': 'hsl(var(--beige-rose))',
+        'dark-chocolate': 'hsl(var(--dark-chocolate))',
+        'steel-gray': 'hsl(var(--steel-gray))',
+        'rose-pink': 'hsl(var(--rose-pink))',
+        'olive-gray': 'hsl(var(--olive-gray))',
+        // -----
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

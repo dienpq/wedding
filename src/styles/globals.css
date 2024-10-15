@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -14,6 +10,12 @@ body {
 
 @layer base {
   :root {
+    --beige-rose: 20 30% 69%; /* #c8a898 */
+    --dark-chocolate: 18 17% 15%; /* #2d2420 */
+    --steel-gray: 0 0% 36%; /* #5c5c5c */
+    --rose-pink: 353 58% 61%; /* #d66371 */
+    --olive-gray: 82 17% 38%; /* #657150 */
+    /* -------- */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;

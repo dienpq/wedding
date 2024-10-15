@@ -63,7 +63,7 @@ const data = [
 export const LoveStory = () => {
   return (
     <section>
-      <SectionTitle title="Story" description="Câu chuyện tình yêu" />
+      <SectionTitle title="STORY" description="Câu chuyện tình yêu" />
       <div className="relative mx-auto mt-20 flex max-w-5xl flex-col gap-y-6 py-20">
         {data.map(({ title, description, image, shade }, index) => (
           <div
@@ -73,8 +73,8 @@ export const LoveStory = () => {
               index % 2 !== 0 && 'flex-row-reverse',
             )}
           >
-            <div className="absolute left-1/2 top-1/2 z-[1] flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-orange-100 bg-white">
-              <HeartIcon className="text-orange-100" />
+            <div className="absolute left-1/2 top-1/2 z-[1] flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-beige-rose bg-white">
+              <HeartIcon className="text-beige-rose" />
             </div>
             <div
               className={cn(
@@ -97,19 +97,23 @@ export const LoveStory = () => {
             </div>
             <div
               className={cn(
-                'w-full flex-1 text-left',
+                'w-full flex-1 space-y-4 text-left',
                 index % 2 !== 0 && 'text-right',
               )}
             >
-              <Typography variant="h3">{title}</Typography>
-              <Typography variant="h5">{description}</Typography>
+              <Typography variant="h5" className="font-sail">
+                {title}
+              </Typography>
+              <Typography className="text-lg text-steel-gray">
+                {description}
+              </Typography>
             </div>
           </div>
         ))}
         {/* ----- */}
-        <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 rounded bg-orange-100" />
-        <div className="absolute left-1/2 top-0 size-6 -translate-x-1/2 rounded-full border-[5px] border-orange-100 bg-white" />
-        <div className="absolute bottom-0 left-1/2 size-6 -translate-x-1/2 rounded-full border-[5px] border-orange-100 bg-white" />
+        <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 rounded bg-beige-rose" />
+        <div className="absolute left-1/2 top-0 size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white" />
+        <div className="absolute bottom-0 left-1/2 size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white" />
       </div>
     </section>
   );

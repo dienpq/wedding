@@ -7,7 +7,7 @@ import ShapeRight from '/public/images/footer/shape-right.svg';
 
 export const Footer = () => {
   return (
-    <footer className="relative h-[300px] bg-[#2d2420] p-6 text-white">
+    <footer className="relative mt-32 h-[300px] bg-dark-chocolate p-6 text-white">
       <div className="flex h-full items-end justify-center">
         <Typography>Phan Điện ❤️ Vũ Anh - Wedding 2024</Typography>
       </div>

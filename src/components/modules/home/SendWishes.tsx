@@ -57,16 +57,19 @@ export const SendWishes = () => {
   const onSubmit = (data: z.infer<typeof FormSchema>) => {};
 
   return (
-    <section className="mt-20 p-10 bg-image-['/images/home/send-wishes/bg.jpg']">
-      <Card className="w-[600px] p-8">
+    <section className="p-10 bg-image-['/images/home/send-wishes/bg.jpg']">
+      <Card className="w-[550px] p-8">
         <CardHeader>
           <CardTitle
-            className={cn('text-center', typographyVariants({ variant: 'h3' }))}
+            className={cn(
+              'text-center font-normal uppercase text-beige-rose',
+              typographyVariants({ variant: 'h6' }),
+            )}
           >
             Bạn sẽ tham dự chứ?
           </CardTitle>
         </CardHeader>
-        <CardContent className="mt-4">
+        <CardContent className="mt-0">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -77,12 +80,8 @@ export const SendWishes = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tên</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="Bạn có thể cho tôi biết tên của bạn được không?"
-                        {...field}
-                      />
+                      <Input placeholder="Tên" {...field} />
                     </FormControl>
                   </FormItem>
                 )}
@@ -92,26 +91,22 @@ export const SendWishes = () => {
                 name="relation"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Quan hệ</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Mối quan hệ giữa bạn và chúng tôi là gì nhỉ?" />
+                          <SelectValue placeholder="Quan hệ" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="m@example.com">
-                          m@example.com
-                        </SelectItem>
-                        <SelectItem value="m@google.com">
-                          m@google.com
-                        </SelectItem>
-                        <SelectItem value="m@support.com">
-                          m@support.com
-                        </SelectItem>
+                        <SelectItem value="Người thân">Người thân</SelectItem>
+                        <SelectItem value="Bạn bè">Bạn bè</SelectItem>
+                        <SelectItem value="Hàng xóm">Hàng xóm</SelectItem>
+                        <SelectItem value="Đồng nghiệp">Đồng nghiệp</SelectItem>
+                        <SelectItem value="Xã hội">Xã hội</SelectItem>
+                        <SelectItem value="Khác">Khác</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -127,7 +122,7 @@ export const SendWishes = () => {
                       <RadioGroup
                         onValueChange={field.onChange}
                         defaultValue={field.value}
-                        className="flex flex-col space-y-1"
+                        className="flex gap-x-8"
                       >
                         <FormItem className="flex items-center space-x-3 space-y-0">
                           <FormControl>
@@ -156,11 +151,10 @@ export const SendWishes = () => {
                 name="amount"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Số người tham dự</FormLabel>
                     <FormControl>
                       <Input
                         type="number"
-                        placeholder="Hãy cho tôi biết số người tham dự cùng với bạn"
+                        placeholder="Số người tham dự"
                         {...field}
                       />
                     </FormControl>
@@ -172,20 +166,19 @@ export const SendWishes = () => {
                 name="content"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Lời chúc</FormLabel>
                     <FormControl>
-                      <Textarea
-                        rows={4}
-                        placeholder="Cảm ơn bạn đã gửi đến chúng tôi những lời chúc tốt đẹp nhất!"
-                        {...field}
-                      />
+                      <Textarea rows={4} placeholder="Lời chúc" {...field} />
                     </FormControl>
                   </FormItem>
                 )}
               />
               <div className="flex items-center justify-center">
-                <Button type="submit" size="lg" className="w-full">
-                  Submit
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="h-12 w-full bg-olive-gray"
+                >
+                  Gửi lời chúc
                 </Button>
               </div>
             </form>

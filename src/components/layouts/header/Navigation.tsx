@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Button, typographyVariants } from '@/components/ui';
+import { Button } from '@/components/ui';
 
 const links = [
   {
@@ -33,12 +33,7 @@ export const Navigation = () => {
   return (
     <nav>
       {links.map(({ label, url }, index) => (
-        <Button
-          variant="link"
-          key={index}
-          className={typographyVariants({ variant: 'h5' })}
-          asChild
-        >
+        <Button variant="link" key={index} asChild>
           <Link href={url}>{label}</Link>
         </Button>
       ))}

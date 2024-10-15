@@ -1,6 +1,8 @@
+import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { SectionTitle } from '@/components/common';
 import {
   Button,
   Card,
@@ -10,7 +12,9 @@ import {
   CardHeader,
   CardTitle,
   Typography,
+  typographyVariants,
 } from '@/components/ui';
+import { cn } from '@/lib/utils';
 
 const data = [
   {
@@ -38,10 +42,11 @@ const data = [
 
 export const Event = () => {
   return (
-    <section className="mt-20">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-3 gap-x-8">
+    <section>
+      <SectionTitle title="Đám cưới của chúng tôi" description="Where & When" />
+      <div className="mx-auto mt-20 grid max-w-[1400px] grid-cols-3 gap-x-8">
         {data.map(({ image, time, title, address, map }, index) => (
-          <div key={index} className="relative">
+          <div key={index} className="relative overflow-hidden rounded-xl">
             <div className="relative aspect-[4/6] w-full">
               <Image
                 src={image}
@@ -50,18 +55,29 @@ export const Event = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <Card className="absolute bottom-4 left-4 w-[calc(100%-2rem)]">
+            <Card className="absolute bottom-4 left-4 w-[calc(100%-2rem)] px-8">
               <CardHeader className="text-center">
-                <CardTitle>{title}</CardTitle>
-                <CardDescription>{time}</CardDescription>
+                <CardTitle
+                  className={cn(typographyVariants({ variant: 'h6' }))}
+                >
+                  {title}
+                </CardTitle>
+                <CardDescription className="font-medium">
+                  {time}
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <Typography className="text-center">{address}</Typography>
               </CardContent>
               <CardFooter className="justify-center">
-                <Button variant="link" size="lg" asChild>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-beige-rose"
+                  asChild
+                >
                   <Link href={map} target="_blank">
-                    Xem bản đồ
+                    Xem bản đồ <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </CardFooter>

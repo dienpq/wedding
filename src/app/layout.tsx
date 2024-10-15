@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { geistMono, geistSans } from '@/lib/fonts';
+import { greatVibes, jost, sail } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
 
@@ -17,7 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn('antialiased', geistSans.variable, geistMono.variable)}
+        className={cn(
+          'antialiased',
+          jost.variable,
+          greatVibes.variable,
+          sail.variable,
+        )}
       >
         {children}
       </body>

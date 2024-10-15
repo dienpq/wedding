@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const Album = () => {
   return (
-    <section className="mt-20">
+    <section>
       <div className="grid grid-cols-3 gap-8">
         <div className="space-y-8">
           <div className="relative aspect-[6/4] w-full">

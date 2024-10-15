@@ -1,13 +1,19 @@
 import localFont from 'next/font/local';
 
-export const geistSans = localFont({
-  src: '../fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
+export const jost = localFont({
+  src: '../fonts/Jost.woff',
+  variable: '--font-jost',
+  weight: '400',
 });
 
-export const geistMono = localFont({
-  src: '../fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+export const greatVibes = localFont({
+  src: '../fonts/GreatVibes.woff',
+  variable: '--font-great-vibes',
+  weight: '400',
+});
+
+export const sail = localFont({
+  src: '../fonts/Sail.woff',
+  variable: '--font-sail',
+  weight: '400',
 });

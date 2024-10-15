@@ -18,20 +18,16 @@ const typographyVariants = cva('', {
   variants: {
     variant: {
       default: '',
-      h1: 'font-bold text-4xl',
-      h2: 'font-bold text-3xl',
-      h3: 'font-semibold text-2xl',
-      h4: 'font-semibold text-xl',
-      h5: 'font-medium text-lg',
-      h6: 'font-light text-sm',
-    },
-    font: {
-      default: '',
+      h1: 'text-7xl font-extrabold',
+      h2: 'text-6xl font-bold',
+      h3: 'text-5xl font-bold',
+      h4: 'text-4xl font-semibold',
+      h5: 'text-3xl font-semibold',
+      h6: 'text-2xl font-semibold',
     },
   },
   defaultVariants: {
     variant: 'default',
-    font: 'default',
   },
 });
 

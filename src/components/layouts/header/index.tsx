@@ -4,7 +4,7 @@ import { Navigation } from './Navigation';
 
 export const Header = () => {
   return (
-    <header className="h-28">
+    <header className="h-24">
       <div className="container flex h-full items-center justify-between">
         <div className="relative h-20 w-32">
           <Image
