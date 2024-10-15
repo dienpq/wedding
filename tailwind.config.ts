@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -67,7 +68,26 @@ const config: Config = {
       },
     },
   },
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    function ({ matchUtilities }: { matchUtilities: any }) {
+      matchUtilities(
+        {
+          'bg-image': (value: string) => ({
+            backgroundImage: `url(${value})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }),
+        },
+        {
+          values: {
+            // custom1: '/images/bg1.jpg',
+            // custom2: '/images/bg2.jpg',
+            // custom3: '/images/bg3.jpg',
+          },
+        },
+      );
+    },
+  ],
 };
 export default config;

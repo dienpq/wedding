@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
-import '@/assets/css/globals.css';
 import { geistMono, geistSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Phan Điện ❤️ Vũ Anh',

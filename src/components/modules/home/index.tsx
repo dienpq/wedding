@@ -1,3 +1,5 @@
+'use client';
+
 import { Album } from './Album';
 import { BrideAndGroom } from './BrideAndGroom';
 import { Event } from './Event';

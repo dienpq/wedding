@@ -1,19 +1,17 @@
 import Image from 'next/image';
 
-import { Logo } from '@/assets/images';
-
 import { Navigation } from './Navigation';
 
 export const Header = () => {
   return (
-    <header className="h-28 border-b">
+    <header className="h-28">
       <div className="container flex h-full items-center justify-between">
-        <div className="w-32">
+        <div className="relative h-20 w-32">
           <Image
-            src={Logo}
+            src="/images/logo.png"
             alt="Wedding Logo"
-            width={Logo.width}
-            height={Logo.height}
+            fill
+            className="w-ful h-full"
           />
         </div>
         <Navigation />
