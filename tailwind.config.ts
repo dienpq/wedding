@@ -9,16 +9,11 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+    },
     extend: {
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: '80px',
-        },
-        screens: {
-          DEFAULT: '100%',
-        },
-      },
       fontFamily: {
         jost: ['var(--font-jost)'],
         greatVibes: ['var(--font-great-vibes)'],
