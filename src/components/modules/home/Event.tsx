@@ -71,12 +71,7 @@ export const Event = () => {
                   <Typography className="text-center">{address}</Typography>
                 </CardContent>
                 <CardFooter className="justify-center">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="text-beige-rose"
-                    asChild
-                  >
+                  <Button variant="outline" size="lg" asChild>
                     <Link href={map} target="_blank">
                       Xem bản đồ <ArrowRightIcon className="ml-2 h-4 w-4" />
                     </Link>

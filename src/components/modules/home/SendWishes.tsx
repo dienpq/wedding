@@ -58,7 +58,7 @@ export const SendWishes = () => {
 
   return (
     <section className="bg-image-['/images/home/send-wishes/bg.jpg']">
-      <div className="container py-5 sm:py-10">
+      <div className="container-full py-5 sm:py-10">
         <Card className="mx-auto max-w-[550px] p-4 sm:p-8 md:mx-0">
           <CardHeader>
             <CardTitle
@@ -176,11 +176,7 @@ export const SendWishes = () => {
                   )}
                 />
                 <div className="flex items-center justify-center">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="h-12 w-full bg-olive-gray"
-                  >
+                  <Button type="submit" size="lg" className="h-12 w-full">
                     Gửi lời chúc
                   </Button>
                 </div>

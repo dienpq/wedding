@@ -64,12 +64,12 @@ export const LoveStory = () => {
   return (
     <section className="container">
       <SectionTitle title="STORY" description="Câu chuyện tình yêu" />
-      <div className="relative mx-auto mt-12 flex max-w-[1200px] flex-col gap-y-20 py-20 md:gap-y-6 xl:mt-20">
+      <div className="relative mx-auto mt-16 flex max-w-[1200px] flex-col gap-y-20 sm:mt-12 md:gap-y-6 md:py-20 xl:mt-20">
         {data.map(({ title, description, image, shade }, index) => (
           <div
             key={index}
             className={cn(
-              'relative flex flex-col items-center justify-center gap-x-0 gap-y-10 md:flex-row md:gap-x-28 md:gap-y-0 lg:gap-x-40',
+              'relative flex flex-col items-center justify-center gap-x-0 gap-y-6 md:flex-row md:gap-x-28 md:gap-y-0 lg:gap-x-40',
               index % 2 !== 0 && 'md:flex-row-reverse',
             )}
           >

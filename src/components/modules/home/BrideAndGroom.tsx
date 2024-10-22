@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Fragment } from 'react';
 
 import { Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
@@ -15,7 +16,6 @@ export const BrideAndGroom = () => {
         accout: '19036383952013',
         qrCode: QRBride,
       },
-      image: '/images/home/bride-and-groom/bride.png',
     },
     {
       name: 'Phan Quang Điện',
@@ -24,50 +24,41 @@ export const BrideAndGroom = () => {
         accout: '222340829',
         qrCode: QRGroom,
       },
-      image: '/images/home/bride-and-groom/groom.png',
     },
+  ];
+
+  const images = [
+    '/images/home/bride-and-groom/bride.png',
+    '/images/home/bride-and-groom/groom.png',
   ];
 
   return (
     <section className="container">
-      <div className="flex flex-col justify-center -space-y-20 sm:flex-row sm:-space-x-16 sm:space-y-0">
-        {data.map(({ bank, image, label, name }, index) => (
-          <div
-            key={index}
-            className={cn(
-              'flex w-full flex-col flex-wrap items-center justify-center gap-8 sm:flex-row lg:flex-nowrap lg:justify-end',
-              index !== 0 && 'flex-col-reverse sm:flex-row-reverse',
-            )}
-          >
+      <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
+        {data.map(({ bank, label, name }, index) => (
+          <Fragment key={index}>
             <div
               className={cn(
-                'flex w-full flex-1 flex-col items-center justify-center lg:min-w-[250px] lg:items-start',
-                index === 0 && 'lg:items-end',
+                'text-center lg:text-left',
+                index === 0 && 'lg:text-right',
               )}
             >
-              <div
-                className={cn(
-                  'text-center lg:text-left',
-                  index === 0 && 'lg:text-right',
-                )}
+              <Typography
+                variant="h4"
+                className="font-greatVibes text-rose-pink"
               >
-                <Typography
-                  variant="h4"
-                  className="font-greatVibes text-rose-pink"
-                >
-                  {name}
-                </Typography>
-                <Typography variant="h6" className="mt-4 font-sail">
-                  {label}
-                </Typography>
-                <Typography
-                  variant="sub"
-                  className="mt-1 font-semibold text-steel-gray"
-                >
-                  STK: {bank.accout}
-                </Typography>
-              </div>
-              <div className="mt-4 w-full max-w-[200px]">
+                {name}
+              </Typography>
+              <Typography variant="h6" className="mt-4 font-sail">
+                {label}
+              </Typography>
+              <Typography
+                variant="sub"
+                className="mt-1 font-semibold text-steel-gray"
+              >
+                STK: {bank.accout}
+              </Typography>
+              <div className="mt-4 aspect-square w-full max-w-[180px] overflow-hidden sm:max-w-[210px] xl:max-w-[250px]">
                 <Image
                   src={bank.qrCode.src}
                   alt={name}
@@ -76,18 +67,28 @@ export const BrideAndGroom = () => {
                 />
               </div>
             </div>
-            <div className="w-full max-w-[300px] sm:max-w-full lg:max-w-[380px]">
-              <div className="relative aspect-square w-full overflow-hidden rounded-full">
-                <Image
-                  src={image}
-                  alt={name}
-                  fill
-                  className="gride-and-groom-animate h-full w-full object-cover"
-                />
-                <div className="absolute left-1/2 top-1/2 aspect-square w-[calc(100%-3rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border" />
+            {index === 0 && (
+              <div className="flex w-full max-w-[600px] flex-1 -space-x-8 sm:-space-x-14 xl:max-w-[800px]">
+                {images.map((image, subIndex) => (
+                  <div
+                    key={subIndex}
+                    className="relative aspect-square w-full overflow-hidden rounded-full"
+                  >
+                    <Image
+                      src={image}
+                      alt={name}
+                      fill
+                      className="gride-and-groom-animate h-full w-full object-cover"
+                    />
+                    <div className="absolute left-1/2 top-1/2 aspect-square w-[calc(100%-1.5rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border sm:w-[calc(100%-3rem)]" />
+                  </div>
+                ))}
               </div>
-            </div>
-          </div>
+            )}
+            {/* <div className="w-full max-w-[300px] sm:max-w-full lg:max-w-[380px]">
+              
+            </div> */}
+          </Fragment>
         ))}
       </div>
     </section>

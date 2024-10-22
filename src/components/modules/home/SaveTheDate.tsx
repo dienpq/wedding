@@ -49,7 +49,7 @@ export const SaveTheDate = () => {
             </Typography>
           </div>
         </div>
-        <div className="mx-auto w-full flex-1 px-5 sm:max-w-[600px] sm:px-10 xl:max-w-full xl:pb-10 xl:pr-10">
+        <div className="mx-auto w-full max-w-[500px] flex-1 px-5 sm:max-w-[600px] sm:px-10 xl:max-w-full xl:pb-10 xl:pr-10">
           <div className="relative h-full w-full">
             <div className="relative aspect-[3/4] h-full w-full xl:aspect-auto">
               <Image
@@ -59,7 +59,7 @@ export const SaveTheDate = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute inset-x-4 bottom-4 flex w-[calc(100%-2rem)] justify-between bg-primary/50 p-5 text-white sm:inset-x-8 sm:bottom-8 sm:w-[calc(100%-4rem)] sm:gap-x-10 sm:px-16">
+            <div className="absolute inset-x-4 bottom-4 flex w-[calc(100%-2rem)] justify-between bg-primary/50 px-4 py-4 text-white sm:inset-x-8 sm:bottom-8 sm:w-[calc(100%-4rem)] sm:gap-x-10 sm:px-10 sm:py-5 xl:px-16">
               <div className="text-center">
                 <Typography variant="h3" className="font-sail">
                   {days}

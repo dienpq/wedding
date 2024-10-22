@@ -12,6 +12,9 @@ const config: Config = {
     container: {
       center: true,
       padding: '2rem',
+      screens: {
+        xs: '480px',
+      },
     },
     extend: {
       fontFamily: {
@@ -21,6 +24,7 @@ const config: Config = {
       },
       colors: {
         'beige-rose': 'hsl(var(--beige-rose))',
+        'beige-rose-foreground': 'hsl(var(--beige-rose-foreground))',
         'dark-chocolate': 'hsl(var(--dark-chocolate))',
         'steel-gray': 'hsl(var(--steel-gray))',
         'rose-pink': 'hsl(var(--rose-pink))',

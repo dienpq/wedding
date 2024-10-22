@@ -1,7 +1,18 @@
 import { MenuIcon } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
-import { Button, Sheet, SheetContent, SheetTrigger } from '@/components/ui';
+import {
+  AspectRatio,
+  Button,
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui';
+
+import Logo from '/public/images/logo.png';
 
 const links = [
   {
@@ -48,14 +59,27 @@ export const Navigation = () => {
       </nav>
       <Sheet>
         <SheetTrigger className="block md:hidden" asChild>
-          <Button size="icon" className="bg-olive-gray">
+          <Button size="icon">
             <MenuIcon />
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
-          <div className="flex flex-col">
+          <Link href="/" className="w-full">
+            <AspectRatio ratio={Logo.width / Logo.height}>
+              <Image
+                src={Logo.src}
+                alt="Wedding Logo"
+                className="rounded-md object-cover"
+                fill
+              />
+            </AspectRatio>
+          </Link>
+          <SheetHeader className="mt-1.5 items-center">
+            <SheetTitle>Phan Điện ❤️ Vũ Anh</SheetTitle>
+          </SheetHeader>
+          <div className="mt-6 flex flex-col">
             {links.map(({ label, url }, index) => (
-              <Button variant="ghost" key={index} asChild>
+              <Button variant="ghost" size="lg" key={index} asChild>
                 <Link href={url}>{label}</Link>
               </Button>
             ))}
