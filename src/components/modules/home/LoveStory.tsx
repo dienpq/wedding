@@ -62,58 +62,56 @@ const data = [
 
 export const LoveStory = () => {
   return (
-    <section>
+    <section className="container">
       <SectionTitle title="STORY" description="Câu chuyện tình yêu" />
-      <div className="relative mx-auto mt-20 flex max-w-5xl flex-col gap-y-6 py-20">
+      <div className="relative mx-auto mt-20 flex flex-col gap-y-20 py-20 md:gap-y-6">
         {data.map(({ title, description, image, shade }, index) => (
           <div
             key={index}
             className={cn(
-              'relative flex items-center justify-center gap-x-40',
-              index % 2 !== 0 && 'flex-row-reverse',
+              'relative flex flex-col items-center justify-center gap-x-28 gap-y-10 md:flex-row md:gap-y-0 lg:gap-x-40',
+              index % 2 !== 0 && 'md:flex-row-reverse',
             )}
           >
-            <div className="absolute left-1/2 top-1/2 z-[1] flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-beige-rose bg-white">
+            <div className="absolute left-1/2 top-1/2 z-[1] hidden size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-beige-rose bg-white md:flex">
               <HeartIcon className="text-beige-rose" />
             </div>
             <div
               className={cn(
-                'flex w-full flex-1 justify-end',
-                index % 2 !== 0 && 'justify-start',
+                'flex w-full flex-1 justify-center md:justify-end',
+                index % 2 !== 0 && 'md:justify-start',
               )}
             >
-              <div className="relative">
-                <div className="relative aspect-square w-[300px] overflow-hidden rounded-full">
-                  <Image
-                    src={image}
-                    alt={title}
-                    fill
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="absolute left-1/2 top-1/2 size-[270px] -translate-x-1/2 -translate-y-1/2 rounded-full border" />
+              <div className="relative aspect-square w-full max-w-[280px] lg:max-w-[300px]">
+                <Image
+                  src={image}
+                  alt={title}
+                  fill
+                  className="h-full w-full overflow-hidden rounded-full object-cover"
+                />
+                <div className="absolute left-1/2 top-1/2 size-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border" />
                 {shade}
               </div>
             </div>
             <div
               className={cn(
-                'w-full flex-1 space-y-4 text-left',
-                index % 2 !== 0 && 'text-right',
+                'w-full flex-1 space-y-4 bg-secondary px-16 py-10 text-center md:bg-transparent md:px-0 md:py-0 md:text-left',
+                index % 2 !== 0 && 'md:text-right',
               )}
             >
               <Typography variant="h5" className="font-sail">
                 {title}
               </Typography>
-              <Typography className="text-lg text-steel-gray">
+              <Typography variant="sub" className="text-steel-gray">
                 {description}
               </Typography>
             </div>
           </div>
         ))}
         {/* ----- */}
-        <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 rounded bg-beige-rose" />
-        <div className="absolute left-1/2 top-0 size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white" />
-        <div className="absolute bottom-0 left-1/2 size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white" />
+        <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 rounded bg-beige-rose md:block" />
+        <div className="absolute left-1/2 top-0 hidden size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white md:block" />
+        <div className="absolute bottom-0 left-1/2 hidden size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white md:block" />
       </div>
     </section>
   );

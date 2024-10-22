@@ -1,80 +1,91 @@
 import Image from 'next/image';
 
 import { Typography } from '@/components/ui';
+import { cn } from '@/lib/utils';
 
 import QRBride from '/public/images/home/bride-and-groom/qr-bride.jpg';
 import QRGroom from '/public/images/home/bride-and-groom/qr-groom.jpg';
 
 export const BrideAndGroom = () => {
+  const data = [
+    {
+      name: 'Vũ Thị Anh',
+      label: 'Cô dâu',
+      bank: {
+        accout: '19036383952013',
+        qrCode: QRBride,
+      },
+      image: '/images/home/bride-and-groom/bride.png',
+    },
+    {
+      name: 'Phan Quang Điện',
+      label: 'Chú rể',
+      bank: {
+        accout: '222340829',
+        qrCode: QRGroom,
+      },
+      image: '/images/home/bride-and-groom/groom.png',
+    },
+  ];
+
   return (
-    <section className="px-[100px]">
-      <div className="flex justify-center gap-x-8">
-        <div className="flex flex-col items-end justify-center">
-          <div className="text-right">
-            <Typography variant="h5" className="font-greatVibes text-rose-pink">
-              Vũ Thị Anh
-            </Typography>
-            <Typography className="mt-4 font-sail text-lg">Cô dâu</Typography>
-            <Typography className="mt-1 font-semibold text-steel-gray">
-              STK: 19036383952013
-            </Typography>
-          </div>
-          <div className="w-[200px]">
-            <Image
-              src={QRBride}
-              alt="Bank Acount Bride"
-              width={QRBride.width}
-              height={QRBride.height}
-            />
-          </div>
-        </div>
-        <div className="relative h-[440px] w-[800px]">
-          <div className="absolute left-0 top-0">
-            <div className="relative">
-              <div className="relative aspect-square w-[440px] overflow-hidden rounded-full">
+    <section className="container">
+      <div className="flex flex-col justify-center -space-y-20 sm:flex-row sm:-space-x-20 sm:space-y-0">
+        {data.map(({ bank, image, label, name }, index) => (
+          <div
+            key={index}
+            className={cn(
+              'flex w-full flex-col flex-wrap items-center justify-center gap-8 sm:flex-row lg:flex-nowrap lg:justify-end',
+              index !== 0 && 'flex-col-reverse sm:flex-row-reverse',
+            )}
+          >
+            <div
+              className={cn(
+                'flex w-full flex-1 flex-col items-center justify-center lg:min-w-[250px] lg:items-start',
+                index === 0 && 'lg:items-end',
+              )}
+            >
+              <div
+                className={cn(
+                  'text-center lg:text-left',
+                  index === 0 && 'lg:text-right',
+                )}
+              >
+                <Typography
+                  variant="h5"
+                  className="font-greatVibes text-rose-pink"
+                >
+                  {name}
+                </Typography>
+                <Typography variant="sub" className="mt-4 font-sail">
+                  {label}
+                </Typography>
+                <Typography className="mt-1 font-semibold text-steel-gray">
+                  STK: {bank.accout}
+                </Typography>
+              </div>
+              <div className="mt-4 w-full max-w-[200px]">
                 <Image
-                  src="/images/home/bride-and-groom/bride.png"
-                  alt="Bride"
+                  src={bank.qrCode.src}
+                  alt={name}
+                  width={bank.qrCode.width}
+                  height={bank.qrCode.height}
+                />
+              </div>
+            </div>
+            <div className="w-full max-w-[300px] sm:max-w-full lg:max-w-[440px]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-full">
+                <Image
+                  src={image}
+                  alt={name}
                   fill
                   className="gride-and-groom-animate h-full w-full object-cover"
                 />
+                <div className="absolute left-1/2 top-1/2 aspect-square w-[calc(100%-3rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border" />
               </div>
-              <div className="absolute left-5 top-5 size-[400px] rounded-full border" />
             </div>
           </div>
-          <div className="absolute right-0 top-0">
-            <div className="relative">
-              <div className="relative aspect-square w-[440px] overflow-hidden rounded-full">
-                <Image
-                  src="/images/home/bride-and-groom/groom.png"
-                  alt="Bride"
-                  fill
-                  className="gride-and-groom-animate h-full w-full object-cover"
-                />
-              </div>
-              <div className="absolute left-5 top-5 size-[400px] rounded-full border" />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col items-start justify-center">
-          <div className="text-left">
-            <Typography variant="h5" className="font-greatVibes text-rose-pink">
-              Phan Quang Điện
-            </Typography>
-            <Typography className="mt-4 font-sail text-lg">Chú rể</Typography>
-            <Typography className="mt-1 font-semibold text-steel-gray">
-              STK: 222340829
-            </Typography>
-          </div>
-          <div className="w-[200px]">
-            <Image
-              src={QRGroom}
-              alt="Bank Acount Bride"
-              width={QRGroom.width}
-              height={QRGroom.height}
-            />
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

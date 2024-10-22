@@ -42,46 +42,48 @@ const data = [
 
 export const Event = () => {
   return (
-    <section>
+    <section className="container">
       <SectionTitle title="Đám cưới của chúng tôi" description="Where & When" />
-      <div className="mx-auto mt-20 grid max-w-[1400px] grid-cols-3 gap-x-8">
+      <div className="-mx-4 -mb-4 mt-16 flex flex-wrap justify-center">
         {data.map(({ image, time, title, address, map }, index) => (
-          <div key={index} className="relative overflow-hidden rounded-xl">
-            <div className="relative aspect-[4/6] w-full">
-              <Image
-                src={image}
-                alt={title}
-                fill
-                className="h-full w-full object-cover"
-              />
+          <div key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
+            <div className="relative overflow-hidden rounded-xl p-4">
+              <div className="relative aspect-[4/6] w-full">
+                <Image
+                  src={image}
+                  alt={title}
+                  fill
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <Card className="absolute bottom-8 left-8 w-[calc(100%-4rem)] px-0 xl:px-8">
+                <CardHeader className="text-center">
+                  <CardTitle
+                    className={cn(typographyVariants({ variant: 'h6' }))}
+                  >
+                    {title}
+                  </CardTitle>
+                  <CardDescription className="font-medium">
+                    {time}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Typography className="text-center">{address}</Typography>
+                </CardContent>
+                <CardFooter className="justify-center">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="text-beige-rose"
+                    asChild
+                  >
+                    <Link href={map} target="_blank">
+                      Xem bản đồ <ArrowRightIcon className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
             </div>
-            <Card className="absolute bottom-4 left-4 w-[calc(100%-2rem)] px-8">
-              <CardHeader className="text-center">
-                <CardTitle
-                  className={cn(typographyVariants({ variant: 'h6' }))}
-                >
-                  {title}
-                </CardTitle>
-                <CardDescription className="font-medium">
-                  {time}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Typography className="text-center">{address}</Typography>
-              </CardContent>
-              <CardFooter className="justify-center">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-beige-rose"
-                  asChild
-                >
-                  <Link href={map} target="_blank">
-                    Xem bản đồ <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
           </div>
         ))}
       </div>

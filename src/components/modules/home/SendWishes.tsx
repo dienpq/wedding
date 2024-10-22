@@ -58,8 +58,8 @@ export const SendWishes = () => {
 
   return (
     <section className="bg-image-['/images/home/send-wishes/bg.jpg']">
-      <div className="container p-10">
-        <Card className="w-[550px] p-8">
+      <div className="container py-5 sm:py-10">
+        <Card className="mx-auto max-w-[550px] p-4 sm:p-8 md:mx-0">
           <CardHeader>
             <CardTitle
               className={cn(
@@ -98,7 +98,7 @@ export const SendWishes = () => {
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Quan hệ" />
+                            <SelectValue placeholder="Quan hệ" {...field} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -125,7 +125,7 @@ export const SendWishes = () => {
                         <RadioGroup
                           onValueChange={field.onChange}
                           defaultValue={field.value}
-                          className="flex gap-x-8"
+                          className="flex flex-col gap-y-4 md:flex-row md:gap-x-8 md:gap-y-0"
                         >
                           <FormItem className="flex items-center space-x-3 space-y-0">
                             <FormControl>

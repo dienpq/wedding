@@ -10,23 +10,16 @@ export const SaveTheDate = () => {
 
   return (
     <section
-      className="bg-image-['/images/home/save-the-date/bg.png']"
+      className="w-full bg-image-['/images/home/save-the-date/bg.png'] xl:h-[calc(100vh-96px)]"
       style={{
-        backgroundPosition: 'center bottom',
+        backgroundPosition: 'bottom center',
       }}
     >
-      <div className="flex flex-col xl:flex-row xl:gap-x-20 xl:pl-[14%] 2xl:pl-[16%]">
-        <div className="flex w-full flex-1 flex-col items-center justify-center gap-y-4 pb-24">
-          <div className="relative flex size-[500px] items-center justify-center">
-            <Typography variant="h1" className="text-center font-greatVibes">
-              Save
-              <Typography variant="h3" className="py-4">
-                <span>the</span>
-              </Typography>
-              Date
-            </Typography>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="hero-flower-animate relative aspect-square w-[540px]">
+      <div className="flex h-full w-full flex-col xl:flex-row xl:pl-[8%]">
+        <div className="flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-5 pb-20 sm:px-10">
+          <div className="relative flex aspect-square w-full items-center justify-center sm:max-w-[500px]">
+            <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 sm:max-w-[540px]">
+              <div className="hero-flower-animate relative aspect-square w-full">
                 <Image
                   src="/images/home/save-the-date/hero-flower.png"
                   alt="Hero flower"
@@ -35,6 +28,16 @@ export const SaveTheDate = () => {
                 />
               </div>
             </div>
+            <Typography
+              variant="h1"
+              className="z-10 text-center font-greatVibes"
+            >
+              Save
+              <Typography variant="h3" className="py-2 sm:py-4" asChild>
+                <p>the</p>
+              </Typography>
+              Date
+            </Typography>
           </div>
 
           <div className="space-y-4 text-center">
@@ -46,9 +49,9 @@ export const SaveTheDate = () => {
             </Typography>
           </div>
         </div>
-        <div className="px-[160px] pb-12 xl:w-[calc(100vh-16px)] xl:px-10">
+        <div className="mx-auto w-full flex-1 px-5 sm:max-w-[600px] sm:px-10 xl:max-w-full xl:pb-10 xl:pr-10">
           <div className="relative h-full w-full">
-            <div className="relative aspect-square h-full w-full">
+            <div className="relative aspect-square h-full w-full xl:aspect-auto">
               <Image
                 src="/images/home/save-the-date/1.jpg"
                 alt="Hero flower"
@@ -56,7 +59,7 @@ export const SaveTheDate = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute inset-x-8 bottom-8 flex w-[calc(100%-4rem)] justify-center gap-x-14 bg-primary/50 p-5 text-white 2xl:gap-x-20">
+            <div className="absolute inset-x-4 bottom-4 flex w-[calc(100%-2rem)] justify-between bg-primary/50 p-5 text-white sm:inset-x-8 sm:bottom-8 sm:w-[calc(100%-4rem)] sm:gap-x-10 sm:px-16">
               <div className="text-center">
                 <Typography variant="h3" className="font-sail">
                   {days}

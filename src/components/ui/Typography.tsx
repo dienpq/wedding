@@ -10,20 +10,22 @@ const TextElementMap = {
   h2: 'h2',
   h3: 'h3',
   h4: 'h4',
-  h5: 'h6',
+  h5: 'h5',
   h6: 'h6',
+  sub: 'p',
 };
 
 const typographyVariants = cva('', {
   variants: {
     variant: {
-      default: '',
-      h1: 'text-6xl 2xl:text-7xl font-extrabold',
-      h2: 'text-5xl 2xl:text-6xl font-bold',
-      h3: 'text-4xl 2xl:text-5xl font-bold',
-      h4: 'text-3xl 2xl:text-4xl font-semibold',
-      h5: 'text-2xl 2xl:text-3xl font-semibold',
-      h6: 'text-xl 2xl:text-2xl font-semibold',
+      default: 'text-sm sm:text-base',
+      h1: 'text-5xl sm:text-6xl lg:text-7xl font-extrabold',
+      h2: 'text-4xl sm:text-5xl lg:text-6xl font-bold',
+      h3: 'text-3xl sm:text-4xl lg:text-5xl font-bold',
+      h4: 'text-2xl sm:text-3xl lg:text-4xl font-semibold',
+      h5: 'text-xl sm:text-2xl lg:text-3xl font-semibold',
+      h6: 'text-lg sm:text-xl lg:text-2xl font-semibold',
+      sub: 'text-base sm:text-lg',
     },
   },
   defaultVariants: {
