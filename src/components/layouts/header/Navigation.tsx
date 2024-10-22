@@ -47,7 +47,7 @@ export const Navigation = () => {
       </nav>
       <Sheet>
         <SheetTrigger className="block xl:hidden" asChild>
-          <Button size="icon">
+          <Button size="icon" className="bg-olive-gray">
             <MenuIcon />
           </Button>
         </SheetTrigger>
