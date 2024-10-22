@@ -18,8 +18,8 @@ export const VideoWedding = () => {
             className="h-full w-full object-cover"
           />
         </div>
-        <button className="absolute left-1/2 top-1/2 flex size-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-white/20">
-          <PlayIcon className="size-12 stroke-[1.5] text-white" />
+        <button className="absolute left-1/2 top-1/2 flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-white/20 sm:size-16 xl:size-24">
+          <PlayIcon className="size-6 stroke-[1.5] text-white sm:size-8 xl:size-12" />
         </button>
       </div>
     </section>

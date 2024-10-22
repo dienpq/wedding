@@ -51,7 +51,7 @@ export const SaveTheDate = () => {
         </div>
         <div className="mx-auto w-full flex-1 px-5 sm:max-w-[600px] sm:px-10 xl:max-w-full xl:pb-10 xl:pr-10">
           <div className="relative h-full w-full">
-            <div className="relative aspect-square h-full w-full xl:aspect-auto">
+            <div className="relative aspect-[3/4] h-full w-full xl:aspect-auto">
               <Image
                 src="/images/home/save-the-date/1.jpg"
                 alt="Hero flower"

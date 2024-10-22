@@ -69,7 +69,7 @@ export const LoveStory = () => {
           <div
             key={index}
             className={cn(
-              'relative flex flex-col items-center justify-center gap-x-28 gap-y-10 md:flex-row md:gap-y-0 lg:gap-x-40',
+              'relative flex flex-col items-center justify-center gap-x-0 gap-y-10 md:flex-row md:gap-x-28 md:gap-y-0 lg:gap-x-40',
               index % 2 !== 0 && 'md:flex-row-reverse',
             )}
           >
