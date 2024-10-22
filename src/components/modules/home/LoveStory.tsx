@@ -62,7 +62,7 @@ const data = [
 
 export const LoveStory = () => {
   return (
-    <section className="container">
+    <section className="container overflow-hidden">
       <SectionTitle title="STORY" description="Câu chuyện tình yêu" />
       <div className="relative mx-auto mt-16 flex max-w-[1200px] flex-col gap-y-20 sm:mt-12 md:gap-y-6 md:py-20 xl:mt-20">
         {data.map(({ title, description, image, shade }, index) => (

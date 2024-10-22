@@ -59,7 +59,7 @@ export const SendWishes = () => {
   return (
     <section className="bg-image-['/images/home/send-wishes/bg.jpg']">
       <div className="container-full py-5 sm:py-10">
-        <Card className="mx-auto max-w-[550px] p-4 sm:p-8 md:mx-0">
+        <Card className="mx-auto max-w-[550px] p-4 sm:p-8 lg:mx-0">
           <CardHeader>
             <CardTitle
               className={cn(

@@ -18,7 +18,7 @@ export const SaveTheDate = () => {
       <div className="flex h-full w-full flex-col xl:flex-row xl:pl-[8%]">
         <div className="flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-5 pb-20 sm:px-10">
           <div className="relative flex aspect-square w-full items-center justify-center sm:max-w-[400px] 2xl:max-w-[500px]">
-            <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 overflow-hidden">
               <div className="hero-flower-animate relative aspect-square w-full">
                 <Image
                   src="/images/home/save-the-date/hero-flower.png"
