@@ -10,7 +10,7 @@ import { VideoWedding } from './VideoWedding';
 
 export const Home = () => {
   return (
-    <div className="space-y-32">
+    <div className="space-y-16 sm:space-y-24 xl:space-y-32">
       <SaveTheDate />
       <BrideAndGroom />
       <VideoWedding />

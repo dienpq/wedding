@@ -44,7 +44,7 @@ export const Event = () => {
   return (
     <section className="container">
       <SectionTitle title="Đám cưới của chúng tôi" description="Where & When" />
-      <div className="-mx-4 -mb-4 mt-16 flex flex-wrap justify-center">
+      <div className="-mx-4 -mb-4 mt-8 flex flex-wrap justify-center lg:mt-16">
         {data.map(({ image, time, title, address, map }, index) => (
           <div key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
             <div className="relative overflow-hidden rounded-xl p-4">

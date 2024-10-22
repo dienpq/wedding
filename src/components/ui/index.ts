@@ -9,3 +9,4 @@ export * from './Card';
 export * from './RadioGroup';
 export * from './AspectRatio';
 export * from './Sheet';
+export * from './Separator';

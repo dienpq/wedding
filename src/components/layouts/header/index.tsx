@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { AspectRatio } from '@/components/ui';
 
@@ -7,9 +8,9 @@ import Logo from '/public/images/logo.png';
 
 export const Header = () => {
   return (
-    <header className="h-24">
-      <div className="flex h-full items-center justify-between px-5 sm:px-10">
-        <div className="w-52 md:w-64">
+    <header className="py-2 md:h-32">
+      <div className="flex h-full items-center justify-between px-5 sm:px-10 md:flex-col">
+        <Link href="/" className="w-52 md:w-64">
           <AspectRatio ratio={Logo.width / Logo.height}>
             <Image
               src={Logo.src}
@@ -18,9 +19,8 @@ export const Header = () => {
               fill
             />
           </AspectRatio>
-        </div>
+        </Link>
         <Navigation />
-        <div className="hidden h-full w-64 xl:block" />
       </div>
     </header>
   );

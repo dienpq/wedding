@@ -33,20 +33,21 @@ const links = [
 export const Navigation = () => {
   return (
     <>
-      <nav className="hidden xl:block">
+      <nav className="hidden md:block">
         {links.map(({ label, url }, index) => (
           <Button
-            variant="link"
+            variant="ghost"
             key={index}
             asChild
-            className="xl:px-3 2xl:px-4"
+            size="lg"
+            className="px-4"
           >
             <Link href={url}>{label}</Link>
           </Button>
         ))}
       </nav>
       <Sheet>
-        <SheetTrigger className="block xl:hidden" asChild>
+        <SheetTrigger className="block md:hidden" asChild>
           <Button size="icon" className="bg-olive-gray">
             <MenuIcon />
           </Button>
@@ -54,12 +55,7 @@ export const Navigation = () => {
         <SheetContent side="left">
           <div className="flex flex-col">
             {links.map(({ label, url }, index) => (
-              <Button
-                variant="ghost"
-                key={index}
-                asChild
-                className="xl:px-3 2xl:px-4"
-              >
+              <Button variant="ghost" key={index} asChild>
                 <Link href={url}>{label}</Link>
               </Button>
             ))}

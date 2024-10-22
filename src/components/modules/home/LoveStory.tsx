@@ -64,7 +64,7 @@ export const LoveStory = () => {
   return (
     <section className="container">
       <SectionTitle title="STORY" description="Câu chuyện tình yêu" />
-      <div className="relative mx-auto mt-20 flex flex-col gap-y-20 py-20 md:gap-y-6">
+      <div className="relative mx-auto mt-12 flex max-w-[1200px] flex-col gap-y-20 py-20 md:gap-y-6 xl:mt-20">
         {data.map(({ title, description, image, shade }, index) => (
           <div
             key={index}

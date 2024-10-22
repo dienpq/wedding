@@ -10,15 +10,15 @@ export const SaveTheDate = () => {
 
   return (
     <section
-      className="w-full bg-image-['/images/home/save-the-date/bg.png'] xl:h-[calc(100vh-96px)]"
+      className="w-full bg-image-['/images/home/save-the-date/bg.png'] xl:h-[calc(100vh-112px+40px)]"
       style={{
         backgroundPosition: 'bottom center',
       }}
     >
       <div className="flex h-full w-full flex-col xl:flex-row xl:pl-[8%]">
         <div className="flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-5 pb-20 sm:px-10">
-          <div className="relative flex aspect-square w-full items-center justify-center sm:max-w-[500px]">
-            <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 sm:max-w-[540px]">
+          <div className="relative flex aspect-square w-full items-center justify-center sm:max-w-[400px] 2xl:max-w-[500px]">
+            <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">
               <div className="hero-flower-animate relative aspect-square w-full">
                 <Image
                   src="/images/home/save-the-date/hero-flower.png"
@@ -30,7 +30,7 @@ export const SaveTheDate = () => {
             </div>
             <Typography
               variant="h1"
-              className="z-10 text-center font-greatVibes"
+              className="z-10 text-center font-greatVibes sm:scale-75 2xl:scale-100"
             >
               Save
               <Typography variant="h3" className="py-2 sm:py-4" asChild>
@@ -40,7 +40,7 @@ export const SaveTheDate = () => {
             </Typography>
           </div>
 
-          <div className="space-y-4 text-center">
+          <div className="space-y-4 text-center sm:scale-75 2xl:scale-100">
             <Typography variant="h3" className="font-jost text-beige-rose">
               Phan Điện ❤️ Vũ Anh
             </Typography>

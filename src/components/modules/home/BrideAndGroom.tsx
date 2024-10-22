@@ -30,7 +30,7 @@ export const BrideAndGroom = () => {
 
   return (
     <section className="container">
-      <div className="flex flex-col justify-center -space-y-20 sm:flex-row sm:-space-x-20 sm:space-y-0">
+      <div className="flex flex-col justify-center -space-y-20 sm:flex-row sm:-space-x-16 sm:space-y-0">
         {data.map(({ bank, image, label, name }, index) => (
           <div
             key={index}
@@ -52,15 +52,18 @@ export const BrideAndGroom = () => {
                 )}
               >
                 <Typography
-                  variant="h5"
+                  variant="h4"
                   className="font-greatVibes text-rose-pink"
                 >
                   {name}
                 </Typography>
-                <Typography variant="sub" className="mt-4 font-sail">
+                <Typography variant="h6" className="mt-4 font-sail">
                   {label}
                 </Typography>
-                <Typography className="mt-1 font-semibold text-steel-gray">
+                <Typography
+                  variant="sub"
+                  className="mt-1 font-semibold text-steel-gray"
+                >
                   STK: {bank.accout}
                 </Typography>
               </div>
@@ -73,7 +76,7 @@ export const BrideAndGroom = () => {
                 />
               </div>
             </div>
-            <div className="w-full max-w-[300px] sm:max-w-full lg:max-w-[440px]">
+            <div className="w-full max-w-[300px] sm:max-w-full lg:max-w-[380px]">
               <div className="relative aspect-square w-full overflow-hidden rounded-full">
                 <Image
                   src={image}
