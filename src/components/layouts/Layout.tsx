@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
+import { Snowfall } from '../common';
 import { Footer } from './footer';
 import { Header } from './header';
 
@@ -45,6 +46,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Header setHeight={setHeight} />
       <main>{children}</main>
       <Footer />
+      <Snowfall />
     </>
   );
 };
