@@ -1,16 +1,28 @@
-'use client';
-
 import { PlayIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { DialogPreviewImage } from '@/components/common';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { setTab } from '@/redux/features/configurationSlice';
+import { useAppDispatch } from '@/redux/hooks';
 
 export const VideoWedding = () => {
+  const dispatch = useAppDispatch();
   const [open, setOpen] = useState<number>(0);
 
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (isIntersecting) {
+      dispatch(setTab('brideAndGroom'));
+    }
+  }, [dispatch, isIntersecting]);
+
   return (
-    <section className="container-lg">
+    <section id="videoWedding" ref={ref} className="container-lg">
       <div
         className="relative rounded-xl p-5 sm:p-6 lg:p-10"
         style={{

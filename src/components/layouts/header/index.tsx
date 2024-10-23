@@ -1,16 +1,34 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { Dispatch, HTMLProps, SetStateAction, useEffect, useRef } from 'react';
 
 import { AspectRatio } from '@/components/ui';
+import { useResizeObserver } from '@/hooks';
+import { cn } from '@/lib/utils';
 
 import { Navigation } from './Navigation';
 import ShadeLeft from '/public/images/header/shade-left.png';
 import ShadeRight from '/public/images/header/shade-right.png';
 import Logo from '/public/images/logo.png';
 
-export const Header = () => {
+interface HeaderProps {
+  setHeight?: Dispatch<SetStateAction<number>>;
+  className?: HTMLProps<HTMLElement>['className'];
+}
+export const Header = ({ setHeight, className }: HeaderProps) => {
+  const ref = useRef<HTMLElement>(null);
+
+  const { height = 0 } = useResizeObserver({
+    ref,
+    box: 'border-box',
+  });
+
+  useEffect(() => setHeight && setHeight(height), [height, setHeight]);
+
   return (
-    <header className="py-2 md:h-32">
+    <header ref={ref} className={cn('py-2 md:h-32', className)}>
       <div className="z-10 flex lg:justify-between">
         <div className="hidden w-40 lg:block">
           <AspectRatio ratio={ShadeLeft.width / ShadeLeft.height}>

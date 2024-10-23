@@ -1,6 +1,5 @@
-'use client';
-
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -27,7 +26,10 @@ import {
   Textarea,
   typographyVariants,
 } from '@/components/ui';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
+import { setTab } from '@/redux/features/configurationSlice';
+import { useAppDispatch } from '@/redux/hooks';
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -42,6 +44,7 @@ const FormSchema = z.object({
 });
 
 export const SendWishes = () => {
+  const dispatch = useAppDispatch();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -53,11 +56,25 @@ export const SendWishes = () => {
     },
   });
 
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (isIntersecting) {
+      dispatch(setTab('sendWishes'));
+    }
+  }, [dispatch, isIntersecting]);
+
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const onSubmit = (data: z.infer<typeof FormSchema>) => {};
 
   return (
-    <section className="bg-image-['/images/home/send-wishes/bg.jpg']">
+    <section
+      id="sendWishes"
+      ref={ref}
+      className="bg-image-['/images/home/send-wishes/bg.jpg']"
+    >
       <div className="container-full py-5 sm:py-10">
         <Card className="mx-auto max-w-[550px] p-4 sm:p-8 lg:mx-0">
           <CardHeader>

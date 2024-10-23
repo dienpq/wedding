@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { StoreProvider } from '@/components/providers';
 import { greatVibes, jost, sail } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
@@ -24,7 +25,7 @@ export default function RootLayout({
           sail.variable,
         )}
       >
-        {children}
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );

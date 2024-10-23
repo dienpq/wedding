@@ -1,9 +1,13 @@
 import { HeartIcon } from 'lucide-react';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 import { SectionTitle } from '@/components/common';
 import { Typography } from '@/components/ui';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
+import { setTab } from '@/redux/features/configurationSlice';
+import { useAppDispatch } from '@/redux/hooks';
 
 import ShapeLeft from '/public/images/home/love-history/shape-left.png';
 import ShapeRight from '/public/images/home/love-history/shape-right.png';
@@ -61,8 +65,20 @@ const data = [
 ];
 
 export const LoveStory = () => {
+  const dispatch = useAppDispatch();
+
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (isIntersecting) {
+      dispatch(setTab('loveStory'));
+    }
+  }, [dispatch, isIntersecting]);
+
   return (
-    <section className="container overflow-hidden">
+    <section id="loveStory" ref={ref} className="container overflow-hidden">
       <SectionTitle title="STORY" description="Câu chuyện tình yêu" />
       <div className="relative mx-auto mt-16 flex max-w-[1200px] flex-col gap-y-20 sm:mt-12 md:gap-y-6 md:py-20 xl:mt-20">
         {data.map(({ title, description, image, shade }, index) => (

@@ -1,13 +1,27 @@
 import Image from 'next/image';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 
 import { Typography } from '@/components/ui';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
+import { setTab } from '@/redux/features/configurationSlice';
+import { useAppDispatch } from '@/redux/hooks';
 
 import QRBride from '/public/images/home/bride-and-groom/qr-bride.jpg';
 import QRGroom from '/public/images/home/bride-and-groom/qr-groom.jpg';
 
 export const BrideAndGroom = () => {
+  const dispatch = useAppDispatch();
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (isIntersecting) {
+      dispatch(setTab('brideAndGroom'));
+    }
+  }, [dispatch, isIntersecting]);
+
   const data = [
     {
       name: 'Vũ Thị Anh',
@@ -33,7 +47,7 @@ export const BrideAndGroom = () => {
   ];
 
   return (
-    <section className="container">
+    <section id="brideAndGroom" ref={ref} className="container">
       <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
         {data.map(({ bank, label, name }, index) => (
           <Fragment key={index}>

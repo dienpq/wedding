@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 import { SectionTitle } from '@/components/common';
 import {
@@ -14,7 +15,10 @@ import {
   Typography,
   typographyVariants,
 } from '@/components/ui';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
+import { setTab } from '@/redux/features/configurationSlice';
+import { useAppDispatch } from '@/redux/hooks';
 
 const data = [
   {
@@ -41,8 +45,20 @@ const data = [
 ];
 
 export const Event = () => {
+  const dispatch = useAppDispatch();
+
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (isIntersecting) {
+      dispatch(setTab('event'));
+    }
+  }, [dispatch, isIntersecting]);
+
   return (
-    <section className="container">
+    <section id="event" ref={ref} className="container">
       <SectionTitle title="Đám cưới của chúng tôi" description="Where & When" />
       <div className="-mx-4 -mb-4 mt-8 flex flex-wrap justify-center lg:mt-16">
         {data.map(({ image, time, title, address, map }, index) => (

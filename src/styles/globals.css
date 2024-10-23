@@ -11,7 +11,7 @@
 @layer base {
   :root {
     --beige-rose: 20 30% 69%; /* #c8a898 */
-    --beige-rose-foreground:20 30% 60%;/* #b88f7a */
+    --beige-rose-foreground: 20 30% 60%; /* #b88f7a */
     --dark-chocolate: 18 17% 15%; /* #2d2420 */
     --steel-gray: 0 0% 36%; /* #5c5c5c */
     --rose-pink: 353 58% 61%; /* #d66371 */
@@ -74,6 +74,9 @@
 @layer base {
   * {
     @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
