@@ -3,17 +3,11 @@
 import { ReactNode, useEffect, useState } from 'react';
 import Snowfall from 'react-snowfall';
 
+import { useIsomorphicLayoutEffect } from '@/hooks';
 import { cn } from '@/lib/utils';
 
 import { Footer } from './footer';
 import { Header } from './header';
-import Snow1 from '/public/images/snow/1.png';
-import Snow2 from '/public/images/snow/2.png';
-import Snow3 from '/public/images/snow/3.png';
-import Snow4 from '/public/images/snow/4.png';
-import Snow5 from '/public/images/snow/5.png';
-import Snow6 from '/public/images/snow/6.png';
-import Snow7 from '/public/images/snow/7.png';
 
 interface LayoutProps {
   children?: ReactNode;
@@ -42,13 +36,24 @@ export const Layout = ({ children }: LayoutProps) => {
     };
   }, [height]);
 
-  const images = [Snow1, Snow2, Snow3, Snow4, Snow5, Snow6, Snow7].map(
-    (imgSrc) => {
+  const [images, setImages] = useState<HTMLImageElement[]>([]);
+
+  useIsomorphicLayoutEffect(() => {
+    const loadedImages = [
+      '/images/snow/1.png',
+      '/images/snow/2.png',
+      '/images/snow/3.png',
+      '/images/snow/4.png',
+      '/images/snow/5.png',
+      '/images/snow/6.png',
+      '/images/snow/7.png',
+    ].map((imgSrc) => {
       const img = document.createElement('img');
-      img.src = imgSrc.src;
+      img.src = imgSrc;
       return img;
-    },
-  );
+    });
+    setImages(loadedImages);
+  }, []);
 
   return (
     <>
