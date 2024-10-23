@@ -51,7 +51,7 @@ export const Navigation = () => {
             key={index}
             asChild
             size="lg"
-            className="px-4"
+            className="px-3.5"
           >
             <Link href={url}>{label}</Link>
           </Button>

@@ -11,8 +11,8 @@ import Logo from '/public/images/logo.png';
 export const Header = () => {
   return (
     <header className="py-2 md:h-32">
-      <div className="flex justify-between">
-        <div className="w-40">
+      <div className="z-10 flex lg:justify-between">
+        <div className="hidden w-40 lg:block">
           <AspectRatio ratio={ShadeLeft.width / ShadeLeft.height}>
             <Image
               src={ShadeLeft.src}
@@ -22,7 +22,7 @@ export const Header = () => {
             />
           </AspectRatio>
         </div>
-        <div className="flex h-full items-center justify-between px-5 sm:px-10 md:flex-col">
+        <div className="flex h-full w-full items-center justify-between px-5 sm:px-10 md:flex-col">
           <Link href="/" className="w-52 md:w-64">
             <AspectRatio ratio={Logo.width / Logo.height}>
               <Image
@@ -35,7 +35,7 @@ export const Header = () => {
           </Link>
           <Navigation />
         </div>
-        <div className="z-10 w-40">
+        <div className="z-10 hidden w-40 lg:block">
           <AspectRatio ratio={ShadeRight.width / ShadeRight.height}>
             <Image
               src={ShadeRight.src}

@@ -10,3 +10,5 @@ export * from './RadioGroup';
 export * from './AspectRatio';
 export * from './Sheet';
 export * from './Separator';
+export * from './Carousel';
+export * from './Dialog';

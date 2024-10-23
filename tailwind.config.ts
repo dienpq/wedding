@@ -12,9 +12,6 @@ const config: Config = {
     container: {
       center: true,
       padding: '2rem',
-      screens: {
-        xs: '480px',
-      },
     },
     extend: {
       fontFamily: {

@@ -1,7 +1,14 @@
+'use client';
+
 import { PlayIcon } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
+
+import { DialogPreviewImage } from '@/components/common';
 
 export const VideoWedding = () => {
+  const [open, setOpen] = useState<number>(0);
+
   return (
     <section className="container-lg">
       <div
@@ -18,10 +25,28 @@ export const VideoWedding = () => {
             className="h-full w-full object-cover"
           />
         </div>
-        <button className="absolute left-1/2 top-1/2 flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-white/20 sm:size-16 xl:size-24">
+        <button
+          className="absolute left-1/2 top-1/2 flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-white/20 sm:size-16 xl:size-24"
+          onClick={() => setOpen(1)}
+        >
           <PlayIcon className="size-6 stroke-[1.5] text-white sm:size-8 xl:size-12" />
         </button>
       </div>
+      <DialogPreviewImage
+        open={open}
+        setOpen={setOpen}
+        data={[
+          <iframe
+            key="video-wedding"
+            className="aspect-video w-full self-stretch sm:min-h-80 md:min-h-96"
+            src={`https://www.youtube.com/embed/XlDlHi4hj7A?autoplay=1`}
+            title="Video Wedding"
+            aria-hidden="true"
+            allowFullScreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          />,
+        ]}
+      />
     </section>
   );
 };
