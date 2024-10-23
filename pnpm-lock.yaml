@@ -68,6 +68,9 @@ importers:
       react-redux:
         specifier: ^9.1.2
         version: 9.1.2(@types/react@18.3.11)(react@18.3.1)(redux@5.0.1)
+      react-snowfall:
+        specifier: ^2.1.1
+        version: 2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -2435,6 +2438,9 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-fast-compare@3.2.2:
+    resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
+
   react-hook-form@7.53.0:
     resolution: {integrity: sha512-M1n3HhqCww6S2hxLxciEXy2oISPnAzxY7gvwVPrtlczTM/1dDadXgUxDpHMrMTblDOcm/AXtXxHwZ3jpg1mqKQ==}
     engines: {node: '>=18.0.0'}
@@ -2475,6 +2481,12 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  react-snowfall@2.1.1:
+    resolution: {integrity: sha512-29F2U+skZc8uYYYzVP2Ub4mbc5nPH+0jYr1yXDysaPCnHdl9nVUN3h/ygg6PYw2LH53q6ZQCNfj30kVliaPvBg==}
+    peerDependencies:
+      react: "^16.8 ||\_17.x || 18.x"
+      react-dom: ^16.8 || 17.x || 18.x
 
   react-style-singleton@2.2.1:
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
@@ -5330,6 +5342,8 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
+  react-fast-compare@3.2.2: {}
+
   react-hook-form@7.53.0(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -5363,6 +5377,12 @@ snapshots:
       use-sidecar: 1.1.2(@types/react@18.3.11)(react@18.3.1)
     optionalDependencies:
       '@types/react': 18.3.11
+
+  react-snowfall@2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-fast-compare: 3.2.2
 
   react-style-singleton@2.2.1(@types/react@18.3.11)(react@18.3.1):
     dependencies:
