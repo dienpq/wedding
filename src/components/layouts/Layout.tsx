@@ -1,10 +1,9 @@
 'use client';
 
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import Snowfall from 'react-snowfall';
 
-import { useIsomorphicLayoutEffect } from '@/hooks';
-import { cn } from '@/lib/utils';
+import { useDevices, useIsomorphicLayoutEffect } from '@/hooks';
 
 import { Footer } from './footer';
 import { Header } from './header';
@@ -14,27 +13,7 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
-  const [active, setActive] = useState<boolean>(false);
-  const [height, setHeight] = useState<number>(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const triggerPosition = height + 80;
-
-      if (scrollPosition > triggerPosition) {
-        setActive(true);
-      } else {
-        setActive(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [height]);
+  const { isSmall } = useDevices();
 
   const [images, setImages] = useState<HTMLImageElement[]>([]);
 
@@ -57,13 +36,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <Header
-        className={cn(
-          'fixed -top-40 left-0 z-30 w-full bg-background duration-300',
-          active && 'translate-y-40 shadow-xl',
-        )}
-      />
-      <Header setHeight={setHeight} />
+      <Header />
       <main>{children}</main>
       <Footer />
       <Snowfall
@@ -74,9 +47,10 @@ export const Layout = ({ children }: LayoutProps) => {
           width: '100%',
           height: '100%',
         }}
-        snowflakeCount={50}
+        snowflakeCount={isSmall ? 80 : 60}
         images={images}
-        radius={[12, 20]}
+        radius={isSmall ? [16, 20] : [12, 16]}
+        wind={isSmall ? [-0.5, 1] : [0, 0]}
       />
     </>
   );

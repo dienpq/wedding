@@ -76,7 +76,7 @@ export const SendWishes = () => {
       className="bg-image-['/images/home/send-wishes/bg.jpg']"
     >
       <div className="container-full py-5 sm:py-10">
-        <Card className="mx-auto max-w-[550px] p-4 sm:p-8 lg:mx-0">
+        <Card className="mx-auto max-w-[550px] p-2 sm:p-8 lg:mx-0">
           <CardHeader>
             <CardTitle
               className={cn(
@@ -91,7 +91,7 @@ export const SendWishes = () => {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-6 bg-white"
+                className="space-y-4 bg-white sm:space-y-6"
               >
                 <FormField
                   control={form.control}

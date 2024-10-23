@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui';
+import { useDevices } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { useAppSelector } from '@/redux/hooks';
 import { TabType } from '@/types';
@@ -47,6 +48,8 @@ const links: { label: string; id: TabType }[] = [
 ];
 
 export const Navigation = () => {
+  const { isMedium } = useDevices();
+
   const tab = useAppSelector((state) => state.configuration.tab);
 
   const handleClick = (
@@ -58,7 +61,7 @@ export const Navigation = () => {
     const targetElement = document.getElementById(id);
 
     if (targetElement) {
-      const yOffset = -164; // Khoảng cách cách top
+      const yOffset = isMedium ? -164 : -116;
       const yPosition =
         targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
 
@@ -116,7 +119,9 @@ export const Navigation = () => {
           <div className="mt-6 flex flex-col">
             {links.map(({ label, id }, index) => (
               <Button variant="ghost" size="lg" key={index} asChild>
-                <Link href={`#${id}`}>{label}</Link>
+                <Link href={`#${id}`} onClick={(e) => handleClick(e, id)}>
+                  {label}
+                </Link>
               </Button>
             ))}
           </div>

@@ -18,7 +18,7 @@ export const Album = () => {
 
   const [open, setOpen] = useState<number>(0);
   const { isIntersecting, ref } = useIntersectionObserver({
-    threshold: 0.5,
+    threshold: [0.25, 0.5],
   });
 
   useEffect(() => {
