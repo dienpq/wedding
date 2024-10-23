@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { DialogPreviewImage } from '@/components/common';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useElementVisibility } from '@/hooks';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
@@ -11,15 +11,15 @@ export const VideoWedding = () => {
   const dispatch = useAppDispatch();
   const [open, setOpen] = useState<number>(0);
 
-  const { isIntersecting, ref } = useIntersectionObserver({
-    threshold: 0.5,
-  });
+  const { ref, isVisible } = useElementVisibility();
 
   useEffect(() => {
-    if (isIntersecting) {
+    if (isVisible) {
+      dispatch(setTab('brideAndGroom'));
+    } else {
       dispatch(setTab('brideAndGroom'));
     }
-  }, [dispatch, isIntersecting]);
+  }, [dispatch, isVisible]);
 
   return (
     <section id="videoWedding" ref={ref} className="container-lg">

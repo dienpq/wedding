@@ -15,7 +15,7 @@ import {
   Typography,
   typographyVariants,
 } from '@/components/ui';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useElementVisibility } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
@@ -47,15 +47,15 @@ const data = [
 export const Event = () => {
   const dispatch = useAppDispatch();
 
-  const { isIntersecting, ref } = useIntersectionObserver({
-    threshold: 0.5,
-  });
+  const { ref, isVisible } = useElementVisibility();
 
   useEffect(() => {
-    if (isIntersecting) {
+    if (isVisible) {
       dispatch(setTab('event'));
+    } else {
+      dispatch(setTab('sendWishes'));
     }
-  }, [dispatch, isIntersecting]);
+  }, [dispatch, isVisible]);
 
   return (
     <section id="event" ref={ref} className="container">

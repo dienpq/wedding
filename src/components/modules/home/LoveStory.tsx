@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import { SectionTitle } from '@/components/common';
 import { Typography } from '@/components/ui';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useElementVisibility } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
@@ -67,15 +67,15 @@ const data = [
 export const LoveStory = () => {
   const dispatch = useAppDispatch();
 
-  const { isIntersecting, ref } = useIntersectionObserver({
-    threshold: 0.5,
-  });
+  const { ref, isVisible } = useElementVisibility();
 
   useEffect(() => {
-    if (isIntersecting) {
+    if (isVisible) {
       dispatch(setTab('loveStory'));
+    } else {
+      dispatch(setTab('brideAndGroom'));
     }
-  }, [dispatch, isIntersecting]);
+  }, [dispatch, isVisible]);
 
   return (
     <section id="loveStory" ref={ref} className="container overflow-hidden">

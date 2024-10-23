@@ -5,3 +5,5 @@ export * from './useResizeObserver';
 export * from './useMediaQuery';
 export * from './useIsomorphicLayoutEffect';
 export * from './useDevices';
+export * from './useElementVisibility';
+export * from './useIntersectionObserver';

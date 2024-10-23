@@ -2,8 +2,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 
 import { Typography } from '@/components/ui';
-import { useCountdown } from '@/hooks';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useCountdown, useElementVisibility } from '@/hooks';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
@@ -11,15 +10,13 @@ export const SaveTheDate = () => {
   const dispatch = useAppDispatch();
   const { days, hours, minutes, seconds } = useCountdown('2024-12-28T10:00:00');
 
-  const { isIntersecting, ref } = useIntersectionObserver({
-    threshold: 0.5,
-  });
+  const { ref, isVisible } = useElementVisibility();
 
   useEffect(() => {
-    if (isIntersecting) {
+    if (isVisible) {
       dispatch(setTab('saveTheDate'));
     }
-  }, [dispatch, isIntersecting]);
+  }, [dispatch, isVisible]);
 
   return (
     <section

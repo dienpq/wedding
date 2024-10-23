@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Fragment, useEffect } from 'react';
 
 import { Typography } from '@/components/ui';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useElementVisibility } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
@@ -12,15 +12,15 @@ import QRGroom from '/public/images/home/bride-and-groom/qr-groom.jpg';
 
 export const BrideAndGroom = () => {
   const dispatch = useAppDispatch();
-  const { isIntersecting, ref } = useIntersectionObserver({
-    threshold: 0.5,
-  });
+  const { ref, isVisible } = useElementVisibility();
 
   useEffect(() => {
-    if (isIntersecting) {
+    if (isVisible) {
       dispatch(setTab('brideAndGroom'));
+    } else {
+      dispatch(setTab('saveTheDate'));
     }
-  }, [dispatch, isIntersecting]);
+  }, [dispatch, isVisible]);
 
   const data = [
     {

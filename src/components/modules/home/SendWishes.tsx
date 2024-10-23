@@ -26,7 +26,7 @@ import {
   Textarea,
   typographyVariants,
 } from '@/components/ui';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useElementVisibility } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
@@ -56,15 +56,15 @@ export const SendWishes = () => {
     },
   });
 
-  const { isIntersecting, ref } = useIntersectionObserver({
-    threshold: 0.5,
-  });
+  const { ref, isVisible } = useElementVisibility();
 
   useEffect(() => {
-    if (isIntersecting) {
+    if (isVisible) {
       dispatch(setTab('sendWishes'));
+    } else {
+      dispatch(setTab('album'));
     }
-  }, [dispatch, isIntersecting]);
+  }, [dispatch, isVisible]);
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const onSubmit = (data: z.infer<typeof FormSchema>) => {};

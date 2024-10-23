@@ -15,7 +15,8 @@ import {
 } from '@/components/ui';
 import { useDevices } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { useAppSelector } from '@/redux/hooks';
+import { setTab } from '@/redux/features/configurationSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { TabType } from '@/types';
 
 import Logo from '/public/images/logo.png';
@@ -49,6 +50,7 @@ const links: { label: string; id: TabType }[] = [
 
 export const Navigation = () => {
   const { isMedium } = useDevices();
+  const dispatch = useAppDispatch();
 
   const tab = useAppSelector((state) => state.configuration.tab);
 
@@ -57,17 +59,18 @@ export const Navigation = () => {
     id: TabType,
   ) => {
     e.preventDefault();
+    dispatch(setTab(id));
 
     const targetElement = document.getElementById(id);
 
     if (targetElement) {
-      const yOffset = isMedium ? -164 : -116;
+      const yOffset = isMedium ? -152 : -100;
       const yPosition =
         targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
 
       window.scrollTo({
         top: yPosition,
-        behavior: 'smooth',
+        // behavior: 'smooth',
       });
     }
   };
@@ -118,7 +121,12 @@ export const Navigation = () => {
           </SheetHeader>
           <div className="mt-6 flex flex-col">
             {links.map(({ label, id }, index) => (
-              <Button variant="ghost" size="lg" key={index} asChild>
+              <Button
+                variant={tab === id ? 'default' : 'ghost'}
+                size="lg"
+                key={index}
+                asChild
+              >
                 <Link href={`#${id}`} onClick={(e) => handleClick(e, id)}>
                   {label}
                 </Link>
