@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { DialogNotification, NotificationType } from '@/components/common';
 import {
   Button,
   Card,
@@ -15,7 +16,6 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
   Input,
   RadioGroup,
   RadioGroupItem,
@@ -37,22 +37,27 @@ import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
 const FormSchema = z.object({
-  name: z.string().min(2, {
-    message: 'Username must be at least 2 characters.',
+  name: z.string().min(1, {
+    message: 'Bạn có thể cho tôi xin tên của bạn được không?',
   }),
-  relation: z.string().optional(),
-  confirm: z.string().optional(),
-  amount: z.string().min(1, {
-    message: 'Username must be at least 2 characters.',
+  relation: z.string().min(1, {
+    message:
+      'Hãy cho chúng tôi biết bạn là bạn của cô dâu hay chú rể được không?',
   }),
+  confirm: z.enum(['yes', 'no']).optional(),
+  amount: z.string().optional(),
   content: z.string().optional(),
 });
 
 export const SendWishes = () => {
+  const dispatch = useAppDispatch();
   const { isLarge } = useDevices();
   const [isClient, setClient] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [notification, setNotification] = useState<NotificationType>();
 
-  const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState<boolean>(false);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -79,13 +84,55 @@ export const SendWishes = () => {
   }, []);
 
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
-  const onSubmit = (data: z.infer<typeof FormSchema>) => {};
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+    setLoading(true);
+    await fetch(
+      'https://script.google.com/macros/s/AKfycbx7-iRJwEo9ErYlGo6dY_6RMtHTD9zjYaKY_R3IgXF1zRa5UPRW_lwlXOUQrhrOQATw/exec',
+      {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        redirect: 'follow',
+      },
+    );
+    setLoading(false);
+    setOpen(true);
+    setNotification({
+      succes: true,
+      title: 'Gửi lời chúc thành công!',
+      description:
+        'Cảm ơn bạn đã gửi những lời chúc tốt đẹp đến với chúng tôi!\nChúc bạn có một ngày tràn đầy niềm vui và hạnh phúc?\n\n❤️❤️❤️',
+    });
+
+    form.reset();
+  };
+
+  useEffect(() => {
+    if (form.formState.errors.name) {
+      setOpen(true);
+      setNotification({
+        succes: false,
+        title: 'Bạn nhập thiếu thông tin rồi nè!',
+        description: form.formState.errors.name.message || '',
+      });
+    } else if (form.formState.errors.relation) {
+      setOpen(true);
+      setNotification({
+        succes: false,
+        title: 'Bạn nhập thiếu thông tin rồi nè!',
+        description: form.formState.errors.relation.message || '',
+      });
+    }
+  }, [form.formState.errors]);
 
   return (
     <section
       id="sendWishes"
       ref={ref}
-      className="h-[592px] bg-image-['/images/home/send-wishes/bg.jpg'] sm:h-[688px] md:h-[692px]"
+      className="relative h-[592px] bg-image-['/images/home/send-wishes/bg.jpg'] sm:h-[688px] md:h-[692px]"
     >
       <div className="container-full py-5 sm:py-10">
         {isClient && (
@@ -148,19 +195,17 @@ export const SendWishes = () => {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="Người thân">
-                                Người thân
+                              <SelectItem value="Bạn chú rể">
+                                Bạn chú rể
                               </SelectItem>
-                              <SelectItem value="Bạn bè">Bạn bè</SelectItem>
-                              <SelectItem value="Hàng xóm">Hàng xóm</SelectItem>
-                              <SelectItem value="Đồng nghiệp">
-                                Đồng nghiệp
+                              <SelectItem value="Bạn cô dâu">
+                                Bạn cô dâu
                               </SelectItem>
-                              <SelectItem value="Xã hội">Xã hội</SelectItem>
-                              <SelectItem value="Khác">Khác</SelectItem>
+                              <SelectItem value="Bạn cả hai">
+                                Bạn cả hai
+                              </SelectItem>
                             </SelectContent>
                           </Select>
-                          <FormMessage />
                         </FormItem>
                       )}
                     />
@@ -193,7 +238,6 @@ export const SendWishes = () => {
                               </FormItem>
                             </RadioGroup>
                           </FormControl>
-                          <FormMessage />
                         </FormItem>
                       )}
                     />
@@ -204,9 +248,11 @@ export const SendWishes = () => {
                         <FormItem>
                           <FormControl>
                             <Input
+                              min={0}
                               type="number"
                               placeholder="Số người tham dự"
                               {...field}
+                              max={10}
                             />
                           </FormControl>
                         </FormItem>
@@ -228,7 +274,12 @@ export const SendWishes = () => {
                       )}
                     />
                     <div className="flex items-center justify-center">
-                      <Button type="submit" size="lg" className="h-12 w-full">
+                      <Button
+                        type="submit"
+                        size="lg"
+                        loading={loading}
+                        className="h-12 w-full"
+                      >
                         Gửi lời chúc
                       </Button>
                     </div>
@@ -239,6 +290,9 @@ export const SendWishes = () => {
           </motion.div>
         )}
       </div>
+      {/* {true && ( */}
+      <DialogNotification open={open} setOpen={setOpen} data={notification} />
+      {/* )} */}
     </section>
   );
 };

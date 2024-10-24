@@ -68,10 +68,19 @@ const config: Config = {
           '5': 'hsl(var(--chart-5))',
         },
       },
+      keyframes: {
+        scale: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(3)' },
+        },
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      animation: {
+        scale: 'scale 1s infinite',
       },
     },
   },
