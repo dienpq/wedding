@@ -14,7 +14,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui';
-import { useDevices } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { useAppSelector } from '@/redux/hooks';
 import { TabType } from '@/types';
@@ -48,30 +47,17 @@ const links: { label: string; id: TabType }[] = [
   },
 ];
 
-export const Navigation = () => {
-  const { isMedium } = useDevices();
-
-  const tab = useAppSelector((state) => state.configuration.tab);
-
-  const handleClick = (
+interface NavigationProps {
+  onClick: (
+    // eslint-disable-next-line no-unused-vars
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    // eslint-disable-next-line no-unused-vars
     id: TabType,
-  ) => {
-    e.preventDefault();
+  ) => void;
+}
 
-    const targetElement = document.getElementById(id);
-
-    if (targetElement) {
-      const yOffset = isMedium ? -152 : -100;
-      const yPosition =
-        targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
-
-      window.scrollTo({
-        top: yPosition,
-        behavior: 'smooth',
-      });
-    }
-  };
+export const Navigation = ({ onClick }: NavigationProps) => {
+  const tab = useAppSelector((state) => state.configuration.tab);
 
   return (
     <>
@@ -84,7 +70,7 @@ export const Navigation = () => {
               className="px-3.5 hover:no-underline"
               asChild
             >
-              <Link href={`#${id}`} onClick={(e) => handleClick(e, id)}>
+              <Link href={`#${id}`} onClick={(e) => onClick(e, id)}>
                 {label}
               </Link>
             </Button>
@@ -104,7 +90,11 @@ export const Navigation = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
-          <Link href="/" className="w-full">
+          <Link
+            href="/"
+            className="w-full"
+            onClick={(e) => onClick(e, 'saveTheDate')}
+          >
             <Image
               src={Logo.src}
               alt="Wedding Logo"
@@ -141,7 +131,7 @@ export const Navigation = () => {
                   asChild
                   className="w-full"
                 >
-                  <Link href={`#${id}`} onClick={(e) => handleClick(e, id)}>
+                  <Link href={`#${id}`} onClick={(e) => onClick(e, id)}>
                     {label}
                   </Link>
                 </Button>

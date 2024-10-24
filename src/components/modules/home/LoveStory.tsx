@@ -124,7 +124,6 @@ export const LoveStory = () => {
                   scale: 1,
                 }}
                 transition={{
-                  delay: 0.5,
                   duration: 0.75,
                 }}
                 viewport={{ once: true }}
@@ -151,7 +150,6 @@ export const LoveStory = () => {
                 x: 0,
               }}
               transition={{
-                delay: 0.75,
                 duration: 0.75,
               }}
               viewport={{ once: true }}

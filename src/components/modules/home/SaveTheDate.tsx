@@ -7,7 +7,7 @@ import { useCountdown, useElementVisibility } from '@/hooks';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
-import Couple from '/public/images/home/save-the-date/1.jpg';
+import Couple from '/public/images/home/save-the-date/couple.jpg';
 import HeroFlower from '/public/images/home/save-the-date/hero-flower.png';
 
 export const SaveTheDate = () => {
