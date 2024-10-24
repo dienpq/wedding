@@ -108,6 +108,7 @@ export const Header = () => {
             alt="Wedding Shade Left"
             width={ShadeLeft.width}
             height={ShadeLeft.height}
+            priority
           />
         </motion.div>
         <div className="flex h-full w-full items-center justify-between px-5 sm:px-10 md:flex-col">
@@ -122,6 +123,7 @@ export const Header = () => {
               className="object-cover"
               width={Logo.width}
               height={Logo.height}
+              priority
             />
           </Link>
           <Navigation onClick={handleClick} />
@@ -148,6 +150,7 @@ export const Header = () => {
             alt="Wedding Shade Left"
             width={ShadeRight.width}
             height={ShadeRight.height}
+            priority
           />
         </motion.div>
       </div>

@@ -12,6 +12,9 @@ import {
   CarouselItem,
   Dialog,
   DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
   Typography,
 } from '@/components/ui';
 import { useCarousel } from '@/hooks';
@@ -47,6 +50,10 @@ export const DialogPreviewImage = ({
         hasClose={false}
         className="h-full max-w-full !rounded-none border-none bg-transparent text-white !outline-none"
       >
+        <DialogHeader>
+          <DialogTitle />
+          <DialogDescription />
+        </DialogHeader>
         <div className="absolute left-4 top-4 z-20">
           {!!scrollSnaps.length && (
             <Typography variant="sub" className="tracking-widest">
@@ -92,6 +99,7 @@ export const DialogPreviewImage = ({
                         alt={`Album ${index + 1}`}
                         width={item.width}
                         height={item.height}
+                        priority
                       />
                     </div>
                   )}

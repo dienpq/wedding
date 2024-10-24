@@ -58,6 +58,7 @@ export const Album = () => {
               alt={`Wedding ${index + 1}`}
               width={image.width}
               height={image.height}
+              priority
               className="h-full w-full object-cover"
             />
           </motion.div>

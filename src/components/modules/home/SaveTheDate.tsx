@@ -126,6 +126,7 @@ export const SaveTheDate = () => {
                 alt="Couple"
                 width={Couple.width}
                 height={Couple.height}
+                priority
                 className="h-full w-full object-cover"
               />
             </div>

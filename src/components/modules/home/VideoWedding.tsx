@@ -48,6 +48,7 @@ export const VideoWedding = () => {
             alt="Video"
             width={BgVideo.width}
             height={BgVideo.height}
+            priority
             className="h-full w-full object-cover"
           />
         </div>

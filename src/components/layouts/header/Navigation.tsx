@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { MenuIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -101,6 +100,7 @@ export const Navigation = ({ onClick }: NavigationProps) => {
               className="rounded-md object-cover"
               width={Logo.width}
               height={Logo.height}
+              priority
             />
           </Link>
           <SheetHeader className="mt-1.5 items-center">
@@ -109,33 +109,16 @@ export const Navigation = ({ onClick }: NavigationProps) => {
           </SheetHeader>
           <div className="mt-2 flex flex-col">
             {links.map(({ label, id }, index) => (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: -20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  delay: index * 0.1,
-                  duration: 0.2,
-                }}
+              <Button
                 key={index}
-                className="w-full"
+                variant={tab === id ? 'default' : 'ghost'}
+                size="lg"
+                asChild
               >
-                <Button
-                  variant={tab === id ? 'default' : 'ghost'}
-                  size="lg"
-                  asChild
-                  className="w-full"
-                >
-                  <Link href={`#${id}`} onClick={(e) => onClick(e, id)}>
-                    {label}
-                  </Link>
-                </Button>
-              </motion.div>
+                <Link href={`#${id}`} onClick={(e) => onClick(e, id)}>
+                  {label}
+                </Link>
+              </Button>
             ))}
           </div>
         </SheetContent>

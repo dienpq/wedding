@@ -91,6 +91,7 @@ export const BrideAndGroom = () => {
                   alt={name}
                   width={bank.qrCode.width}
                   height={bank.qrCode.height}
+                  priority
                 />
               </div>
             </motion.div>
@@ -118,6 +119,7 @@ export const BrideAndGroom = () => {
                       alt={name}
                       width={image.width}
                       height={image.height}
+                      priority
                       className="gride-and-groom-animate h-full w-full object-cover"
                     />
                     <div className="absolute left-1/2 top-1/2 aspect-square w-[calc(100%-1.5rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border sm:w-[calc(100%-3rem)]" />

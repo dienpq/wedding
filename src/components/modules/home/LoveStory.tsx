@@ -29,6 +29,7 @@ const data = [
           alt="Shape"
           width={ShapeLeft.width}
           height={ShapeLeft.height}
+          priority
           className="w-56"
         />
       </div>
@@ -45,6 +46,7 @@ const data = [
           alt="Shape"
           width={ShapeRight.width}
           height={ShapeRight.height}
+          priority
           className="w-56"
         />
       </div>
@@ -61,6 +63,7 @@ const data = [
           alt="Shape"
           width={ShapeLeft.width}
           height={ShapeLeft.height}
+          priority
           className="w-56"
         />
       </div>
@@ -134,6 +137,7 @@ export const LoveStory = () => {
                   alt={title}
                   width={image.width}
                   height={image.height}
+                  priority
                   className="h-full w-full overflow-hidden rounded-full object-cover"
                 />
                 <div className="absolute left-1/2 top-1/2 size-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border" />

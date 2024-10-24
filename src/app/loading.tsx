@@ -10,6 +10,7 @@ export default function Loading() {
         alt="Preloader"
         height={PreLoader.height}
         width={PreLoader.width}
+        priority
       />
     </div>
   );
