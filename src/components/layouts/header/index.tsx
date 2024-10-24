@@ -82,7 +82,7 @@ export const Header = () => {
         className={cn(
           'z-30 flex lg:justify-between',
           activeSub &&
-            'fixed -top-52 left-0 z-30 h-20 w-full bg-background py-2 shadow-md duration-500 md:h-32',
+            'fixed -top-52 left-0 z-30 h-20 w-full overflow-hidden bg-background py-2 shadow-md duration-500 md:h-32',
           active && 'translate-y-52',
         )}
       >

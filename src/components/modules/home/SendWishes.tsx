@@ -290,9 +290,7 @@ export const SendWishes = () => {
           </motion.div>
         )}
       </div>
-      {/* {true && ( */}
       <DialogNotification open={open} setOpen={setOpen} data={notification} />
-      {/* )} */}
     </section>
   );
 };
