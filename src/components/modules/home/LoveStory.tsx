@@ -10,6 +10,9 @@ import { cn } from '@/lib/utils';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
+import LoveHistory1 from '/public/images/home/love-history/1.jpg';
+import LoveHistory2 from '/public/images/home/love-history/2.jpg';
+import LoveHistory3 from '/public/images/home/love-history/3.jpg';
 import ShapeLeft from '/public/images/home/love-history/shape-left.png';
 import ShapeRight from '/public/images/home/love-history/shape-right.png';
 
@@ -18,7 +21,7 @@ const data = [
     title: 'How we meet',
     description:
       'Under the sparkling lights of the Christmas tree, we circled the streets hand in hand. The atmosphere of warmth and happiness spread in every moment, making our first Christmas outing together a romantic memory and memorable forever.',
-    image: '/images/home/love-history/1.jpg',
+    image: LoveHistory1,
     shade: (
       <div className="absolute -left-14 -top-14">
         <Image
@@ -34,7 +37,7 @@ const data = [
   {
     title: 'I proposed, She said Yes',
     description: 'It’s is secret.',
-    image: '/images/home/love-history/2.jpg',
+    image: LoveHistory2,
     shade: (
       <div className="absolute -right-16 -top-16">
         <Image
@@ -50,7 +53,7 @@ const data = [
   {
     title: 'Our Engagement Day',
     description: 'To be released after the lovely wedding on 22 October, 2023.',
-    image: '/images/home/love-history/3.jpg',
+    image: LoveHistory3,
     shade: (
       <div className="absolute -left-24 -top-16">
         <Image
@@ -98,7 +101,7 @@ export const LoveStory = () => {
                 opacity: 1,
               }}
               transition={{
-                duration: 0.25,
+                duration: 0.5,
               }}
               viewport={{ once: true }}
               className="absolute left-1/2 top-1/2 z-[1] hidden size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-beige-rose bg-white md:flex"
@@ -121,16 +124,17 @@ export const LoveStory = () => {
                   scale: 1,
                 }}
                 transition={{
-                  delay: 0.25,
+                  delay: 0.5,
                   duration: 0.75,
                 }}
                 viewport={{ once: true }}
                 className="relative aspect-square w-full max-w-[280px] lg:max-w-[300px]"
               >
                 <Image
-                  src={image}
+                  src={image.src}
                   alt={title}
-                  fill
+                  width={image.width}
+                  height={image.height}
                   className="h-full w-full overflow-hidden rounded-full object-cover"
                 />
                 <div className="absolute left-1/2 top-1/2 size-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border" />
@@ -166,9 +170,45 @@ export const LoveStory = () => {
           </div>
         ))}
         {/* ----- */}
-        <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 rounded bg-beige-rose md:block" />
-        <div className="absolute left-1/2 top-0 hidden size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white md:block" />
-        <div className="absolute bottom-0 left-1/2 hidden size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white md:block" />
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.25,
+          }}
+          viewport={{ once: true }}
+          className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 rounded bg-beige-rose md:block"
+        />
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.25,
+          }}
+          viewport={{ once: true }}
+          className="absolute left-1/2 top-0 hidden size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white md:block"
+        />
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.25,
+          }}
+          viewport={{ once: true }}
+          className="absolute bottom-0 left-1/2 hidden size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white md:block"
+        />
       </div>
     </section>
   );

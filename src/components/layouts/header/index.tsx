@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
-import { AspectRatio } from '@/components/ui';
 import { useResizeObserver } from '@/hooks';
 import { cn } from '@/lib/utils';
 
@@ -81,25 +80,22 @@ export const Header = () => {
           viewport={{ once: true }}
           className="hidden w-40 lg:block"
         >
-          <AspectRatio ratio={ShadeLeft.width / ShadeLeft.height}>
-            <Image
-              src={ShadeLeft.src}
-              alt="Wedding Shade Left"
-              className="object-cover"
-              fill
-            />
-          </AspectRatio>
+          <Image
+            src={ShadeLeft.src}
+            alt="Wedding Shade Left"
+            width={ShadeLeft.width}
+            height={ShadeLeft.height}
+          />
         </motion.div>
         <div className="flex h-full w-full items-center justify-between px-5 sm:px-10 md:flex-col">
           <Link href="/" className="w-52 md:w-64">
-            <AspectRatio ratio={Logo.width / Logo.height}>
-              <Image
-                src={Logo.src}
-                alt="Wedding Logo"
-                className="object-cover"
-                fill
-              />
-            </AspectRatio>
+            <Image
+              src={Logo.src}
+              alt="Wedding Logo"
+              className="object-cover"
+              width={Logo.width}
+              height={Logo.height}
+            />
           </Link>
           <Navigation />
         </div>
@@ -120,14 +116,12 @@ export const Header = () => {
           viewport={{ once: true }}
           className="z-10 hidden w-40 lg:block"
         >
-          <AspectRatio ratio={ShadeRight.width / ShadeRight.height}>
-            <Image
-              src={ShadeRight.src}
-              alt="Wedding Shade Left"
-              className="object-cover"
-              fill
-            />
-          </AspectRatio>
+          <Image
+            src={ShadeRight.src}
+            alt="Wedding Shade Left"
+            width={ShadeRight.width}
+            height={ShadeRight.height}
+          />
         </motion.div>
       </div>
     </header>

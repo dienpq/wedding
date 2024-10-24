@@ -1,14 +1,15 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { MenuIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import {
-  AspectRatio,
   Button,
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -104,30 +105,47 @@ export const Navigation = () => {
         </SheetTrigger>
         <SheetContent side="left">
           <Link href="/" className="w-full">
-            <AspectRatio ratio={Logo.width / Logo.height}>
-              <Image
-                src={Logo.src}
-                alt="Wedding Logo"
-                className="rounded-md object-cover"
-                fill
-              />
-            </AspectRatio>
+            <Image
+              src={Logo.src}
+              alt="Wedding Logo"
+              className="rounded-md object-cover"
+              width={Logo.width}
+              height={Logo.height}
+            />
           </Link>
           <SheetHeader className="mt-1.5 items-center">
             <SheetTitle>Phan Điện ❤️ Vũ Anh</SheetTitle>
+            <SheetDescription />
           </SheetHeader>
-          <div className="mt-6 flex flex-col">
+          <div className="mt-2 flex flex-col">
             {links.map(({ label, id }, index) => (
-              <Button
-                variant={tab === id ? 'default' : 'ghost'}
-                size="lg"
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: -20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.2,
+                }}
                 key={index}
-                asChild
+                className="w-full"
               >
-                <Link href={`#${id}`} onClick={(e) => handleClick(e, id)}>
-                  {label}
-                </Link>
-              </Button>
+                <Button
+                  variant={tab === id ? 'default' : 'ghost'}
+                  size="lg"
+                  asChild
+                  className="w-full"
+                >
+                  <Link href={`#${id}`} onClick={(e) => handleClick(e, id)}>
+                    {label}
+                  </Link>
+                </Button>
+              </motion.div>
             ))}
           </div>
         </SheetContent>

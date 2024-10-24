@@ -7,6 +7,13 @@ import { useDevices, useIsomorphicLayoutEffect } from '@/hooks';
 
 import { Footer } from './footer';
 import { Header } from './header';
+import Snow1 from '/public/images/snow/1.png';
+import Snow2 from '/public/images/snow/2.png';
+import Snow3 from '/public/images/snow/3.png';
+import Snow4 from '/public/images/snow/4.png';
+import Snow5 from '/public/images/snow/5.png';
+import Snow6 from '/public/images/snow/6.png';
+import Snow7 from '/public/images/snow/7.png';
 
 interface LayoutProps {
   children?: ReactNode;
@@ -18,19 +25,17 @@ export const Layout = ({ children }: LayoutProps) => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
 
   useIsomorphicLayoutEffect(() => {
-    const loadedImages = [
-      '/images/snow/1.png',
-      '/images/snow/2.png',
-      '/images/snow/3.png',
-      '/images/snow/4.png',
-      '/images/snow/5.png',
-      '/images/snow/6.png',
-      '/images/snow/7.png',
-    ].map((imgSrc) => {
-      const img = document.createElement('img');
-      img.src = imgSrc;
-      return img;
-    });
+    const loadedImages = [Snow1, Snow2, Snow3, Snow4, Snow5, Snow6, Snow7].map(
+      (image, index) => {
+        const img = document.createElement('img');
+        img.src = image.src;
+        img.width = image.width;
+        img.height = image.height;
+        img.alt = `Snow ${index}`;
+
+        return img;
+      },
+    );
     setImages(loadedImages);
   }, []);
 

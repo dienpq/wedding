@@ -78,22 +78,13 @@ const config: Config = {
   plugins: [
     require('tailwindcss-animate'),
     function ({ matchUtilities }: { matchUtilities: any }) {
-      matchUtilities(
-        {
-          'bg-image': (value: string) => ({
-            backgroundImage: `url(${value})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }),
-        },
-        {
-          values: {
-            // custom1: '/images/bg1.jpg',
-            // custom2: '/images/bg2.jpg',
-            // custom3: '/images/bg3.jpg',
-          },
-        },
-      );
+      matchUtilities({
+        'bg-image': (value: string) => ({
+          backgroundImage: `url(${value})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }),
+      });
     },
   ],
 };

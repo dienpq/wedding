@@ -8,6 +8,8 @@ import { useElementVisibility } from '@/hooks';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
+import BgVideo from '/public/images/home/video/bg.jpg';
+
 export const VideoWedding = () => {
   const dispatch = useAppDispatch();
   const [open, setOpen] = useState<number>(0);
@@ -42,9 +44,10 @@ export const VideoWedding = () => {
       >
         <div className="relative aspect-video w-full overflow-hidden rounded-lg sm:aspect-[2/1] md:aspect-[5/2] lg:aspect-[9/4] xl:aspect-[3/1]">
           <Image
-            src="/images/home/video/bg.jpg"
+            src={BgVideo.src}
             alt="Video"
-            fill
+            width={BgVideo.width}
+            height={BgVideo.height}
             className="h-full w-full object-cover"
           />
         </div>

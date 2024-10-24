@@ -21,23 +21,27 @@ import { cn } from '@/lib/utils';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
+import Event1 from '/public/images/home/event/1.jpg';
+import Event2 from '/public/images/home/event/2.jpg';
+import Event3 from '/public/images/home/event/3.jpg';
+
 const data = [
   {
-    image: '/images/home/event/1.jpg',
+    image: Event1,
     title: 'Lễ Ăn Hỏi',
     time: '10:00 AM - Thứ 5, 26/12/2024',
     address: 'Xóm Mỹ Hoá, Xã Kim Mỹ, Huyện Kim Sơn,Tỉnh Ninh Bình',
     map: 'https://maps.app.goo.gl/yXFpFY4uQTVUnUsu9',
   },
   {
-    image: '/images/home/event/2.jpg',
+    image: Event2,
     title: 'Tiệc Cưới Nhà Gái',
     time: '16:30 AM - Thứ 6, 27/12/2024',
     address: 'Xóm Mỹ Hoá, Xã Kim Mỹ, Huyện Kim Sơn,Tỉnh Ninh Bình',
     map: 'https://maps.app.goo.gl/yXFpFY4uQTVUnUsu9',
   },
   {
-    image: '/images/home/event/3.jpg',
+    image: Event3,
     title: 'Lễ Thành Hôn',
     time: '10:00 AM - Thứ 7, 28/12/2024',
     address: 'Xóm 7C, Xã Cồn Thoi, Huyện Kim Sơn, Tỉnh Ninh Bình',
@@ -79,9 +83,10 @@ export const Event = () => {
                 className="relative aspect-[4/6] w-full"
               >
                 <Image
-                  src={image}
+                  src={image.src}
                   alt={title}
-                  fill
+                  width={image.width}
+                  height={image.height}
                   className="h-full w-full object-cover"
                 />
               </motion.div>

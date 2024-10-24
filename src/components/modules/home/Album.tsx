@@ -56,7 +56,8 @@ export const Album = () => {
             <Image
               src={image.src}
               alt={`Wedding ${index + 1}`}
-              fill
+              width={image.width}
+              height={image.height}
               className="h-full w-full object-cover"
             />
           </motion.div>

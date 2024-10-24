@@ -8,6 +8,8 @@ import { cn } from '@/lib/utils';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
+import Bride from '/public/images/home/bride-and-groom/bride.png';
+import Groom from '/public/images/home/bride-and-groom/groom.png';
 import QRBride from '/public/images/home/bride-and-groom/qr-bride.jpg';
 import QRGroom from '/public/images/home/bride-and-groom/qr-groom.jpg';
 
@@ -42,10 +44,7 @@ export const BrideAndGroom = () => {
     },
   ];
 
-  const images = [
-    '/images/home/bride-and-groom/bride.png',
-    '/images/home/bride-and-groom/groom.png',
-  ];
+  const images = [Bride, Groom];
 
   return (
     <section id="brideAndGroom" ref={ref} className="container">
@@ -115,9 +114,10 @@ export const BrideAndGroom = () => {
                     className="relative aspect-square w-full overflow-hidden rounded-full"
                   >
                     <Image
-                      src={image}
+                      src={image.src}
                       alt={name}
-                      fill
+                      width={image.width}
+                      height={image.height}
                       className="gride-and-groom-animate h-full w-full object-cover"
                     />
                     <div className="absolute left-1/2 top-1/2 aspect-square w-[calc(100%-1.5rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border sm:w-[calc(100%-3rem)]" />

@@ -7,6 +7,9 @@ import { useCountdown, useElementVisibility } from '@/hooks';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
 
+import Couple from '/public/images/home/save-the-date/1.jpg';
+import HeroFlower from '/public/images/home/save-the-date/hero-flower.png';
+
 export const SaveTheDate = () => {
   const dispatch = useAppDispatch();
   const { days, hours, minutes, seconds } = useCountdown('2024-12-28T10:00:00');
@@ -50,9 +53,11 @@ export const SaveTheDate = () => {
             <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 overflow-hidden">
               <div className="hero-flower-animate relative aspect-square w-full">
                 <Image
-                  src="/images/home/save-the-date/hero-flower.png"
+                  src={HeroFlower.src}
                   alt="Hero flower"
-                  fill
+                  width={HeroFlower.width}
+                  height={HeroFlower.height}
+                  priority
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -117,9 +122,10 @@ export const SaveTheDate = () => {
           <div className="relative h-full w-full">
             <div className="relative aspect-[3/4] h-full w-full xl:aspect-auto">
               <Image
-                src="/images/home/save-the-date/1.jpg"
-                alt="Hero flower"
-                fill
+                src={Couple.src}
+                alt="Couple"
+                width={Couple.width}
+                height={Couple.height}
                 className="h-full w-full object-cover"
               />
             </div>
