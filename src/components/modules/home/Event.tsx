@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -64,36 +65,66 @@ export const Event = () => {
         {data.map(({ image, time, title, address, map }, index) => (
           <div key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
             <div className="relative overflow-hidden rounded-xl p-4">
-              <div className="relative aspect-[4/6] w-full">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                }}
+                whileInView={{
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.75,
+                }}
+                viewport={{ once: true }}
+                className="relative aspect-[4/6] w-full"
+              >
                 <Image
                   src={image}
                   alt={title}
                   fill
                   className="h-full w-full object-cover"
                 />
-              </div>
-              <Card className="absolute bottom-8 left-8 w-[calc(100%-4rem)] px-0 xl:px-8">
-                <CardHeader className="text-center">
-                  <CardTitle
-                    className={cn(typographyVariants({ variant: 'h6' }))}
-                  >
-                    {title}
-                  </CardTitle>
-                  <CardDescription className="font-medium">
-                    {time}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Typography className="text-center">{address}</Typography>
-                </CardContent>
-                <CardFooter className="justify-center">
-                  <Button variant="outline" size="lg" asChild>
-                    <Link href={map} target="_blank">
-                      Xem bản đồ <ArrowRightIcon className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
+              </motion.div>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale: 0.8,
+                  y: 30,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.75,
+                }}
+                viewport={{ once: true }}
+                className="absolute bottom-8 left-8 w-[calc(100%-4rem)]"
+              >
+                <Card>
+                  <CardHeader className="text-center">
+                    <CardTitle
+                      className={cn(typographyVariants({ variant: 'h6' }))}
+                    >
+                      {title}
+                    </CardTitle>
+                    <CardDescription className="font-medium">
+                      {time}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Typography className="text-center">{address}</Typography>
+                  </CardContent>
+                  <CardFooter className="justify-center">
+                    <Button variant="outline" size="lg" asChild>
+                      <Link href={map} target="_blank">
+                        Xem bản đồ <ArrowRightIcon className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
             </div>
           </div>
         ))}

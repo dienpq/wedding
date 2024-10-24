@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -33,8 +34,20 @@ export const Album = () => {
     <section id="album" ref={ref} className="container">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:gap-8">
         {data.map((image, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{
+              opacity: 0,
+              scale: 0.8,
+            }}
+            whileInView={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.75,
+            }}
+            viewport={{ once: true }}
             className="relative aspect-[3/4] w-full"
             onClick={() => {
               setOpen(index + 1);
@@ -46,7 +59,7 @@ export const Album = () => {
               fill
               className="h-full w-full object-cover"
             />
-          </div>
+          </motion.div>
         ))}
       </div>
       <DialogPreviewImage open={open} setOpen={setOpen} data={data} />

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect } from 'react';
 
@@ -18,6 +19,8 @@ export const SaveTheDate = () => {
     }
   }, [dispatch, isVisible]);
 
+  const description = 'We Are Getting Married December 28, 2024';
+
   return (
     <section
       id="saveTheDate"
@@ -29,7 +32,21 @@ export const SaveTheDate = () => {
     >
       <div className="flex h-full w-full flex-col xl:flex-row xl:pl-[8%]">
         <div className="flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-5 pb-20 sm:px-10">
-          <div className="relative flex aspect-square w-full items-center justify-center sm:max-w-[400px] 2xl:max-w-[500px]">
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0.5,
+            }}
+            whileInView={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.75,
+            }}
+            viewport={{ once: true }}
+            className="relative flex aspect-square w-full items-center justify-center sm:max-w-[400px] 2xl:max-w-[500px]"
+          >
             <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 overflow-hidden">
               <div className="hero-flower-animate relative aspect-square w-full">
                 <Image
@@ -50,14 +67,49 @@ export const SaveTheDate = () => {
               </Typography>
               Date
             </Typography>
-          </div>
+          </motion.div>
 
           <div className="space-y-4 text-center sm:scale-75 2xl:scale-100">
-            <Typography variant="h3" className="font-jost text-beige-rose">
-              Phan Điện ❤️ Vũ Anh
+            <Typography
+              variant="h3"
+              className="font-jost text-beige-rose"
+              asChild
+            >
+              <motion.h3
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+                viewport={{ once: true }}
+              >
+                Phan Điện ❤️ Vũ Anh
+              </motion.h3>
             </Typography>
             <Typography variant="h6" className="text-steel-gray">
-              We Are Getting Married December 28,2024
+              {description.split('').map((word, index) => (
+                <motion.span
+                  key={index}
+                  initial={{
+                    opacity: 0,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                  }}
+                  transition={{
+                    delay: (index + 1) * 0.1,
+                    duration: 0,
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
             </Typography>
           </div>
         </div>
@@ -71,31 +123,47 @@ export const SaveTheDate = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute inset-x-4 bottom-4 flex w-[calc(100%-2rem)] justify-between bg-primary/50 px-4 py-4 text-white sm:inset-x-8 sm:bottom-8 sm:w-[calc(100%-4rem)] sm:gap-x-10 sm:px-10 sm:py-5 xl:px-16">
-              <div className="text-center">
-                <Typography variant="h3" className="font-sail">
-                  {days}
-                </Typography>
-                <Typography variant="h6">Days</Typography>
-              </div>
-              <div className="text-center">
-                <Typography variant="h3" className="font-sail">
-                  {hours}
-                </Typography>
-                <Typography variant="h6">Hours</Typography>
-              </div>
-              <div className="text-center">
-                <Typography variant="h3" className="font-sail">
-                  {minutes}
-                </Typography>
-                <Typography variant="h6">Mins</Typography>
-              </div>
-              <div className="text-center">
-                <Typography variant="h3" className="font-sail">
-                  {seconds}
-                </Typography>
-                <Typography variant="h6">Secs</Typography>
-              </div>
+            <div className="absolute inset-x-4 bottom-4 w-[calc(100%-2rem)] sm:inset-x-8 sm:bottom-8 sm:w-[calc(100%-4rem)]">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 10,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+                viewport={{ once: true }}
+                className="flex justify-between bg-primary/50 px-4 py-4 text-white sm:gap-x-10 sm:px-10 sm:py-5 xl:px-16"
+              >
+                <div className="text-center">
+                  <Typography variant="h3" className="font-sail">
+                    {days}
+                  </Typography>
+                  <Typography variant="h6">Days</Typography>
+                </div>
+                <div className="text-center">
+                  <Typography variant="h3" className="font-sail">
+                    {hours}
+                  </Typography>
+                  <Typography variant="h6">Hours</Typography>
+                </div>
+                <div className="text-center">
+                  <Typography variant="h3" className="font-sail">
+                    {minutes}
+                  </Typography>
+                  <Typography variant="h6">Mins</Typography>
+                </div>
+                <div className="text-center">
+                  <Typography variant="h3" className="font-sail">
+                    {seconds}
+                  </Typography>
+                  <Typography variant="h6">Secs</Typography>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

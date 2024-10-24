@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { HeartIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect } from 'react';
@@ -89,16 +90,43 @@ export const LoveStory = () => {
               index % 2 !== 0 && 'md:flex-row-reverse',
             )}
           >
-            <div className="absolute left-1/2 top-1/2 z-[1] hidden size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-beige-rose bg-white md:flex">
+            <motion.div
+              initial={{
+                opacity: 0,
+              }}
+              whileInView={{
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+              viewport={{ once: true }}
+              className="absolute left-1/2 top-1/2 z-[1] hidden size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-beige-rose bg-white md:flex"
+            >
               <HeartIcon className="text-beige-rose" />
-            </div>
+            </motion.div>
             <div
               className={cn(
                 'flex w-full flex-1 justify-center md:justify-end',
                 index % 2 !== 0 && 'md:justify-start',
               )}
             >
-              <div className="relative aspect-square w-full max-w-[280px] lg:max-w-[300px]">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale: 0.5,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                transition={{
+                  delay: 0.25,
+                  duration: 0.75,
+                }}
+                viewport={{ once: true }}
+                className="relative aspect-square w-full max-w-[280px] lg:max-w-[300px]"
+              >
                 <Image
                   src={image}
                   alt={title}
@@ -107,11 +135,24 @@ export const LoveStory = () => {
                 />
                 <div className="absolute left-1/2 top-1/2 size-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border" />
                 {shade}
-              </div>
+              </motion.div>
             </div>
-            <div
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: index % 2 !== 0 ? 30 : -30,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              transition={{
+                delay: 0.75,
+                duration: 0.75,
+              }}
+              viewport={{ once: true }}
               className={cn(
-                'w-full flex-1 space-y-4 bg-secondary px-16 py-10 text-center md:bg-transparent md:px-0 md:py-0 md:text-left',
+                'w-full flex-1 space-y-4 bg-secondary px-8 py-8 text-center sm:px-16 sm:py-10 md:bg-transparent md:px-0 md:py-0 md:text-left',
                 index % 2 !== 0 && 'md:text-right',
               )}
             >
@@ -121,7 +162,7 @@ export const LoveStory = () => {
               <Typography variant="sub" className="text-steel-gray">
                 {description}
               </Typography>
-            </div>
+            </motion.div>
           </div>
         ))}
         {/* ----- */}

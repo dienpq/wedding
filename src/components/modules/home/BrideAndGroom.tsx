@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Fragment, useEffect } from 'react';
 
@@ -51,7 +52,20 @@ export const BrideAndGroom = () => {
       <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
         {data.map(({ bank, label, name }, index) => (
           <Fragment key={index}>
-            <div
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: index === 0 ? -30 : 30,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              transition={{
+                duration: 0.5,
+                delay: 0.5,
+              }}
+              viewport={{ once: true }}
               className={cn(
                 'text-center lg:text-left',
                 index === 0 && 'lg:text-right',
@@ -80,12 +94,24 @@ export const BrideAndGroom = () => {
                   height={bank.qrCode.height}
                 />
               </div>
-            </div>
+            </motion.div>
             {index === 0 && (
               <div className="flex w-full max-w-[600px] flex-1 -space-x-8 sm:-space-x-14 xl:max-w-[800px]">
                 {images.map((image, subIndex) => (
-                  <div
+                  <motion.div
                     key={subIndex}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.5,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    transition={{
+                      duration: 0.75,
+                    }}
+                    viewport={{ once: true }}
                     className="relative aspect-square w-full overflow-hidden rounded-full"
                   >
                     <Image
@@ -95,13 +121,10 @@ export const BrideAndGroom = () => {
                       className="gride-and-groom-animate h-full w-full object-cover"
                     />
                     <div className="absolute left-1/2 top-1/2 aspect-square w-[calc(100%-1.5rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border sm:w-[calc(100%-3rem)]" />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             )}
-            {/* <div className="w-full max-w-[300px] sm:max-w-full lg:max-w-[380px]">
-              
-            </div> */}
           </Fragment>
         ))}
       </div>

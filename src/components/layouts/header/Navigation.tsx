@@ -15,8 +15,7 @@ import {
 } from '@/components/ui';
 import { useDevices } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { setTab } from '@/redux/features/configurationSlice';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { useAppSelector } from '@/redux/hooks';
 import { TabType } from '@/types';
 
 import Logo from '/public/images/logo.png';
@@ -50,7 +49,6 @@ const links: { label: string; id: TabType }[] = [
 
 export const Navigation = () => {
   const { isMedium } = useDevices();
-  const dispatch = useAppDispatch();
 
   const tab = useAppSelector((state) => state.configuration.tab);
 
@@ -59,7 +57,6 @@ export const Navigation = () => {
     id: TabType,
   ) => {
     e.preventDefault();
-    dispatch(setTab(id));
 
     const targetElement = document.getElementById(id);
 
@@ -70,7 +67,7 @@ export const Navigation = () => {
 
       window.scrollTo({
         top: yPosition,
-        // behavior: 'smooth',
+        behavior: 'smooth',
       });
     }
   };

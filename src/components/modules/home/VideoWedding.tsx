@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { PlayIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -23,7 +24,17 @@ export const VideoWedding = () => {
 
   return (
     <section id="videoWedding" ref={ref} className="container-lg">
-      <div
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        whileInView={{
+          opacity: 1,
+        }}
+        transition={{
+          duration: 1.5,
+        }}
+        viewport={{ once: true }}
         className="relative rounded-xl p-5 sm:p-6 lg:p-10"
         style={{
           boxShadow: '0px 2px 8px 0px rgba(0, 0, 0, 0.1)',
@@ -43,7 +54,7 @@ export const VideoWedding = () => {
         >
           <PlayIcon className="size-6 stroke-[1.5] text-white sm:size-8 xl:size-12" />
         </button>
-      </div>
+      </motion.div>
       <DialogPreviewImage
         open={open}
         setOpen={setOpen}

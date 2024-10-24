@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -26,7 +27,11 @@ import {
   Textarea,
   typographyVariants,
 } from '@/components/ui';
-import { useElementVisibility } from '@/hooks';
+import {
+  useDevices,
+  useElementVisibility,
+  useIsomorphicLayoutEffect,
+} from '@/hooks';
 import { cn } from '@/lib/utils';
 import { setTab } from '@/redux/features/configurationSlice';
 import { useAppDispatch } from '@/redux/hooks';
@@ -44,6 +49,9 @@ const FormSchema = z.object({
 });
 
 export const SendWishes = () => {
+  const { isLarge } = useDevices();
+  const [isClient, setClient] = useState<boolean>(false);
+
   const dispatch = useAppDispatch();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -66,6 +74,10 @@ export const SendWishes = () => {
     }
   }, [dispatch, isVisible]);
 
+  useIsomorphicLayoutEffect(() => {
+    setClient(true);
+  }, []);
+
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const onSubmit = (data: z.infer<typeof FormSchema>) => {};
 
@@ -73,134 +85,159 @@ export const SendWishes = () => {
     <section
       id="sendWishes"
       ref={ref}
-      className="bg-image-['/images/home/send-wishes/bg.jpg']"
+      className="h-[592px] bg-image-['/images/home/send-wishes/bg.jpg'] sm:h-[688px] md:h-[692px]"
     >
       <div className="container-full py-5 sm:py-10">
-        <Card className="mx-auto max-w-[550px] p-2 sm:p-8 lg:mx-0">
-          <CardHeader>
-            <CardTitle
-              className={cn(
-                'text-center font-normal uppercase text-beige-rose',
-                typographyVariants({ variant: 'h6' }),
-              )}
-            >
-              Bạn sẽ tham dự chứ?
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="mt-0">
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-4 bg-white sm:space-y-6"
-              >
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input placeholder="Tên" {...field} />
-                      </FormControl>
-                    </FormItem>
+        {isClient && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: isLarge ? 1 : 0.75,
+              x: isLarge ? -40 : 0,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.75,
+            }}
+            viewport={{ once: true }}
+          >
+            <Card className="mx-auto max-w-[550px] p-2 sm:p-8 lg:mx-0">
+              <CardHeader>
+                <CardTitle
+                  className={cn(
+                    'text-center font-normal uppercase text-beige-rose',
+                    typographyVariants({ variant: 'h6' }),
                   )}
-                />
-                <FormField
-                  control={form.control}
-                  name="relation"
-                  render={({ field }) => (
-                    <FormItem>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Quan hệ" {...field} />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="Người thân">Người thân</SelectItem>
-                          <SelectItem value="Bạn bè">Bạn bè</SelectItem>
-                          <SelectItem value="Hàng xóm">Hàng xóm</SelectItem>
-                          <SelectItem value="Đồng nghiệp">
-                            Đồng nghiệp
-                          </SelectItem>
-                          <SelectItem value="Xã hội">Xã hội</SelectItem>
-                          <SelectItem value="Khác">Khác</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="confirm"
-                  render={({ field }) => (
-                    <FormItem className="space-y-3">
-                      <FormControl>
-                        <RadioGroup
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          className="flex flex-col gap-y-4 md:flex-row md:gap-x-8 md:gap-y-0"
-                        >
-                          <FormItem className="flex items-center space-x-3 space-y-0">
+                >
+                  Bạn sẽ tham dự chứ?
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="mt-0">
+                <Form {...form}>
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-4 bg-white sm:space-y-6"
+                  >
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input placeholder="Tên" {...field} />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="relation"
+                      render={({ field }) => (
+                        <FormItem>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
                             <FormControl>
-                              <RadioGroupItem value="yes" />
+                              <SelectTrigger>
+                                <SelectValue placeholder="Quan hệ" {...field} />
+                              </SelectTrigger>
                             </FormControl>
-                            <FormLabel className="font-normal">
-                              Đúng, tôi tham gia
-                            </FormLabel>
-                          </FormItem>
-                          <FormItem className="flex items-center space-x-3 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value="no" />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              Xin lỗi, tôi không thể đến
-                            </FormLabel>
-                          </FormItem>
-                        </RadioGroup>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="amount"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input
-                          type="number"
-                          placeholder="Số người tham dự"
-                          {...field}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="content"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Textarea rows={4} placeholder="Lời chúc" {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                <div className="flex items-center justify-center">
-                  <Button type="submit" size="lg" className="h-12 w-full">
-                    Gửi lời chúc
-                  </Button>
-                </div>
-              </form>
-            </Form>
-          </CardContent>
-        </Card>
+                            <SelectContent>
+                              <SelectItem value="Người thân">
+                                Người thân
+                              </SelectItem>
+                              <SelectItem value="Bạn bè">Bạn bè</SelectItem>
+                              <SelectItem value="Hàng xóm">Hàng xóm</SelectItem>
+                              <SelectItem value="Đồng nghiệp">
+                                Đồng nghiệp
+                              </SelectItem>
+                              <SelectItem value="Xã hội">Xã hội</SelectItem>
+                              <SelectItem value="Khác">Khác</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="confirm"
+                      render={({ field }) => (
+                        <FormItem className="space-y-3">
+                          <FormControl>
+                            <RadioGroup
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                              className="flex flex-col gap-y-4 md:flex-row md:gap-x-8 md:gap-y-0"
+                            >
+                              <FormItem className="flex items-center space-x-3 space-y-0">
+                                <FormControl>
+                                  <RadioGroupItem value="yes" />
+                                </FormControl>
+                                <FormLabel className="font-normal">
+                                  Đúng, tôi tham gia
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className="flex items-center space-x-3 space-y-0">
+                                <FormControl>
+                                  <RadioGroupItem value="no" />
+                                </FormControl>
+                                <FormLabel className="font-normal">
+                                  Xin lỗi, tôi không thể đến
+                                </FormLabel>
+                              </FormItem>
+                            </RadioGroup>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="amount"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input
+                              type="number"
+                              placeholder="Số người tham dự"
+                              {...field}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="content"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Textarea
+                              rows={4}
+                              placeholder="Lời chúc"
+                              {...field}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    <div className="flex items-center justify-center">
+                      <Button type="submit" size="lg" className="h-12 w-full">
+                        Gửi lời chúc
+                      </Button>
+                    </div>
+                  </form>
+                </Form>
+              </CardContent>
+            </Card>
+          </motion.div>
+        )}
       </div>
     </section>
   );
