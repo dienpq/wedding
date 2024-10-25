@@ -33,8 +33,6 @@ export const Home = () => {
         img.width = image.width;
         img.height = image.height;
         img.alt = `Snow ${index}`;
-        img.fetchPriority = 'high';
-        img.decoding = 'async';
 
         return img;
       },
