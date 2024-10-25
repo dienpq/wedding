@@ -94,6 +94,7 @@ export const SaveTheDate = () => {
                     delay: (index + 1) * 0.1,
                     duration: 0.2,
                   }}
+                  viewport={{ once: true }}
                 >
                   {word}
                 </motion.span>

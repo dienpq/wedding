@@ -92,7 +92,6 @@ export const Navigation = () => {
     id: TabType,
   ) => {
     e.preventDefault();
-    setTab(id);
 
     const targetElement = document.getElementById(id);
 
