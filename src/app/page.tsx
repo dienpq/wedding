@@ -11,10 +11,9 @@ import Loading from './loading';
 export default function HomePage() {
   const [loading, setLoading] = useState<boolean>(true);
   useIsomorphicLayoutEffect(() => {
-    // setTimeout(() => {
-    //   setLoading(false);
-    // }, 2000);
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   }, []);
 
   return !loading ? (
