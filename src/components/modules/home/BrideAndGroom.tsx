@@ -86,13 +86,7 @@ export const BrideAndGroom = () => {
                 STK: {bank.accout}
               </Typography>
               <div className="mt-4 aspect-square w-full max-w-[180px] overflow-hidden sm:max-w-[210px] xl:max-w-[250px]">
-                <Image
-                  src={bank.qrCode.src}
-                  alt={name}
-                  width={bank.qrCode.width}
-                  height={bank.qrCode.height}
-                  priority
-                />
+                <Image src={bank.qrCode} alt={name} priority />
               </div>
             </motion.div>
             {index === 0 && (
@@ -115,10 +109,8 @@ export const BrideAndGroom = () => {
                     className="relative aspect-square w-full overflow-hidden rounded-full"
                   >
                     <Image
-                      src={image.src}
+                      src={image}
                       alt={name}
-                      width={image.width}
-                      height={image.height}
                       priority
                       className="gride-and-groom-animate h-full w-full object-cover"
                     />

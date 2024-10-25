@@ -80,15 +80,12 @@ export const Event = () => {
                   duration: 0.75,
                 }}
                 viewport={{ once: true }}
-                className="relative aspect-[4/6] w-full"
               >
                 <Image
-                  src={image.src}
+                  src={image}
                   alt={title}
-                  width={image.width}
-                  height={image.height}
                   priority
-                  className="h-full w-full object-cover"
+                  className="aspect-[2/3] w-full object-cover"
                 />
               </motion.div>
               <motion.div

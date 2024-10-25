@@ -44,10 +44,8 @@ export const VideoWedding = () => {
       >
         <div className="relative aspect-video w-full overflow-hidden rounded-lg sm:aspect-[2/1] md:aspect-[5/2] lg:aspect-[9/4] xl:aspect-[3/1]">
           <Image
-            src={BgVideo.src}
+            src={BgVideo}
             alt="Video"
-            width={BgVideo.width}
-            height={BgVideo.height}
             priority
             className="h-full w-full object-cover"
           />

@@ -51,8 +51,6 @@ export const Footer = () => {
           <Image
             src={ShapeLeft}
             alt="Shape"
-            width={ShapeLeft.width}
-            height={ShapeLeft.height}
             priority
             className="w-28 sm:w-36 lg:w-52"
           />
@@ -78,8 +76,6 @@ export const Footer = () => {
           <Image
             src={ShapeRight}
             alt="Shape"
-            width={ShapeRight.width}
-            height={ShapeRight.height}
             priority
             className="w-28 sm:w-36 lg:w-52"
           />

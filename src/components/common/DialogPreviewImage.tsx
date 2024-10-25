@@ -94,13 +94,7 @@ export const DialogPreviewImage = ({
                         e.stopPropagation();
                       }}
                     >
-                      <Image
-                        src={item.src}
-                        alt={`Album ${index + 1}`}
-                        width={item.width}
-                        height={item.height}
-                        priority
-                      />
+                      <Image src={item} alt={`Album ${index + 1}`} />
                     </div>
                   )}
                 {isValidElement(item) && (

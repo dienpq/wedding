@@ -82,7 +82,7 @@ export const Header = () => {
         className={cn(
           'z-30 flex lg:justify-between',
           activeSub &&
-            'fixed -top-52 left-0 z-30 h-20 w-full overflow-hidden bg-background py-2 shadow-md duration-500 md:h-32',
+            'fixed -top-52 left-0 z-30 h-20 w-full bg-background py-2 shadow-md duration-500 md:h-32',
           active && 'translate-y-52',
         )}
       >
@@ -103,13 +103,7 @@ export const Header = () => {
           viewport={{ once: true }}
           className="hidden w-40 lg:block"
         >
-          <Image
-            src={ShadeLeft.src}
-            alt="Wedding Shade Left"
-            width={ShadeLeft.width}
-            height={ShadeLeft.height}
-            priority
-          />
+          <Image src={ShadeLeft} alt="Wedding Shade Left" priority />
         </motion.div>
         <div className="flex h-full w-full items-center justify-between px-5 sm:px-10 md:flex-col">
           <Link
@@ -118,11 +112,9 @@ export const Header = () => {
             onClick={(e) => handleClick(e, 'saveTheDate')}
           >
             <Image
-              src={Logo.src}
+              src={Logo}
               alt="Wedding Logo"
               className="object-cover"
-              width={Logo.width}
-              height={Logo.height}
               priority
             />
           </Link>
@@ -145,13 +137,7 @@ export const Header = () => {
           viewport={{ once: true }}
           className="z-10 hidden w-40 lg:block"
         >
-          <Image
-            src={ShadeRight.src}
-            alt="Wedding Shade Left"
-            width={ShadeRight.width}
-            height={ShadeRight.height}
-            priority
-          />
+          <Image src={ShadeRight} alt="Wedding Shade Left" priority />
         </motion.div>
       </div>
     </header>

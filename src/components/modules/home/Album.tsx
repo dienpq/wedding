@@ -48,19 +48,11 @@ export const Album = () => {
               duration: 0.75,
             }}
             viewport={{ once: true }}
-            className="relative aspect-[3/4] w-full"
             onClick={() => {
               setOpen(index + 1);
             }}
           >
-            <Image
-              src={image.src}
-              alt={`Wedding ${index + 1}`}
-              width={image.width}
-              height={image.height}
-              priority
-              className="h-full w-full object-cover"
-            />
+            <Image src={image} alt={`Wedding ${index + 1}`} priority />
           </motion.div>
         ))}
       </div>

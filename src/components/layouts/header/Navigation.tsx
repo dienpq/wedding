@@ -95,11 +95,9 @@ export const Navigation = ({ onClick }: NavigationProps) => {
             onClick={(e) => onClick(e, 'saveTheDate')}
           >
             <Image
-              src={Logo.src}
+              src={Logo}
               alt="Wedding Logo"
               className="rounded-md object-cover"
-              width={Logo.width}
-              height={Logo.height}
               priority
             />
           </Link>

@@ -51,16 +51,12 @@ export const SaveTheDate = () => {
             className="relative flex aspect-square w-full items-center justify-center sm:max-w-[400px] 2xl:max-w-[500px]"
           >
             <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 overflow-hidden">
-              <div className="hero-flower-animate relative aspect-square w-full">
-                <Image
-                  src={HeroFlower.src}
-                  alt="Hero flower"
-                  width={HeroFlower.width}
-                  height={HeroFlower.height}
-                  priority
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <Image
+                src={HeroFlower}
+                alt="Hero flower"
+                priority
+                className="hero-flower-animate aspect-square w-full object-cover"
+              />
             </div>
             <Typography
               variant="h1"
@@ -118,18 +114,9 @@ export const SaveTheDate = () => {
             </Typography>
           </div>
         </div>
-        <div className="mx-auto w-full max-w-[500px] flex-1 px-5 sm:max-w-[600px] sm:px-10 xl:max-w-full xl:pb-10 xl:pr-10">
-          <div className="relative h-full w-full">
-            <div className="relative aspect-[3/4] h-full w-full xl:aspect-auto">
-              <Image
-                src={Couple.src}
-                alt="Couple"
-                width={Couple.width}
-                height={Couple.height}
-                priority
-                className="h-full w-full object-cover"
-              />
-            </div>
+        <div className="relative mx-auto w-full max-w-[500px] px-5 sm:max-w-[600px] sm:px-10 xl:max-w-[710px] xl:px-10 xl:pb-10 2xl:max-w-[50%]">
+          <div className="relative h-full w-full overflow-hidden">
+            <Image src={Couple} alt="Couple" priority />
             <div className="absolute inset-x-4 bottom-4 w-[calc(100%-2rem)] sm:inset-x-8 sm:bottom-8 sm:w-[calc(100%-4rem)]">
               <motion.div
                 initial={{
