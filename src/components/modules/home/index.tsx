@@ -12,13 +12,13 @@ import { LoveStory } from './LoveStory';
 import { SaveTheDate } from './SaveTheDate';
 import { SendWishes } from './SendWishes';
 import { VideoWedding } from './VideoWedding';
-import Snow1 from '/public/images/snow/1.png';
-import Snow2 from '/public/images/snow/2.png';
-import Snow3 from '/public/images/snow/3.png';
-import Snow4 from '/public/images/snow/4.png';
-import Snow5 from '/public/images/snow/5.png';
-import Snow6 from '/public/images/snow/6.png';
-import Snow7 from '/public/images/snow/7.png';
+import Snow1 from '/public/images/snow/1.webp';
+import Snow2 from '/public/images/snow/2.webp';
+import Snow3 from '/public/images/snow/3.webp';
+import Snow4 from '/public/images/snow/4.webp';
+import Snow5 from '/public/images/snow/5.webp';
+import Snow6 from '/public/images/snow/6.webp';
+import Snow7 from '/public/images/snow/7.webp';
 
 export const Home = () => {
   const { isSmall } = useDevices();
@@ -33,6 +33,8 @@ export const Home = () => {
         img.width = image.width;
         img.height = image.height;
         img.alt = `Snow ${index}`;
+        img.fetchPriority = 'high';
+        img.decoding = 'async';
 
         return img;
       },
