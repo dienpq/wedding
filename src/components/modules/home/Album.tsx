@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
+import { PlusIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
 import { DialogPreviewImage } from '@/components/common';
+import { Button } from '@/components/ui';
 
 import Image1 from '/public/images/home/album/1.jpg';
 import Image2 from '/public/images/home/album/2.jpg';
@@ -20,26 +22,35 @@ export const Album = () => {
     <section id="album" className="container">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:gap-8">
         {data.map((image, index) => (
-          <motion.div
-            key={index}
-            initial={{
-              opacity: 0,
-              scale: 0.8,
-            }}
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 0.75,
-            }}
-            className="will-change-transform-opacity"
-            onClick={() => {
-              setOpen(index + 1);
-            }}
-          >
-            <Image src={image} alt={`Wedding ${index + 1}`} priority />
-          </motion.div>
+          <div key={index} className="group relative">
+            <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.8,
+              }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.75,
+              }}
+              className="will-change-transform-opacity"
+            >
+              <Image src={image} alt={`Wedding ${index + 1}`} priority />
+            </motion.div>
+            <div>
+              <Button
+                variant="ghost"
+                className="absolute left-1/2 top-1/2 hidden size-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-none group-hover:flex group-hover:bg-accent/50"
+                onClick={() => {
+                  setOpen(index + 1);
+                }}
+              >
+                <PlusIcon className="size-10 stroke-[1.5px]" />
+              </Button>
+            </div>
+          </div>
         ))}
       </div>
       <DialogPreviewImage open={open} setOpen={setOpen} data={data} />
