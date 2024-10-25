@@ -27,14 +27,8 @@ import {
   Textarea,
   typographyVariants,
 } from '@/components/ui';
-import {
-  useDevices,
-  useElementVisibility,
-  useIsomorphicLayoutEffect,
-} from '@/hooks';
+import { useDevices, useIsomorphicLayoutEffect } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { setTab } from '@/redux/features/configurationSlice';
-import { useAppDispatch } from '@/redux/hooks';
 
 const FormSchema = z.object({
   name: z.string().min(1, {
@@ -50,7 +44,6 @@ const FormSchema = z.object({
 });
 
 export const SendWishes = () => {
-  const dispatch = useAppDispatch();
   const { isLarge } = useDevices();
   const [isClient, setClient] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
@@ -68,16 +61,6 @@ export const SendWishes = () => {
       content: '',
     },
   });
-
-  const { ref, isVisible } = useElementVisibility();
-
-  useEffect(() => {
-    if (isVisible) {
-      dispatch(setTab('sendWishes'));
-    } else {
-      dispatch(setTab('album'));
-    }
-  }, [dispatch, isVisible]);
 
   useIsomorphicLayoutEffect(() => {
     setClient(true);
@@ -131,7 +114,6 @@ export const SendWishes = () => {
   return (
     <section
       id="sendWishes"
-      ref={ref}
       className="relative h-[592px] bg-image-['/images/home/send-wishes/bg.jpg'] sm:h-[688px] md:h-[692px]"
     >
       <div className="container-full py-5 sm:py-10">

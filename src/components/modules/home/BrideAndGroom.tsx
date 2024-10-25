@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 
 import { Typography } from '@/components/ui';
-import { useElementVisibility } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { setTab } from '@/redux/features/configurationSlice';
-import { useAppDispatch } from '@/redux/hooks';
 
 import Bride from '/public/images/home/bride-and-groom/bride.png';
 import Groom from '/public/images/home/bride-and-groom/groom.png';
@@ -14,17 +11,6 @@ import QRBride from '/public/images/home/bride-and-groom/qr-bride.jpg';
 import QRGroom from '/public/images/home/bride-and-groom/qr-groom.jpg';
 
 export const BrideAndGroom = () => {
-  const dispatch = useAppDispatch();
-  const { ref, isVisible } = useElementVisibility();
-
-  useEffect(() => {
-    if (isVisible) {
-      dispatch(setTab('brideAndGroom'));
-    } else {
-      dispatch(setTab('saveTheDate'));
-    }
-  }, [dispatch, isVisible]);
-
   const data = [
     {
       name: 'Vũ Thị Anh',
@@ -47,7 +33,7 @@ export const BrideAndGroom = () => {
   const images = [Bride, Groom];
 
   return (
-    <section id="brideAndGroom" ref={ref} className="container">
+    <section id="brideAndGroom" className="container">
       <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
         {data.map(({ bank, label, name }, index) => (
           <Fragment key={index}>

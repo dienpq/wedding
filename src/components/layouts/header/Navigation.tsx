@@ -3,6 +3,7 @@
 import { MenuIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import {
   Button,
@@ -13,8 +14,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui';
+import { useDevices, useElementVisibility } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { useAppSelector } from '@/redux/hooks';
 import { TabType } from '@/types';
 
 import Logo from '/public/images/logo.png';
@@ -46,17 +47,66 @@ const links: { label: string; id: TabType }[] = [
   },
 ];
 
-interface NavigationProps {
-  onClick: (
-    // eslint-disable-next-line no-unused-vars
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    // eslint-disable-next-line no-unused-vars
-    id: TabType,
-  ) => void;
-}
+export const Navigation = () => {
+  const { isMedium } = useDevices();
+  const [tab, setTab] = useState<TabType>('saveTheDate');
+  // const [event, setEvent] = useState<'scroll' | 'click'>('scroll');
 
-export const Navigation = ({ onClick }: NavigationProps) => {
-  const tab = useAppSelector((state) => state.configuration.tab);
+  const { isVisible: isSaveTheDate } = useElementVisibility('saveTheDate');
+  const { isVisible: isBrideAndGroom } = useElementVisibility('brideAndGroom');
+  const { isVisible: isLoveStory } = useElementVisibility('loveStory');
+  const { isVisible: isAlbum } = useElementVisibility('album');
+  const { isVisible: isSendWishes } = useElementVisibility('sendWishes');
+  const { isVisible: isEvent } = useElementVisibility('event');
+
+  useEffect(() => {
+    if (isSaveTheDate) {
+      setTab('saveTheDate');
+    }
+    if (isBrideAndGroom) {
+      setTab('brideAndGroom');
+    }
+    if (isLoveStory) {
+      setTab('loveStory');
+    }
+    if (isAlbum) {
+      setTab('album');
+    }
+    if (isSendWishes) {
+      setTab('sendWishes');
+    }
+    if (isEvent) {
+      setTab('event');
+    }
+  }, [
+    isSaveTheDate,
+    isBrideAndGroom,
+    isLoveStory,
+    isAlbum,
+    isSendWishes,
+    isEvent,
+  ]);
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    id: TabType,
+  ) => {
+    e.preventDefault();
+    setTab(id);
+
+    const targetElement = document.getElementById(id);
+
+    if (targetElement) {
+      const yOffset = isMedium ? -152 : -100;
+      const yPosition =
+        targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
+
+      window.scrollTo({
+        top: yPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <>
@@ -69,7 +119,7 @@ export const Navigation = ({ onClick }: NavigationProps) => {
               className="px-3.5 hover:no-underline"
               asChild
             >
-              <Link href={`#${id}`} onClick={(e) => onClick(e, id)}>
+              <Link href={`#${id}`} onClick={(e) => handleClick(e, id)}>
                 {label}
               </Link>
             </Button>
@@ -89,11 +139,7 @@ export const Navigation = ({ onClick }: NavigationProps) => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
-          <Link
-            href="/"
-            className="w-full"
-            onClick={(e) => onClick(e, 'saveTheDate')}
-          >
+          <Link href="/" className="w-full">
             <Image
               src={Logo}
               alt="Wedding Logo"
@@ -113,7 +159,7 @@ export const Navigation = ({ onClick }: NavigationProps) => {
                 size="lg"
                 asChild
               >
-                <Link href={`#${id}`} onClick={(e) => onClick(e, id)}>
+                <Link href={`#${id}`} onClick={(e) => handleClick(e, id)}>
                   {label}
                 </Link>
               </Button>

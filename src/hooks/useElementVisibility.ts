@@ -1,31 +1,20 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+import { TabType } from '@/types';
 
 import { useDevices } from './useDevices';
 
-export const useElementVisibility = () => {
+export const useElementVisibility = (id: TabType) => {
   const { isMedium } = useDevices();
-
-  const ref = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   const handleVisibilityCheck = useCallback(() => {
-    if (!ref.current) return;
+    const element = document.getElementById(id);
+    if (!element) return;
 
-    const elementTop = ref.current.getBoundingClientRect().top;
-    if (isMedium) {
-      if (elementTop <= 153) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    } else {
-      if (elementTop <= 101) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    }
-  }, [isMedium]);
+    const elementTop = element.getBoundingClientRect().top;
+    setIsVisible(isMedium ? elementTop <= 153 : elementTop <= 101);
+  }, [id, isMedium]);
 
   useEffect(() => {
     handleVisibilityCheck();
@@ -40,5 +29,5 @@ export const useElementVisibility = () => {
     };
   }, [handleVisibilityCheck]);
 
-  return { isVisible, ref };
+  return { isVisible };
 };

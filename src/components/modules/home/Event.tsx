@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
 
 import { SectionTitle } from '@/components/common';
 import {
@@ -16,10 +15,7 @@ import {
   Typography,
   typographyVariants,
 } from '@/components/ui';
-import { useElementVisibility } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { setTab } from '@/redux/features/configurationSlice';
-import { useAppDispatch } from '@/redux/hooks';
 
 import Event1 from '/public/images/home/event/1.jpg';
 import Event2 from '/public/images/home/event/2.jpg';
@@ -50,20 +46,8 @@ const data = [
 ];
 
 export const Event = () => {
-  const dispatch = useAppDispatch();
-
-  const { ref, isVisible } = useElementVisibility();
-
-  useEffect(() => {
-    if (isVisible) {
-      dispatch(setTab('event'));
-    } else {
-      dispatch(setTab('sendWishes'));
-    }
-  }, [dispatch, isVisible]);
-
   return (
-    <section id="event" ref={ref} className="container">
+    <section id="event" className="container">
       <SectionTitle title="Đám cưới của chúng tôi" description="Where & When" />
       <div className="-mx-4 -mb-4 mt-8 flex flex-wrap justify-center lg:mt-16">
         {data.map(({ image, time, title, address, map }, index) => (

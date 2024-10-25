@@ -1,33 +1,20 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect } from 'react';
 
 import { Typography } from '@/components/ui';
-import { useCountdown, useElementVisibility } from '@/hooks';
-import { setTab } from '@/redux/features/configurationSlice';
-import { useAppDispatch } from '@/redux/hooks';
+import { useCountdown } from '@/hooks';
 
 import Couple from '/public/images/home/save-the-date/couple.jpg';
 import HeroFlower from '/public/images/home/save-the-date/hero-flower.png';
 
 export const SaveTheDate = () => {
-  const dispatch = useAppDispatch();
   const { days, hours, minutes, seconds } = useCountdown('2024-12-28T10:00:00');
-
-  const { ref, isVisible } = useElementVisibility();
-
-  useEffect(() => {
-    if (isVisible) {
-      dispatch(setTab('saveTheDate'));
-    }
-  }, [dispatch, isVisible]);
 
   const description = 'We Are Getting Married December 28, 2024';
 
   return (
     <section
       id="saveTheDate"
-      ref={ref}
       className="w-full bg-image-['/images/home/save-the-date/bg.png'] xl:h-[calc(100vh-128px+40px)]"
       style={{
         backgroundPosition: 'bottom center',

@@ -1,31 +1,17 @@
 import { motion } from 'framer-motion';
 import { PlayIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { DialogPreviewImage } from '@/components/common';
-import { useElementVisibility } from '@/hooks';
-import { setTab } from '@/redux/features/configurationSlice';
-import { useAppDispatch } from '@/redux/hooks';
 
 import BgVideo from '/public/images/home/video/bg.jpg';
 
 export const VideoWedding = () => {
-  const dispatch = useAppDispatch();
   const [open, setOpen] = useState<number>(0);
 
-  const { ref, isVisible } = useElementVisibility();
-
-  useEffect(() => {
-    if (isVisible) {
-      dispatch(setTab('brideAndGroom'));
-    } else {
-      dispatch(setTab('brideAndGroom'));
-    }
-  }, [dispatch, isVisible]);
-
   return (
-    <section id="videoWedding" ref={ref} className="container-lg">
+    <section id="videoWedding" className="container-lg">
       <motion.div
         initial={{
           opacity: 0,

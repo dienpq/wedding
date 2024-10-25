@@ -1,14 +1,10 @@
 import { motion } from 'framer-motion';
 import { HeartIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect } from 'react';
 
 import { SectionTitle } from '@/components/common';
 import { Typography } from '@/components/ui';
-import { useElementVisibility } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { setTab } from '@/redux/features/configurationSlice';
-import { useAppDispatch } from '@/redux/hooks';
 
 import LoveHistory1 from '/public/images/home/love-history/1.jpg';
 import LoveHistory2 from '/public/images/home/love-history/2.jpg';
@@ -72,20 +68,8 @@ const data = [
 ];
 
 export const LoveStory = () => {
-  const dispatch = useAppDispatch();
-
-  const { ref, isVisible } = useElementVisibility();
-
-  useEffect(() => {
-    if (isVisible) {
-      dispatch(setTab('loveStory'));
-    } else {
-      dispatch(setTab('brideAndGroom'));
-    }
-  }, [dispatch, isVisible]);
-
   return (
-    <section id="loveStory" ref={ref} className="container overflow-hidden">
+    <section id="loveStory" className="container overflow-hidden">
       <SectionTitle title="STORY" description="Câu chuyện tình yêu" />
       <div className="relative mx-auto mt-16 flex max-w-[1200px] flex-col gap-y-20 sm:mt-12 md:gap-y-6 md:py-20 xl:mt-20">
         {data.map(({ title, description, image, shade }, index) => (

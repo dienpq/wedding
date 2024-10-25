@@ -5,9 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
-import { useDevices, useResizeObserver } from '@/hooks';
+import { useResizeObserver } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { TabType } from '@/types';
 
 import { Navigation } from './Navigation';
 import ShadeLeft from '/public/images/header/shade-left.png';
@@ -15,8 +14,6 @@ import ShadeRight from '/public/images/header/shade-right.png';
 import Logo from '/public/images/logo.png';
 
 export const Header = () => {
-  const { isMedium } = useDevices();
-
   const ref = useRef<HTMLElement>(null);
 
   const { height = 0 } = useResizeObserver({
@@ -56,26 +53,6 @@ export const Header = () => {
     };
   }, [height]);
 
-  const handleClick = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    id: TabType,
-  ) => {
-    e.preventDefault();
-
-    const targetElement = document.getElementById(id);
-
-    if (targetElement) {
-      const yOffset = isMedium ? -152 : -100;
-      const yPosition =
-        targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
-
-      window.scrollTo({
-        top: yPosition,
-        behavior: 'smooth',
-      });
-    }
-  };
-
   return (
     <header ref={ref} className="h-20 py-2 md:h-32">
       <div
@@ -106,11 +83,7 @@ export const Header = () => {
           <Image src={ShadeLeft} alt="Wedding Shade Left" priority />
         </motion.div>
         <div className="flex h-full w-full items-center justify-between px-5 sm:px-10 md:flex-col">
-          <Link
-            href="/"
-            className="w-52 md:w-64"
-            onClick={(e) => handleClick(e, 'saveTheDate')}
-          >
+          <Link href="/" className="w-52 md:w-64">
             <Image
               src={Logo}
               alt="Wedding Logo"
@@ -118,7 +91,7 @@ export const Header = () => {
               priority
             />
           </Link>
-          <Navigation onClick={handleClick} />
+          <Navigation />
         </div>
         <motion.div
           initial={{
