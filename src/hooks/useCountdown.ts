@@ -26,7 +26,6 @@ export const useCountdown = (targetDate: string): Countdown => {
     return timeLeft;
   }, [targetDate]);
 
-  // Khởi tạo ban đầu tất cả các giá trị là 0
   const [timeLeft, setTimeLeft] = useState<Countdown>({
     days: 0,
     hours: 0,
@@ -35,17 +34,12 @@ export const useCountdown = (targetDate: string): Countdown => {
   });
 
   useEffect(() => {
-    // Đợi 1 giây trước khi bắt đầu tính toán thời gian còn lại
     setTimeLeft(calculateTimeLeft());
-    // Sau đó cập nhật mỗi giây
     const interval = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    // Dọn dẹp khi component unmount
     return () => clearInterval(interval);
-
-    // return () => clearTimeout(timer);
   }, [calculateTimeLeft, targetDate]);
 
   return timeLeft;
