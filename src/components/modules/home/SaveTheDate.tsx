@@ -75,7 +75,7 @@ export const SaveTheDate = () => {
                 <motion.p
                   initial={{
                     opacity: 0,
-                    x: -40,
+                    x: -30,
                   }}
                   whileInView={{
                     opacity: 1,
@@ -93,7 +93,7 @@ export const SaveTheDate = () => {
                 <motion.p
                   initial={{
                     opacity: 0,
-                    x: 40,
+                    x: 30,
                   }}
                   whileInView={{
                     opacity: 1,

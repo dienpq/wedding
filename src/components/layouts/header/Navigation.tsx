@@ -50,7 +50,6 @@ const links: { label: string; id: TabType }[] = [
 export const Navigation = () => {
   const { isMedium } = useDevices();
   const [tab, setTab] = useState<TabType>('saveTheDate');
-  // const [event, setEvent] = useState<'scroll' | 'click'>('scroll');
 
   const { isVisible: isSaveTheDate } = useElementVisibility('saveTheDate');
   const { isVisible: isBrideAndGroom } = useElementVisibility('brideAndGroom');

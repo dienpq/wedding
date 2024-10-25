@@ -47,20 +47,20 @@ export const DialogNotification = ({
   const config: ConfettiConfig = {
     angle: 90,
     spread: 360,
-    startVelocity: 40,
-    elementCount: 100,
-    dragFriction: 0.12,
+    startVelocity: !isSmall ? 18 : 40,
+    elementCount: !isSmall ? 60 : 120,
+    dragFriction: !isSmall ? 0.16 : 0.16,
     duration: 10000,
     stagger: 3,
-    width: '10px',
-    height: '10px',
+    width: !isSmall ? '8px' : '10px',
+    height: !isSmall ? '8px' : '10px',
     colors: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'],
   };
 
   return (
     <>
-      {isSmall && data?.succes && (
-        <div className="absolute left-1/2 top-[calc(50%-8rem)] z-[1000] -translate-x-1/2 -translate-y-1/2 bg-red-50">
+      {data?.succes && (
+        <div className="absolute left-1/2 top-[calc(50%-14rem)] z-[1000] -translate-x-1/2 -translate-y-1/2 sm:top-[calc(50%-12rem)]">
           <Confetti active={isExploding} config={config} />
         </div>
       )}
@@ -74,7 +74,7 @@ export const DialogNotification = ({
           {data?.succes ? (
             <Typography variant="h1">🎊</Typography>
           ) : (
-            <Typography variant="h4">❌</Typography>
+            <Typography variant="h1">🤔</Typography>
           )}
           <div className="space-y-6 text-center text-gray-600">
             <Typography
