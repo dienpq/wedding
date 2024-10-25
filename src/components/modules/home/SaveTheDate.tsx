@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 import Image from 'next/image';
 
 import { Typography } from '@/components/ui';
@@ -11,6 +11,15 @@ export const SaveTheDate = () => {
   const { days, hours, minutes, seconds } = useCountdown('2024-12-28T10:00:00');
 
   const description = 'We Are Getting Married December 28, 2024';
+
+  const typingEffectVariants: Variants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    },
+  };
 
   return (
     <section
@@ -62,42 +71,66 @@ export const SaveTheDate = () => {
               className="font-jost text-beige-rose"
               asChild
             >
-              <motion.h3
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                }}
-                className="will-change-transform-opacity"
-              >
-                Phan Điện ❤️ Vũ Anh
-              </motion.h3>
-            </Typography>
-            <Typography variant="h6" className="text-steel-gray">
-              {description.split('').map((word, index) => (
-                <motion.span
-                  key={index}
+              <h3>
+                <motion.p
                   initial={{
                     opacity: 0,
+                    x: -40,
                   }}
                   whileInView={{
                     opacity: 1,
+                    x: 0,
                   }}
                   transition={{
-                    delay: (index + 1) * 0.1,
-                    duration: 0.2,
+                    delay: 0.25,
+                    duration: 0.5,
                   }}
-                  className="will-change-opacity"
+                  className="inline-block will-change-transform-opacity"
                 >
-                  {word}
-                </motion.span>
-              ))}
+                  Phan Điện
+                </motion.p>
+                <span> ❤️ </span>
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                    x: 40,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  transition={{
+                    delay: 0.25,
+                    duration: 0.5,
+                  }}
+                  className="inline-block will-change-transform-opacity"
+                >
+                  Vũ Anh
+                </motion.p>
+              </h3>
+            </Typography>
+
+            <Typography variant="h6" className="text-steel-gray" asChild>
+              <motion.h6
+                variants={{
+                  visible: { transition: { staggerChildren: 0.1 } },
+                  hidden: {},
+                }}
+                initial="hidden"
+                whileInView="visible"
+                aria-hidden
+                className="will-change-opacity"
+              >
+                {description.split('').map((word, index) => (
+                  <motion.span
+                    key={index}
+                    variants={typingEffectVariants}
+                    className="will-change-opacity"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.h6>
             </Typography>
           </div>
         </div>
