@@ -69,14 +69,12 @@ export const Event = () => {
         {data.map(({ image, time, title, address, map }, index) => (
           <div key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
             <div className="relative overflow-hidden rounded-xl p-4">
-              <motion.div>
-                <Image
-                  src={image}
-                  alt={title}
-                  priority
-                  className="aspect-[2/3] w-full object-cover"
-                />
-              </motion.div>
+              <Image
+                src={image}
+                alt={title}
+                priority
+                className="aspect-[2/3] w-full object-cover"
+              />
               <motion.div
                 initial={{
                   opacity: 0,

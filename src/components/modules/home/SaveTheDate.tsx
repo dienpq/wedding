@@ -105,7 +105,7 @@ export const SaveTheDate = () => {
                   }}
                   transition={{
                     delay: (index + 1) * 0.1,
-                    duration: 0,
+                    duration: 0.2,
                   }}
                 >
                   {word}
