@@ -77,7 +77,6 @@ export const Header = () => {
           transition={{
             duration: 0.5,
           }}
-          viewport={{ once: true }}
           className="hidden w-40 lg:block"
         >
           <Image src={ShadeLeft} alt="Wedding Shade Left" priority />
@@ -107,7 +106,6 @@ export const Header = () => {
           transition={{
             duration: 0.5,
           }}
-          viewport={{ once: true }}
           className="z-10 hidden w-40 lg:block"
         >
           <Image src={ShadeRight} alt="Wedding Shade Left" priority />

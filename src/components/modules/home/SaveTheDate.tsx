@@ -34,7 +34,6 @@ export const SaveTheDate = () => {
             transition={{
               duration: 0.75,
             }}
-            viewport={{ once: true }}
             className="relative flex aspect-square w-full items-center justify-center sm:max-w-[400px] 2xl:max-w-[500px]"
           >
             <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 overflow-hidden">
@@ -75,7 +74,6 @@ export const SaveTheDate = () => {
                 transition={{
                   duration: 0.5,
                 }}
-                viewport={{ once: true }}
               >
                 Phan Điện ❤️ Vũ Anh
               </motion.h3>
@@ -94,7 +92,6 @@ export const SaveTheDate = () => {
                     delay: (index + 1) * 0.1,
                     duration: 0.2,
                   }}
-                  viewport={{ once: true }}
                 >
                   {word}
                 </motion.span>
@@ -104,7 +101,19 @@ export const SaveTheDate = () => {
         </div>
         <div className="relative mx-auto w-full max-w-[500px] px-5 sm:max-w-[600px] sm:px-10 xl:max-w-[710px] xl:px-10 xl:pb-10 2xl:max-w-[50%]">
           <div className="relative h-full w-full overflow-hidden">
-            <Image src={Couple} alt="Couple" priority />
+            <motion.div
+              initial={{
+                opacity: 0,
+              }}
+              whileInView={{
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.5,
+              }}
+            >
+              <Image src={Couple} alt="Couple" priority />
+            </motion.div>
             <div className="absolute inset-x-4 bottom-4 w-[calc(100%-2rem)] sm:inset-x-8 sm:bottom-8 sm:w-[calc(100%-4rem)]">
               <motion.div
                 initial={{
@@ -118,7 +127,6 @@ export const SaveTheDate = () => {
                 transition={{
                   duration: 0.5,
                 }}
-                viewport={{ once: true }}
                 className="flex justify-between bg-primary/50 px-4 py-4 text-white sm:gap-x-10 sm:px-10 sm:py-5 xl:px-16"
               >
                 <div className="text-center">

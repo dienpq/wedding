@@ -33,7 +33,6 @@ export const Album = () => {
             transition={{
               duration: 0.75,
             }}
-            viewport={{ once: true }}
             onClick={() => {
               setOpen(index + 1);
             }}

@@ -90,7 +90,6 @@ export const LoveStory = () => {
               transition={{
                 duration: 0.5,
               }}
-              viewport={{ once: true }}
               className="absolute left-1/2 top-1/2 z-[1] hidden size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-beige-rose bg-white md:flex"
             >
               <HeartIcon className="text-beige-rose" />
@@ -113,7 +112,6 @@ export const LoveStory = () => {
                 transition={{
                   duration: 0.75,
                 }}
-                viewport={{ once: true }}
                 className="relative aspect-square w-full max-w-[280px] lg:max-w-[300px]"
               >
                 <Image
@@ -140,7 +138,6 @@ export const LoveStory = () => {
               transition={{
                 duration: 0.75,
               }}
-              viewport={{ once: true }}
               className={cn(
                 'w-full flex-1 space-y-4 bg-secondary px-8 py-8 text-center sm:px-16 sm:py-10 md:bg-transparent md:px-0 md:py-0 md:text-left',
                 index % 2 !== 0 && 'md:text-right',
@@ -166,7 +163,6 @@ export const LoveStory = () => {
           transition={{
             duration: 0.25,
           }}
-          viewport={{ once: true }}
           className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 rounded bg-beige-rose md:block"
         />
         <motion.div
@@ -179,7 +175,6 @@ export const LoveStory = () => {
           transition={{
             duration: 0.25,
           }}
-          viewport={{ once: true }}
           className="absolute left-1/2 top-0 hidden size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white md:block"
         />
         <motion.div
@@ -192,7 +187,6 @@ export const LoveStory = () => {
           transition={{
             duration: 0.25,
           }}
-          viewport={{ once: true }}
           className="absolute bottom-0 left-1/2 hidden size-6 -translate-x-1/2 rounded-full border-[5px] border-beige-rose bg-white md:block"
         />
       </div>

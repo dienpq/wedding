@@ -50,7 +50,6 @@ export const BrideAndGroom = () => {
                 duration: 0.5,
                 delay: 0.5,
               }}
-              viewport={{ once: true }}
               className={cn(
                 'text-center lg:text-left',
                 index === 0 && 'lg:text-right',
@@ -91,7 +90,6 @@ export const BrideAndGroom = () => {
                     transition={{
                       duration: 0.75,
                     }}
-                    viewport={{ once: true }}
                     className="relative aspect-square w-full overflow-hidden rounded-full"
                   >
                     <Image

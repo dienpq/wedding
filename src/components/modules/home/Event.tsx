@@ -53,12 +53,25 @@ export const Event = () => {
         {data.map(({ image, time, title, address, map }, index) => (
           <div key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
             <div className="relative overflow-hidden rounded-xl p-4">
-              <Image
-                src={image}
-                alt={title}
-                priority
-                className="aspect-[2/3] w-full object-cover"
-              />
+              <motion.div
+                initial={{
+                  opacity: 0,
+                }}
+                whileInView={{
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+              >
+                <Image
+                  src={image}
+                  alt={title}
+                  priority
+                  className="aspect-[2/3] w-full object-cover"
+                />
+              </motion.div>
+
               <motion.div
                 initial={{
                   opacity: 0,
@@ -73,7 +86,6 @@ export const Event = () => {
                 transition={{
                   duration: 0.75,
                 }}
-                viewport={{ once: true }}
                 className="absolute bottom-8 left-8 w-[calc(100%-4rem)]"
               >
                 <Card>

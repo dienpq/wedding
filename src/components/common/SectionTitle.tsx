@@ -12,16 +12,15 @@ export const SectionTitle = ({ title, description }: SectionTitleProps) => {
     <motion.div
       initial={{
         opacity: 0,
-        y: 30,
+        y: 20,
       }}
       whileInView={{
         opacity: 1,
         y: 0,
       }}
       transition={{
-        duration: 0.5,
+        duration: 0.75,
       }}
-      viewport={{ once: true }}
       className="space-y-3 text-center"
     >
       <Typography variant="h6" className="text-[#c8a898]">

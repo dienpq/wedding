@@ -25,7 +25,6 @@ export const Footer = () => {
             transition={{
               duration: 0.5,
             }}
-            viewport={{ once: true }}
           >
             Phan Điện ❤️ Vũ Anh - Wedding 2024
           </motion.p>
@@ -46,7 +45,6 @@ export const Footer = () => {
           transition={{
             duration: 0.5,
           }}
-          viewport={{ once: true }}
         >
           <Image
             src={ShapeLeft}
@@ -71,7 +69,6 @@ export const Footer = () => {
           transition={{
             duration: 0.5,
           }}
-          viewport={{ once: true }}
         >
           <Image
             src={ShapeRight}

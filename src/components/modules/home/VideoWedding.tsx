@@ -22,7 +22,6 @@ export const VideoWedding = () => {
         transition={{
           duration: 1.5,
         }}
-        viewport={{ once: true }}
         className="relative rounded-xl p-5 sm:p-6 lg:p-10"
         style={{
           boxShadow: '0px 2px 8px 0px rgba(0, 0, 0, 0.1)',
