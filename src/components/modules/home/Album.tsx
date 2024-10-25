@@ -33,6 +33,7 @@ export const Album = () => {
             transition={{
               duration: 0.75,
             }}
+            className="will-change-transform-opacity"
             onClick={() => {
               setOpen(index + 1);
             }}

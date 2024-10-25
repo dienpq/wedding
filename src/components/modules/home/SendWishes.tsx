@@ -132,6 +132,7 @@ export const SendWishes = () => {
             transition={{
               duration: 0.75,
             }}
+            className="will-change-transform-opacity"
           >
             <Card className="mx-auto max-w-[550px] p-2 sm:p-8 lg:mx-0">
               <CardHeader>

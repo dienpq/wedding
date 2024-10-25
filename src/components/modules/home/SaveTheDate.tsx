@@ -34,7 +34,7 @@ export const SaveTheDate = () => {
             transition={{
               duration: 0.75,
             }}
-            className="relative flex aspect-square w-full items-center justify-center sm:max-w-[400px] 2xl:max-w-[500px]"
+            className="relative flex aspect-square w-full items-center justify-center will-change-transform-opacity sm:max-w-[400px] 2xl:max-w-[500px]"
           >
             <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 overflow-hidden">
               <Image
@@ -74,6 +74,7 @@ export const SaveTheDate = () => {
                 transition={{
                   duration: 0.5,
                 }}
+                className="will-change-transform-opacity"
               >
                 Phan Điện ❤️ Vũ Anh
               </motion.h3>
@@ -92,6 +93,7 @@ export const SaveTheDate = () => {
                     delay: (index + 1) * 0.1,
                     duration: 0.2,
                   }}
+                  className="will-change-opacity"
                 >
                   {word}
                 </motion.span>
@@ -111,6 +113,7 @@ export const SaveTheDate = () => {
               transition={{
                 duration: 0.5,
               }}
+              className="will-change-opacity"
             >
               <Image src={Couple} alt="Couple" priority />
             </motion.div>
@@ -127,7 +130,7 @@ export const SaveTheDate = () => {
                 transition={{
                   duration: 0.5,
                 }}
-                className="flex justify-between bg-primary/50 px-4 py-4 text-white sm:gap-x-10 sm:px-10 sm:py-5 xl:px-16"
+                className="flex justify-between bg-primary/50 px-4 py-4 text-white will-change-transform-opacity sm:gap-x-10 sm:px-10 sm:py-5 xl:px-16"
               >
                 <div className="text-center">
                   <Typography variant="h3" className="font-sail">

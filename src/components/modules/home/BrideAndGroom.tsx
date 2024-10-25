@@ -51,7 +51,7 @@ export const BrideAndGroom = () => {
                 delay: 0.5,
               }}
               className={cn(
-                'text-center lg:text-left',
+                'text-center will-change-transform-opacity lg:text-left',
                 index === 0 && 'lg:text-right',
               )}
             >
@@ -90,7 +90,7 @@ export const BrideAndGroom = () => {
                     transition={{
                       duration: 0.75,
                     }}
-                    className="relative aspect-square w-full overflow-hidden rounded-full"
+                    className="relative aspect-square w-full overflow-hidden rounded-full will-change-transform-opacity"
                   >
                     <Image
                       src={image}

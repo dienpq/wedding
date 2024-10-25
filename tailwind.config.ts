@@ -74,6 +74,10 @@ const config: Config = {
           '50%': { transform: 'scale(3)' },
         },
       },
+      willChange: {
+        'transform-opacity': 'transform, opacity',
+        opacity: 'opacity',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
