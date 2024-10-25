@@ -69,18 +69,7 @@ export const Event = () => {
         {data.map(({ image, time, title, address, map }, index) => (
           <div key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
             <div className="relative overflow-hidden rounded-xl p-4">
-              <motion.div
-                initial={{
-                  opacity: 0,
-                }}
-                whileInView={{
-                  opacity: 1,
-                }}
-                transition={{
-                  duration: 0.75,
-                }}
-                viewport={{ once: true }}
-              >
+              <motion.div>
                 <Image
                   src={image}
                   alt={title}
