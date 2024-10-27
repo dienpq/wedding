@@ -26,7 +26,7 @@ export const Album = () => {
             key={index}
             initial={{
               opacity: 0,
-              scale: 0.8,
+              scale: 0.9,
             }}
             whileInView={{
               opacity: 1,
@@ -35,6 +35,7 @@ export const Album = () => {
             transition={{
               duration: 0.75,
             }}
+            viewport={{ once: true }}
             className="group relative will-change-transform-opacity"
           >
             <Image src={image} alt={`Wedding ${index + 1}`} priority />

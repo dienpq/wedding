@@ -21,6 +21,7 @@ export const SectionTitle = ({ title, description }: SectionTitleProps) => {
       transition={{
         duration: 0.75,
       }}
+      viewport={{ once: true }}
       className="space-y-3 text-center will-change-transform-opacity"
     >
       <Typography variant="h6" className="text-[#c8a898]">

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Typography } from '@/components/ui';
 import { useCountdown } from '@/hooks';
 
+import Bg from '/public/images/home/save-the-date/bg.png';
 import Couple from '/public/images/home/save-the-date/couple.jpg';
 import HeroFlower from '/public/images/home/save-the-date/hero-flower.png';
 
@@ -24,11 +25,14 @@ export const SaveTheDate = () => {
   return (
     <section
       id="saveTheDate"
-      className="w-full bg-image-['/images/home/save-the-date/bg.png'] xl:h-[calc(100vh-128px+40px)]"
-      style={{
-        backgroundPosition: 'bottom center',
-      }}
+      className="relative w-full xl:h-[calc(100vh-128px+40px)]"
     >
+      <Image
+        src={Bg}
+        alt="Background Wedding"
+        priority
+        className="absolute top-0 z-0 h-full object-cover object-bottom"
+      />
       <div className="flex h-full w-full flex-col xl:flex-row xl:pl-[8%]">
         <div className="flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-5 pb-20 sm:px-10">
           <motion.div
@@ -43,6 +47,7 @@ export const SaveTheDate = () => {
             transition={{
               duration: 0.75,
             }}
+            viewport={{ once: true }}
             className="relative flex aspect-square w-full items-center justify-center will-change-transform-opacity sm:max-w-[400px] 2xl:max-w-[500px]"
           >
             <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 overflow-hidden">
@@ -85,6 +90,7 @@ export const SaveTheDate = () => {
                     delay: 0.25,
                     duration: 0.5,
                   }}
+                  viewport={{ once: true }}
                   className="inline-block will-change-transform-opacity"
                 >
                   Phan Điện
@@ -103,6 +109,7 @@ export const SaveTheDate = () => {
                     delay: 0.25,
                     duration: 0.5,
                   }}
+                  viewport={{ once: true }}
                   className="inline-block will-change-transform-opacity"
                 >
                   Vũ Anh
@@ -118,6 +125,7 @@ export const SaveTheDate = () => {
                 }}
                 initial="hidden"
                 whileInView="visible"
+                viewport={{ once: true }}
                 aria-hidden
                 className="will-change-opacity"
               >
@@ -146,6 +154,7 @@ export const SaveTheDate = () => {
               transition={{
                 duration: 0.5,
               }}
+              viewport={{ once: true }}
               className="will-change-opacity"
             >
               <Image src={Couple} alt="Couple" priority />
@@ -163,6 +172,7 @@ export const SaveTheDate = () => {
                 transition={{
                   duration: 0.5,
                 }}
+                viewport={{ once: true }}
                 className="flex justify-between bg-primary/50 px-4 py-4 text-white will-change-transform-opacity sm:gap-x-10 sm:px-10 sm:py-5 xl:px-16"
               >
                 <div className="text-center">

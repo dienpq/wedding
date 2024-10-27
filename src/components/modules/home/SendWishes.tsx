@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -29,6 +30,8 @@ import {
 } from '@/components/ui';
 import { useDevices, useIsomorphicLayoutEffect } from '@/hooks';
 import { cn } from '@/lib/utils';
+
+import Bg from '/public/images/home/send-wishes/bg.jpg';
 
 const FormSchema = z.object({
   name: z.string().min(1, {
@@ -114,8 +117,14 @@ export const SendWishes = () => {
   return (
     <section
       id="sendWishes"
-      className="relative h-[592px] bg-image-['/images/home/send-wishes/bg.jpg'] sm:h-[688px] md:h-[692px]"
+      className="relative h-[592px] sm:h-[688px] md:h-[692px]"
     >
+      <Image
+        src={Bg}
+        alt="Background Wedding"
+        className="absolute top-0 z-0 h-full object-cover object-bottom"
+        priority
+      />
       <div className="container-full py-5 sm:py-10">
         {isClient && (
           <motion.div
@@ -132,6 +141,7 @@ export const SendWishes = () => {
             transition={{
               duration: 0.75,
             }}
+            viewport={{ once: true }}
             className="will-change-transform-opacity"
           >
             <Card className="mx-auto max-w-[550px] p-2 sm:p-8 lg:mx-0">

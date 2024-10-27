@@ -63,6 +63,7 @@ export const Event = () => {
                 transition={{
                   duration: 0.5,
                 }}
+                viewport={{ once: true }}
                 className="will-change-opacity"
               >
                 <Image
@@ -87,6 +88,7 @@ export const Event = () => {
                 transition={{
                   duration: 0.75,
                 }}
+                viewport={{ once: true }}
                 className="absolute bottom-8 left-8 w-[calc(100%-4rem)] will-change-transform-opacity"
               >
                 <Card>

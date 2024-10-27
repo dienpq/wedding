@@ -50,6 +50,7 @@ export const BrideAndGroom = () => {
                 duration: 0.5,
                 delay: 0.5,
               }}
+              viewport={{ once: true }}
               className={cn(
                 'text-center will-change-transform-opacity lg:text-left',
                 index === 0 && 'lg:text-right',
@@ -71,7 +72,7 @@ export const BrideAndGroom = () => {
                 STK: {bank.accout}
               </Typography>
               <div className="mt-4 aspect-square w-full max-w-[180px] overflow-hidden sm:max-w-[210px] xl:max-w-[250px]">
-                <Image src={bank.qrCode} alt={name} priority />
+                <Image src={bank.qrCode} alt={name} />
               </div>
             </motion.div>
             {index === 0 && (
@@ -90,6 +91,7 @@ export const BrideAndGroom = () => {
                     transition={{
                       duration: 0.75,
                     }}
+                    viewport={{ once: true }}
                     className="relative aspect-square w-full overflow-hidden rounded-full will-change-transform-opacity"
                   >
                     <Image

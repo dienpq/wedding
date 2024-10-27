@@ -25,6 +25,7 @@ export const Footer = () => {
             transition={{
               duration: 0.5,
             }}
+            viewport={{ once: true }}
             className="will-change-transform-opacity"
           >
             Phan Điện ❤️ Vũ Anh - Wedding 2024
@@ -46,13 +47,14 @@ export const Footer = () => {
           transition={{
             duration: 0.5,
           }}
+          viewport={{ once: true }}
           className="will-change-transform-opacity"
         >
           <Image
             src={ShapeLeft}
             alt="Shape"
-            priority
             className="w-28 sm:w-36 lg:w-52"
+            priority
           />
         </motion.div>
       </div>
@@ -71,13 +73,14 @@ export const Footer = () => {
           transition={{
             duration: 0.5,
           }}
+          viewport={{ once: true }}
           className="will-change-transform-opacity"
         >
           <Image
             src={ShapeRight}
             alt="Shape"
-            priority
             className="w-28 sm:w-36 lg:w-52"
+            priority
           />
         </motion.div>
       </div>
