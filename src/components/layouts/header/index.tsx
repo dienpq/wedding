@@ -78,7 +78,7 @@ export const Header = () => {
             duration: 0.5,
           }}
           viewport={{ once: true }}
-          className="hidden w-40 will-change-transform-opacity lg:block"
+          className="z-10 hidden w-40 will-change-transform-opacity lg:block"
         >
           <Image src={ShadeLeft} alt="Wedding Shade Left" priority />
         </motion.div>

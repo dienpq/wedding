@@ -67,6 +67,7 @@ export const DialogPreviewImage = ({
             name="close"
             variant="ghost"
             size="icon"
+            className="rounded-full"
             onClick={handleClose}
           >
             <XIcon />
@@ -91,7 +92,7 @@ export const DialogPreviewImage = ({
               >
                 {typeof item === 'object' && item !== null && 'src' in item && (
                   <div
-                    className="max-w-[520px] cursor-grab"
+                    className="max-w-[400px] cursor-grab 2xl:max-w-[520px]"
                     onClick={(e) => {
                       e.stopPropagation();
                     }}
@@ -119,11 +120,11 @@ export const DialogPreviewImage = ({
               name="previous"
               variant="ghost"
               size="icon"
-              className="rounded-full bg-black/40 md:size-14"
+              className="rounded-full bg-black/40 md:size-12 2xl:size-14"
               onClick={handlePrevious}
               disabled={!canScrollPrev}
             >
-              <ArrowLeftIcon className="md:size-8" />
+              <ArrowLeftIcon className="md:size-6 2xl:size-8" />
             </Button>
           </div>
         )}
@@ -134,11 +135,11 @@ export const DialogPreviewImage = ({
               name="next"
               variant="ghost"
               size="icon"
-              className="rounded-full bg-black/40 md:size-14"
+              className="rounded-full bg-black/40 md:size-12 2xl:size-14"
               onClick={handleNext}
               disabled={!canScrollNext}
             >
-              <ArrowRightIcon className="md:size-8" />
+              <ArrowRightIcon className="md:size-6 2xl:size-8" />
             </Button>
           </div>
         )}
