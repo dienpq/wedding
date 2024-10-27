@@ -137,7 +137,7 @@ export const Navigation = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
-          <Link href="/" className="w-full">
+          <Link href="/" className="w-full focus-visible:outline-none">
             <Image
               src={Logo}
               alt="Wedding Logo"

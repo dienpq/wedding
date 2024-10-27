@@ -83,7 +83,7 @@ export const Header = () => {
           <Image src={ShadeLeft} alt="Wedding Shade Left" priority />
         </motion.div>
         <div className="flex h-full w-full items-center justify-between px-5 sm:px-10 md:flex-col">
-          <Link href="/" className="w-52 md:w-64">
+          <Link href="/" className="w-52 focus-visible:outline-none md:w-64">
             <Image
               src={Logo}
               alt="Wedding Logo"

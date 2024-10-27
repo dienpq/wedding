@@ -34,7 +34,7 @@ export const SaveTheDate = () => {
         className="absolute top-0 z-0 h-full object-cover object-bottom"
       />
       <div className="flex h-full w-full flex-col xl:flex-row xl:pl-[8%]">
-        <div className="flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-5 pb-20 sm:px-10">
+        <div className="flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-5 pb-20 sm:px-10 xl:px-0">
           <motion.div
             initial={{
               opacity: 0,
