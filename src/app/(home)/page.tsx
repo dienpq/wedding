@@ -6,7 +6,7 @@ import { Layout } from '@/components/layouts';
 import { Home } from '@/components/modules';
 import { useIsomorphicLayoutEffect } from '@/hooks';
 
-import Loading from './loading';
+import Loading from '../loading';
 
 export default function HomePage() {
   const [loading, setLoading] = useState<boolean>(true);
