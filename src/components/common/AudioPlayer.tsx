@@ -26,7 +26,7 @@ export const AudioPlayer = () => {
       >
         <Volume2Icon className="size-5 text-white sm:size-6" />
       </button>
-      <audio ref={audioRef} autoPlay src="/audio/i-do.mp3" />
+      <audio ref={audioRef} autoPlay loop src="/audio/i-do.mp3" />
     </>
   );
 };
