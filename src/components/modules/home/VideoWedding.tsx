@@ -37,6 +37,7 @@ export const VideoWedding = () => {
           />
         </div>
         <button
+          name="preview-video"
           className="absolute left-1/2 top-1/2 flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-white/20 sm:size-16 xl:size-24"
           onClick={() => setOpen(1)}
         >

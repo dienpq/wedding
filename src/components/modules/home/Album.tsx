@@ -12,11 +12,25 @@ import Image3 from '/public/images/home/album/3.jpg';
 import Image4 from '/public/images/home/album/4.jpg';
 import Image5 from '/public/images/home/album/5.jpg';
 import Image6 from '/public/images/home/album/6.jpg';
+import ImagePreview1 from '/public/images/home/album/preview/1.jpg';
+import ImagePreview2 from '/public/images/home/album/preview/2.jpg';
+import ImagePreview3 from '/public/images/home/album/preview/3.jpg';
+import ImagePreview4 from '/public/images/home/album/preview/4.jpg';
+import ImagePreview5 from '/public/images/home/album/preview/5.jpg';
+import ImagePreview6 from '/public/images/home/album/preview/6.jpg';
 
 export const Album = () => {
   const [open, setOpen] = useState<number>(0);
 
   const data = [Image1, Image2, Image3, Image4, Image5, Image6];
+  const dataPreview = [
+    ImagePreview1,
+    ImagePreview2,
+    ImagePreview3,
+    ImagePreview4,
+    ImagePreview5,
+    ImagePreview6,
+  ];
 
   return (
     <section id="album" className="container">
@@ -40,6 +54,7 @@ export const Album = () => {
           >
             <Image src={image} alt={`Wedding ${index + 1}`} priority />
             <Button
+              name={`preview-image-${index + 1}`}
               variant="ghost"
               className="absolute left-1/2 top-1/2 flex size-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-none opacity-0 duration-200 group-hover:bg-accent/50 group-hover:opacity-100"
               onClick={() => {
@@ -51,7 +66,7 @@ export const Album = () => {
           </motion.div>
         ))}
       </div>
-      <DialogPreviewImage open={open} setOpen={setOpen} data={data} />
+      <DialogPreviewImage open={open} setOpen={setOpen} data={dataPreview} />
     </section>
   );
 };

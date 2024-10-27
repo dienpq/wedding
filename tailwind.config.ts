@@ -68,12 +68,7 @@ const config: Config = {
           '5': 'hsl(var(--chart-5))',
         },
       },
-      keyframes: {
-        scale: {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(3)' },
-        },
-      },
+
       willChange: {
         'transform-opacity': 'transform, opacity',
         opacity: 'opacity',
@@ -83,8 +78,20 @@ const config: Config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      keyframes: {
+        scale: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(3)' },
+        },
+        'spinner-leaf-fade': {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0.25' },
+        },
+      },
       animation: {
         scale: 'scale 1s infinite',
+        'spinner-leaf-fade':
+          'spinner-leaf-fade var(--spinner-animation-duration) linear infinite',
       },
     },
   },

@@ -132,7 +132,7 @@ export const Navigation = () => {
       </nav>
       <Sheet>
         <SheetTrigger className="flex md:hidden" asChild>
-          <Button size="icon">
+          <Button name="open-menu" size="icon">
             <MenuIcon />
           </Button>
         </SheetTrigger>

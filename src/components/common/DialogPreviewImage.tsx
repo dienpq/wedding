@@ -2,9 +2,10 @@
 
 import FadePlugin from 'embla-carousel-fade';
 import { ArrowLeftIcon, ArrowRightIcon, XIcon } from 'lucide-react';
-import Image, { StaticImageData } from 'next/image';
+import { StaticImageData } from 'next/image';
 import { Dispatch, ReactNode, SetStateAction, isValidElement } from 'react';
 
+import { ImagePreview } from '@/components/resources';
 import {
   Button,
   Carousel,
@@ -62,7 +63,12 @@ export const DialogPreviewImage = ({
           )}
         </div>
         <div className="absolute right-4 top-4 z-20">
-          <Button variant="ghost" size="icon" onClick={handleClose}>
+          <Button
+            name="close"
+            variant="ghost"
+            size="icon"
+            onClick={handleClose}
+          >
             <XIcon />
           </Button>
         </div>
@@ -83,20 +89,16 @@ export const DialogPreviewImage = ({
                 key={index}
                 className="flex h-[calc(100vh-3rem)] items-center justify-center"
               >
-                {typeof item === 'object' &&
-                  item !== null &&
-                  'src' in item &&
-                  'width' in item &&
-                  'height' in item && (
-                    <div
-                      className="max-w-[520px] cursor-grab"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                      }}
-                    >
-                      <Image src={item} alt={`Album ${index + 1}`} />
-                    </div>
-                  )}
+                {typeof item === 'object' && item !== null && 'src' in item && (
+                  <div
+                    className="max-w-[520px] cursor-grab"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
+                    <ImagePreview src={item} alt={`Album ${index + 1}`} />
+                  </div>
+                )}
                 {isValidElement(item) && (
                   <div
                     onClick={(e) => {
@@ -114,6 +116,7 @@ export const DialogPreviewImage = ({
         {canScrollPrev && (
           <div className="absolute bottom-6 left-6 z-20 sm:bottom-1/2 sm:translate-y-1/2">
             <Button
+              name="previous"
               variant="ghost"
               size="icon"
               className="rounded-full bg-black/40 md:size-14"
@@ -128,6 +131,7 @@ export const DialogPreviewImage = ({
         {canScrollNext && (
           <div className="absolute bottom-6 right-6 z-20 sm:bottom-1/2 sm:translate-y-1/2">
             <Button
+              name="next"
               variant="ghost"
               size="icon"
               className="rounded-full bg-black/40 md:size-14"

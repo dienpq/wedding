@@ -267,6 +267,7 @@ export const SendWishes = () => {
                     />
                     <div className="flex items-center justify-center">
                       <Button
+                        name="send-wishes"
                         type="submit"
                         size="lg"
                         loading={loading}
