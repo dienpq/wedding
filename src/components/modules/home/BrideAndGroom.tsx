@@ -7,8 +7,8 @@ import { cn } from '@/lib/utils';
 
 import Bride from '/public/images/home/bride-and-groom/bride.png';
 import Groom from '/public/images/home/bride-and-groom/groom.png';
-import QRBride from '/public/images/home/bride-and-groom/qr-bride.jpg';
-import QRGroom from '/public/images/home/bride-and-groom/qr-groom.jpg';
+import QRBride from '/public/images/home/bride-and-groom/qr-bride.png';
+import QRGroom from '/public/images/home/bride-and-groom/qr-groom.png';
 
 export const BrideAndGroom = () => {
   const data = [
@@ -72,7 +72,7 @@ export const BrideAndGroom = () => {
                 STK: {bank.accout}
               </Typography>
               <div className="mt-4 aspect-square w-full max-w-[180px] overflow-hidden sm:max-w-[210px] xl:max-w-[250px]">
-                <Image src={bank.qrCode} alt={name} />
+                <Image src={bank.qrCode} alt={name} className="w-full" />
               </div>
             </motion.div>
             {index === 0 && (
