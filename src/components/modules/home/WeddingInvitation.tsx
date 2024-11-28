@@ -35,7 +35,7 @@ export const WeddingInvitation = ({
         <div className="fixed left-1/2 top-1/2 z-50 flex h-full w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center bg-olive-gray text-white">
           <div className="absolute z-10 flex h-full w-full flex-col items-center justify-center pb-12">
             <div className="mb-6 sm:mb-10">
-              <Typography variant="h5" className="font-jost font-medium">
+              <Typography variant="h6" className="font-medium">
                 Thư mời cưới
               </Typography>
             </div>
