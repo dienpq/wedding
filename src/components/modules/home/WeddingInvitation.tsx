@@ -3,6 +3,7 @@ import { ArrowBigDownDashIcon } from 'lucide-react';
 import Image from 'next/image';
 import { Dispatch, SetStateAction } from 'react';
 
+import { Typography, typographyVariants } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 import PreLoader from '/public/gif/preloader.gif';
@@ -32,9 +33,11 @@ export const WeddingInvitation = ({
     <>
       {!open && (
         <div className="fixed left-1/2 top-1/2 z-50 flex h-full w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center bg-olive-gray text-white">
-          <div className="absolute z-10 flex h-full w-full flex-col items-center justify-center">
+          <div className="absolute z-10 flex h-full w-full flex-col items-center justify-center pb-12">
             <div className="mb-6 sm:mb-10">
-              <h1 className="font-jost text-xl sm:text-3xl">Thư mời cưới</h1>
+              <Typography variant="h5" className="font-jost font-medium">
+                Thư mời cưới
+              </Typography>
             </div>
             <Image
               src={PreLoader}
@@ -43,20 +46,84 @@ export const WeddingInvitation = ({
               quality={100}
               className="size-[120px] sm:size-[150px]"
             />
-            <div className="my-6 flex w-full max-w-52 gap-2.5 max-sm:flex-col sm:my-8 sm:max-w-96 sm:items-center sm:gap-5">
-              <h3 className="text-left font-monteCarlo text-4xl font-semibold sm:text-5xl">
-                Phan Điện
-              </h3>
-              <p className="text-center">❤️</p>
-              <h3 className="text-right font-monteCarlo text-4xl font-semibold sm:text-5xl">
-                Vũ Anh
-              </h3>
+            <div className="my-6 flex w-full max-w-64 gap-2.5 max-sm:flex-col sm:my-16 sm:max-w-[500px] sm:items-center sm:justify-between sm:gap-5 lg:max-w-[600px]">
+              <Typography
+                variant="h2"
+                className="text-left font-monteCarlo font-semibold tracking-widest"
+                asChild
+              >
+                <motion.h3
+                  initial={{ x: -40, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 1 }}
+                >
+                  Phan Điện
+                </motion.h3>
+              </Typography>
+              <Typography variant="h3" className="text-center" asChild>
+                <motion.span
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                  className="mt-1"
+                >
+                  ❤️
+                </motion.span>
+              </Typography>
+              <Typography
+                variant="h2"
+                className="text-right font-monteCarlo font-semibold tracking-widest"
+                asChild
+              >
+                <motion.h3
+                  initial={{ x: 40, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 1 }}
+                >
+                  Vũ Anh
+                </motion.h3>
+              </Typography>
             </div>
 
-            <div className="mb-4 space-y-2 border-x px-6 py-1 text-center sm:mb-8 sm:space-y-2.5">
-              <h4>Tháng 12</h4>
-              <h4 className="text-4xl font-bold">28</h4>
-              <h4>2024</h4>
+            <div className="mb-4 flex items-center gap-x-6 sm:mb-8 sm:gap-x-10">
+              <Typography
+                variant="h6"
+                className="w-16 text-right font-semibold"
+                asChild
+              >
+                <motion.h3
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 1, delay: 1 }}
+                >
+                  10:00
+                </motion.h3>
+              </Typography>
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="space-y-2 border-x px-6 py-1 text-center sm:space-y-2.5"
+              >
+                <Typography variant="h6">Tháng 12</Typography>
+                <Typography variant="h2" className="font-bold">
+                  28
+                </Typography>
+                <Typography variant="h6">2024</Typography>
+              </motion.div>
+              <Typography
+                variant="h6"
+                className="w-16 text-left font-semibold"
+                asChild
+              >
+                <motion.h3
+                  initial={{ x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 1, delay: 1 }}
+                >
+                  Thứ 7
+                </motion.h3>
+              </Typography>
             </div>
 
             <motion.div
@@ -72,10 +139,13 @@ export const WeddingInvitation = ({
               type="button"
               initial={{ opacity: loading ? 0 : 1 }}
               animate={{ opacity: [0.2, 1, 0.2] }}
-              transition={{ repeat: Infinity, duration: 1 }}
+              transition={{
+                repeat: Infinity,
+                duration: 1,
+              }}
               onClick={handleOpen}
               disabled={loading}
-              className="mt-2.5 text-lg"
+              className={cn('mt-2.5', typographyVariants({ variant: 'h6' }))}
             >
               Mở thư
             </motion.button>

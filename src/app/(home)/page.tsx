@@ -14,12 +14,7 @@ export default function HomePage() {
   const [open, setOpen] = useState<boolean>(false);
 
   useIsomorphicLayoutEffect(() => {
-    document.body.style.overflow = 'hidden';
-
-    setTimeout(() => {
-      setLoading(false);
-      document.body.style.overflow = '';
-    });
+    setLoading(false);
   }, []);
 
   return (

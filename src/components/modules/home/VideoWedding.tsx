@@ -28,7 +28,7 @@ export const VideoWedding = () => {
           boxShadow: '0px 2px 8px 0px rgba(0, 0, 0, 0.1)',
         }}
       >
-        <div className="relative aspect-video w-full overflow-hidden rounded-lg sm:aspect-[2/1] md:aspect-[5/2] lg:aspect-[9/4] xl:aspect-[3/1]">
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg sm:aspect-[2/1] md:aspect-[5/3] lg:aspect-[9/5] xl:aspect-[2/1]">
           <Image
             src={BgVideo}
             alt="Video"

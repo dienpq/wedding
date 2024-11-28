@@ -16,7 +16,7 @@ const data = [
   {
     title: 'How we meet',
     description:
-      'Under the sparkling lights of the Christmas tree, we circled the streets hand in hand. The atmosphere of warmth and happiness spread in every moment, making our first Christmas outing together a romantic memory and memorable forever.',
+      'Chúng tôi gặp nhau lần đầu vào ngày tựu trường năm lớp 10, khi cả hai cùng chung một lớp – nơi những giấc mơ tuổi trẻ bắt đầu. Từ những bài giảng đầy ắp kiến thức, những lần làm bài nhóm hăng say, đến những tiếng cười vô tư bên bạn bè, tình bạn của chúng tôi dần trở nên đặc biệt và ý nghĩa hơn.\n\nTuổi 17, vào ngày 12/2/2018, tình yêu trong sáng giữa những ngày tháng học trò chính thức bắt đầu. Chúng tôi không chỉ là bạn học mà còn là những người bạn đồng hành, cùng nhau sẻ chia niềm vui, nỗi buồn và vẽ nên những ước mơ cho tương lai.',
     image: LoveHistory1,
     shade: (
       <div className="absolute -left-14 -top-14">
@@ -31,8 +31,9 @@ const data = [
     ),
   },
   {
-    title: 'I proposed, She said Yes',
-    description: 'It’s is secret.',
+    title: 'Our Travel Moments',
+    description:
+      'Trong suốt hành trình yêu nhau, chúng tôi đã cùng nhau khám phá những vùng đất tuyệt đẹp, lưu giữ biết bao kỷ niệm đáng nhớ. Từ vẻ hùng vĩ của Hạ Long, sự mộng mơ của Tam Đảo, đến nét hoang sơ của Đắk Nông và không khí hiện đại tại Ocean Park 2,... Mỗi chuyến đi là một câu chuyện, một khoảnh khắc để yêu thương thêm sâu đậm.\n\nNhững nơi ấy không chỉ là điểm đến, mà còn là những dấu ấn trên hành trình tình yêu, nơi chúng tôi cùng chia sẻ niềm vui, những trải nghiệm mới và cả những giây phút lặng thầm bên nhau.',
     image: LoveHistory2,
     shade: (
       <div className="absolute -right-16 -top-16">
@@ -48,7 +49,8 @@ const data = [
   },
   {
     title: 'Our Engagement Day',
-    description: 'To be released after the lovely wedding on 22 October, 2023.',
+    description:
+      'Sau nhiều năm bên nhau, ngày 30/4/2024 trở thành cột mốc ý nghĩa trong hành trình tình yêu của chúng tôi. Đó là ngày chúng tôi chính thức đính ước, trao nhau lời hứa gắn bó trọn đời.\n\nKhoảnh khắc ấy không chỉ đánh dấu tình yêu trưởng thành, mà còn mở ra một chương mới, nơi chúng tôi cùng nhau xây dựng tương lai, vun đắp hạnh phúc cho mái ấm riêng. Và chúng tôi đã quyết định tổ chức đám cưới vào ngày 28/12/2024 – ngày mà tình yêu được chứng giám bởi gia đình, bạn bè, và những người thân yêu nhất.',
     image: LoveHistory3,
     shade: (
       <div className="absolute -left-24 -top-16">
@@ -143,7 +145,10 @@ export const LoveStory = () => {
               <Typography variant="h5" className="font-sail">
                 {title}
               </Typography>
-              <Typography variant="sub" className="text-steel-gray">
+              <Typography
+                variant="sub"
+                className="whitespace-pre-wrap text-steel-gray"
+              >
                 {description}
               </Typography>
             </motion.div>

@@ -10,7 +10,7 @@ export const Footer = () => {
   return (
     <footer className="relative mt-32 h-[200px] overflow-hidden bg-dark-chocolate p-6 text-white sm:h-[250px] lg:h-[300px]">
       <div className="flex h-full items-end justify-center">
-        <Typography className="font-medium" asChild>
+        <Typography variant="sub" className="font-medium" asChild>
           <motion.p
             initial={{
               opacity: 0,

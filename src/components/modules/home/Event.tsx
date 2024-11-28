@@ -30,18 +30,18 @@ const data = [
     map: 'https://maps.app.goo.gl/yXFpFY4uQTVUnUsu9',
   },
   {
-    image: Event3,
-    title: 'Lễ Thành Hôn',
-    time: '10:00 - Thứ 7, 28/12/2024',
-    address: 'Xóm 7C, Xã Cồn Thoi, Huyện Kim Sơn,\nTỉnh Ninh Bình',
-    map: 'https://maps.app.goo.gl/jzVWantXoxoYzA7r7',
-  },
-  {
     image: Event2,
     title: 'Lễ Vu Quy',
     time: '16:30 - Thứ 6, 27/12/2024',
     address: 'Xóm Mỹ Hoá, Xã Kim Mỹ, Huyện Kim Sơn,\nTỉnh Ninh Bình',
     map: 'https://maps.app.goo.gl/yXFpFY4uQTVUnUsu9',
+  },
+  {
+    image: Event3,
+    title: 'Lễ Thành Hôn',
+    time: '10:00 - Thứ 7, 28/12/2024',
+    address: 'Xóm 7C, Xã Cồn Thoi, Huyện Kim Sơn,\nTỉnh Ninh Bình',
+    map: 'https://maps.app.goo.gl/jzVWantXoxoYzA7r7',
   },
 ];
 
