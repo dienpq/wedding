@@ -24,12 +24,14 @@ interface DialogPreviewImageProps {
   open: number;
   setOpen: Dispatch<SetStateAction<number>>;
   data?: Array<StaticImageData | ReactNode>;
+  showLabel?: boolean;
 }
 
 export const DialogPreviewImage = ({
   open = 0,
   setOpen,
   data = [],
+  showLabel = true,
 }: DialogPreviewImageProps) => {
   const {
     setApi,
@@ -56,7 +58,7 @@ export const DialogPreviewImage = ({
           <DialogDescription />
         </DialogHeader>
         <div className="absolute left-4 top-4 z-20">
-          {!!scrollSnaps.length && (
+          {showLabel && !!scrollSnaps.length && (
             <Typography variant="sub" className="tracking-widest">
               {selectedIndex + 1}/{scrollSnaps.length}
             </Typography>

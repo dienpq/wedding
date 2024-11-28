@@ -23,7 +23,7 @@ export const WeddingInvitation = ({
   const handleOpen = () => {
     setOpen(true);
 
-    const button = document.getElementById('audio-wedding');
+    const button = document.getElementById('btn-audio-wedding');
     if (button) {
       button.click();
     }

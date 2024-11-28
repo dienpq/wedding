@@ -22,7 +22,7 @@ export const AudioPlayer = () => {
   return (
     <>
       <Button
-        id="audio-wedding"
+        id="btn-audio-wedding"
         name="audio"
         variant="ghost"
         className="fixed bottom-6 left-6 z-30 flex size-10 items-center justify-center rounded-full bg-beige-rose p-0 hover:bg-beige-rose-foreground sm:bottom-8 sm:left-12 sm:size-14"
@@ -33,7 +33,13 @@ export const AudioPlayer = () => {
           <div className="absolute -z-[1] size-8 animate-ping rounded-full bg-beige-rose sm:size-10" />
         )}
       </Button>
-      <audio ref={audioRef} autoPlay loop src="/audio/i-do.mp3" />
+      <audio
+        ref={audioRef}
+        id="audio-wedding"
+        autoPlay
+        loop
+        src="/audio/i-do.mp3"
+      />
     </>
   );
 };

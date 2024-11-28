@@ -45,18 +45,19 @@ export const VideoWedding = () => {
         </button>
       </motion.div>
       <DialogPreviewImage
+        showLabel={false}
         open={open}
         setOpen={setOpen}
         data={[
-          <iframe
+          <video
+            id="video-wedding"
             key="video-wedding"
-            className="aspect-video w-full self-stretch sm:min-h-80 md:min-h-96"
-            src={`https://www.youtube.com/embed/XlDlHi4hj7A?autoplay=1`}
-            title="Video Wedding"
-            aria-hidden="true"
-            allowFullScreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          />,
+            className="max-h-[calc(100svh-100px)]"
+            controls
+          >
+            <source src="/video/love.mp4" type="video/mp4" />
+            Video Wedding
+          </video>,
         ]}
       />
     </section>
