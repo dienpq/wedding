@@ -20,7 +20,13 @@ const data = [
     image: LoveHistory1,
     shade: (
       <div className="absolute -left-14 -top-14">
-        <Image src={ShapeLeft} alt="Shape" priority className="w-56" />
+        <Image
+          src={ShapeLeft}
+          alt="Shape"
+          priority
+          quality={100}
+          className="w-56"
+        />
       </div>
     ),
   },
@@ -30,7 +36,13 @@ const data = [
     image: LoveHistory2,
     shade: (
       <div className="absolute -right-16 -top-16">
-        <Image src={ShapeRight} alt="Shape" priority className="w-56" />
+        <Image
+          src={ShapeRight}
+          alt="Shape"
+          priority
+          quality={100}
+          className="w-56"
+        />
       </div>
     ),
   },
@@ -40,7 +52,13 @@ const data = [
     image: LoveHistory3,
     shade: (
       <div className="absolute -left-24 -top-16">
-        <Image src={ShapeLeft} alt="Shape" priority className="w-56" />
+        <Image
+          src={ShapeLeft}
+          alt="Shape"
+          priority
+          quality={100}
+          className="w-56"
+        />
       </div>
     ),
   },

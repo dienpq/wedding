@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { greatVibes, jost, sail } from '@/lib/fonts';
+import { dancingScript, greatVibes, jost, monteCarlo, sail } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
 
@@ -22,6 +22,8 @@ export default function RootLayout({
           jost.variable,
           greatVibes.variable,
           sail.variable,
+          dancingScript.variable,
+          monteCarlo.variable,
         )}
       >
         {children}

@@ -55,6 +55,7 @@ export const Footer = () => {
             alt="Shape"
             className="w-28 sm:w-36 lg:w-52"
             priority
+            quality={100}
           />
         </motion.div>
       </div>
@@ -81,6 +82,7 @@ export const Footer = () => {
             alt="Shape"
             className="w-28 sm:w-36 lg:w-52"
             priority
+            quality={100}
           />
         </motion.div>
       </div>

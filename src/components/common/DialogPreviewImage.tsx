@@ -88,7 +88,7 @@ export const DialogPreviewImage = ({
             {data.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="flex h-[calc(100vh-3rem)] items-center justify-center"
+                className="flex h-[calc(100svh-3rem)] items-center justify-center"
               >
                 {typeof item === 'object' && item !== null && 'src' in item && (
                   <div
@@ -97,7 +97,11 @@ export const DialogPreviewImage = ({
                       e.stopPropagation();
                     }}
                   >
-                    <ImagePreview src={item} alt={`Album ${index + 1}`} />
+                    <ImagePreview
+                      src={item}
+                      alt={`Album ${index + 1}`}
+                      quality={100}
+                    />
                   </div>
                 )}
                 {isValidElement(item) && (

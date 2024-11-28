@@ -18,6 +18,8 @@ const config: Config = {
         jost: ['var(--font-jost)'],
         greatVibes: ['var(--font-great-vibes)'],
         sail: ['var(--font-sail)'],
+        dancingScript: ['var(--font-dancingScript)'],
+        monteCarlo: ['var(--font-monteCarlo)'],
       },
       colors: {
         'beige-rose': 'hsl(var(--beige-rose))',

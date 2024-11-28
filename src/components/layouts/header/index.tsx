@@ -80,7 +80,12 @@ export const Header = () => {
           viewport={{ once: true }}
           className="z-10 hidden w-40 will-change-transform-opacity lg:block"
         >
-          <Image src={ShadeLeft} alt="Wedding Shade Left" priority />
+          <Image
+            src={ShadeLeft}
+            alt="Wedding Shade Left"
+            priority
+            quality={100}
+          />
         </motion.div>
         <div className="flex h-full w-full items-center justify-between px-5 sm:px-10 md:flex-col">
           <Link href="/" className="w-52 focus-visible:outline-none md:w-64">
@@ -89,6 +94,7 @@ export const Header = () => {
               alt="Wedding Logo"
               className="object-cover"
               priority
+              quality={100}
             />
           </Link>
           <Navigation />
@@ -110,7 +116,12 @@ export const Header = () => {
           viewport={{ once: true }}
           className="z-10 hidden w-40 will-change-transform-opacity lg:block"
         >
-          <Image src={ShadeRight} alt="Wedding Shade Left" priority />
+          <Image
+            src={ShadeRight}
+            alt="Wedding Shade Left"
+            priority
+            quality={100}
+          />
         </motion.div>
       </div>
     </header>

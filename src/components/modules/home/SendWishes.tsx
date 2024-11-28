@@ -259,6 +259,7 @@ export const SendWishes = () => {
                             <Textarea
                               rows={4}
                               placeholder="Lời chúc"
+                              className="resize-none"
                               {...field}
                             />
                           </FormControl>

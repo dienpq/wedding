@@ -143,6 +143,7 @@ export const Navigation = () => {
               alt="Wedding Logo"
               className="rounded-md object-cover"
               priority
+              quality={100}
             />
           </Link>
           <SheetHeader className="mt-1.5 items-center">

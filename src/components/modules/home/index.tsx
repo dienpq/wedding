@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Snowfall from 'react-snowfall';
 
-import { AudioPlayer } from '@/components/common';
 import { useDevices, useIsomorphicLayoutEffect } from '@/hooks';
 
 import { Album } from './Album';
@@ -52,7 +51,6 @@ export const Home = () => {
         <SendWishes />
         <Event />
       </div>
-      <AudioPlayer />
       <Snowfall
         style={{
           position: 'absolute',

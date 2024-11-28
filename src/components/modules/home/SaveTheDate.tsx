@@ -25,13 +25,14 @@ export const SaveTheDate = () => {
   return (
     <section
       id="saveTheDate"
-      className="relative w-full xl:h-[calc(100vh-128px+40px)]"
+      className="relative w-full xl:h-[calc(100svh-128px+40px)]"
     >
       <Image
         src={Bg}
         alt="Background Wedding"
         priority
         className="absolute top-0 z-0 h-full object-cover object-bottom"
+        quality={100}
       />
       <div className="flex h-full w-full flex-col xl:flex-row xl:pl-[8%]">
         <div className="flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-5 pb-20 sm:px-10 xl:px-0">
@@ -56,6 +57,7 @@ export const SaveTheDate = () => {
                 alt="Hero flower"
                 priority
                 className="hero-flower-animate aspect-square w-full object-cover"
+                quality={100}
               />
             </div>
             <Typography
@@ -176,25 +178,25 @@ export const SaveTheDate = () => {
                 className="flex justify-between bg-primary/50 px-4 py-4 text-white will-change-transform-opacity sm:gap-x-10 sm:px-10 sm:py-5 xl:px-16"
               >
                 <div className="text-center">
-                  <Typography variant="h3" className="font-sail">
+                  <Typography variant="h4" className="font-monteCarlo">
                     {days}
                   </Typography>
                   <Typography variant="h6">Days</Typography>
                 </div>
                 <div className="text-center">
-                  <Typography variant="h3" className="font-sail">
+                  <Typography variant="h4" className="font-monteCarlo">
                     {hours}
                   </Typography>
                   <Typography variant="h6">Hours</Typography>
                 </div>
                 <div className="text-center">
-                  <Typography variant="h3" className="font-sail">
+                  <Typography variant="h4" className="font-monteCarlo">
                     {minutes}
                   </Typography>
                   <Typography variant="h6">Mins</Typography>
                 </div>
                 <div className="text-center">
-                  <Typography variant="h3" className="font-sail">
+                  <Typography variant="h4" className="font-monteCarlo">
                     {seconds}
                   </Typography>
                   <Typography variant="h6">Secs</Typography>

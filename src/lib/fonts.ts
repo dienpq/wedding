@@ -17,3 +17,15 @@ export const sail = localFont({
   variable: '--font-sail',
   weight: '400',
 });
+
+export const dancingScript = localFont({
+  src: '../fonts/DancingScript.woff',
+  variable: '--font-dancingScript',
+  weight: '400',
+});
+
+export const monteCarlo = localFont({
+  src: '../fonts/MonteCarlo.woff',
+  variable: '--font-monteCarlo',
+  weight: '400',
+});

@@ -25,23 +25,23 @@ const data = [
   {
     image: Event1,
     title: 'Lễ Ăn Hỏi',
-    time: '10:00 AM - Thứ 5, 26/12/2024',
-    address: 'Xóm Mỹ Hoá, Xã Kim Mỹ, Huyện Kim Sơn,Tỉnh Ninh Bình',
-    map: 'https://maps.app.goo.gl/yXFpFY4uQTVUnUsu9',
-  },
-  {
-    image: Event2,
-    title: 'Tiệc Cưới Nhà Gái',
-    time: '16:30 AM - Thứ 6, 27/12/2024',
-    address: 'Xóm Mỹ Hoá, Xã Kim Mỹ, Huyện Kim Sơn,Tỉnh Ninh Bình',
+    time: '10:00 - Thứ 5, 26/12/2024',
+    address: 'Xóm Mỹ Hoá, Xã Kim Mỹ, Huyện Kim Sơn,\nTỉnh Ninh Bình',
     map: 'https://maps.app.goo.gl/yXFpFY4uQTVUnUsu9',
   },
   {
     image: Event3,
     title: 'Lễ Thành Hôn',
-    time: '10:00 AM - Thứ 7, 28/12/2024',
-    address: 'Xóm 7C, Xã Cồn Thoi, Huyện Kim Sơn, Tỉnh Ninh Bình',
+    time: '10:00 - Thứ 7, 28/12/2024',
+    address: 'Xóm 7C, Xã Cồn Thoi, Huyện Kim Sơn,\nTỉnh Ninh Bình',
     map: 'https://maps.app.goo.gl/jzVWantXoxoYzA7r7',
+  },
+  {
+    image: Event2,
+    title: 'Lễ Vu Quy',
+    time: '16:30 - Thứ 6, 27/12/2024',
+    address: 'Xóm Mỹ Hoá, Xã Kim Mỹ, Huyện Kim Sơn,\nTỉnh Ninh Bình',
+    map: 'https://maps.app.goo.gl/yXFpFY4uQTVUnUsu9',
   },
 ];
 
@@ -103,7 +103,9 @@ export const Event = () => {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Typography className="text-center">{address}</Typography>
+                    <Typography className="whitespace-pre-wrap text-center">
+                      {address}
+                    </Typography>
                   </CardContent>
                   <CardFooter className="justify-center">
                     <Button
