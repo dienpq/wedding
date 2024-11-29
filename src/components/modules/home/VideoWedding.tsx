@@ -55,7 +55,7 @@ export const VideoWedding = () => {
             className="max-h-[calc(100svh-100px)]"
             controls
           >
-            <source src="/video/love.mp4" type="video/mp4" />
+            <source src="/video/wedding.mp4" type="video/mp4" />
             Video Wedding
           </video>,
         ]}
