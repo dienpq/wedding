@@ -1,6 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
+import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -26,6 +28,7 @@ import {
   SelectTrigger,
   SelectValue,
   Textarea,
+  Typography,
   typographyVariants,
 } from '@/components/ui';
 import { useDevices, useIsomorphicLayoutEffect } from '@/hooks';
@@ -115,10 +118,7 @@ export const SendWishes = () => {
   }, [form.formState.errors]);
 
   return (
-    <section
-      id="sendWishes"
-      className="relative h-[592px] sm:h-[688px] md:h-[692px]"
-    >
+    <section id="sendWishes" className="relative">
       <Image
         src={Bg}
         alt="Background Wedding"
@@ -155,7 +155,7 @@ export const SendWishes = () => {
                   Bạn sẽ tham dự chứ?
                 </CardTitle>
               </CardHeader>
-              <CardContent className="mt-0">
+              <CardContent className="mt-0 sm:pb-2">
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit)}
@@ -266,16 +266,28 @@ export const SendWishes = () => {
                         </FormItem>
                       )}
                     />
-                    <div className="flex items-center justify-center">
-                      <Button
-                        name="send-wishes"
-                        type="submit"
-                        size="lg"
-                        loading={loading}
-                        className="h-12 w-full"
+                    <Button
+                      name="send-wishes"
+                      type="submit"
+                      size="lg"
+                      loading={loading}
+                      className="h-12 w-full"
+                    >
+                      Gửi lời chúc
+                    </Button>
+                    <div className="!mt-3 flex items-center justify-center">
+                      <Typography
+                        className="inline-flex items-center text-center text-rose-pink"
+                        asChild
                       >
-                        Gửi lời chúc
-                      </Button>
+                        <Link
+                          href="https://docs.google.com/spreadsheets/d/1Q97o_tUd5BBupVmcT0XIHsG8tekee_GfsTlRVj2Cx2U/edit?gid=0#gid=0"
+                          target="_blank"
+                        >
+                          <span>Xem danh sách lời chúc</span>
+                          <ArrowRightIcon className="ml-1 size-4" />
+                        </Link>
+                      </Typography>
                     </div>
                   </form>
                 </Form>

@@ -31,7 +31,7 @@ const data = [
     ),
   },
   {
-    title: 'Our Travel Moments',
+    title: 'Love and journeys',
     description:
       'Trong suốt hành trình yêu nhau, chúng tôi đã cùng nhau khám phá những vùng đất tuyệt đẹp, lưu giữ biết bao kỷ niệm đáng nhớ. Từ vẻ hùng vĩ của Hạ Long, sự mộng mơ của Tam Đảo, đến nét hoang sơ của Đắk Nông và không khí hiện đại tại Ocean Park 2,... Mỗi chuyến đi là một câu chuyện, một khoảnh khắc để yêu thương thêm sâu đậm.\n\nNhững nơi ấy không chỉ là điểm đến, mà còn là những dấu ấn trên hành trình tình yêu, nơi chúng tôi cùng chia sẻ niềm vui, những trải nghiệm mới và cả những giây phút lặng thầm bên nhau.',
     image: LoveHistory2,
